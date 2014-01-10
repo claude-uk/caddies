@@ -1,0 +1,45 @@
+<%= form_for(@cc_loop) do |f| %>
+  <% if @cc_loop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cc_loop.errors.count, "error") %> prohibited this cc_loop from being saved:</h2>
+
+      <ul>
+      <% @cc_loop.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :textid, 'Name' %><br />
+    <%= f.text_field :textid %>
+  </div>
+  <div class="field">
+    <%= f.label :loop_variable %><br />
+    <%= f.text_field :loop_variable %>
+  </div>
+  <div class="field">
+    <%= f.label :initial_value %><br />
+    <%= f.text_field :initial_value %>
+  </div>
+  <div class="field">
+    <%= f.label :end_value %><br />
+    <%= f.text_field :end_value %>
+  </div>
+  <div class="field">
+    <%= f.label :loop_while %><br />
+    <%= f.text_field :loop_while %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parent_construct, 'Parent Component' %><br />
+    <%= f.fields_for :cc_all do |cc_all_fields| %>
+      <%= render :partial => "shared/spine_position_edit", :locals => {:f => cc_all_fields, :iparent => @cc_loop.cc_all.initial_parent, :ib => @cc_loop.cc_all.ifbranch} %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

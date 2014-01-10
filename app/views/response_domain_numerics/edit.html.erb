@@ -1,0 +1,12 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "numeric answers", :lk => response_domain_numerics_path}  %>
+
+<h1>Edit Numeric Answer</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @response_domain_numeric.id %>
+</p>
+<%= render 'form' %>
+
+<%= link_to 'Show', @response_domain_numeric %> |
+<%= link_to 'Back', response_domain_numerics_path %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Conditions", :lk => cc_ifthenelses_path}  %>
+
+<h1>Condition</h1>
+<p>
+  <b>Id:</b>
+  <%= @cc_ifthenelse.id %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @cc_ifthenelse.textid %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @cc_ifthenelse.condition %>
+</p>
+
+<%= render :partial => "shared/spine_position", :locals => {:wrapper => @cc_ifthenelse.cc_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_cc_ifthenelse_path(@cc_ifthenelse) %> |
+<%= link_to 'Back', cc_ifthenelses_path %>

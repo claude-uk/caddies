@@ -1,0 +1,42 @@
+<%= form_for(@cc_question) do |f| %>
+  <% if @cc_question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cc_question.errors.count, "error") %> prohibited this cc_question from being saved:</h2>
+
+      <ul>
+      <% @cc_question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :textid, 'Name' %><br />
+    <%= f.text_field :textid %>
+  </div>
+  <div class="field">
+    <%= f.label :response_unit, 'Interviewee' %><br />
+    <!--%= f.text_field :response_unit, :size => 120 %-->
+    <%= f.collection_select :response_unit_id, ResponseUnit.find(:all), :id, :text, :prompt => 'select an interviewee' %>
+  </div>
+  <div class="field">
+    <%= f.label :question_item, 'Question Item' %><br />
+    <%= f.collection_select :question_item_id, QuestionItem.find(:all), :id, :id_plus, :prompt => 'select a question item' %>
+  </div>
+  <div class="field">
+    <%= f.label :universes %><br />
+    <%= f.collection_select :universe_ids, Universe.find(:all), :id, :id_plus, {:prompt => 'select all universes'}, {:multiple => :true} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parent_construct, 'Parent Component' %><br />
+    <%= f.fields_for :cc_all do |cc_all_fields| %>
+      <%= render :partial => "shared/spine_position_edit", :locals => {:f => cc_all_fields, :iparent => @cc_question.cc_all.initial_parent, :ib => @cc_question.cc_all.ifbranch} %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

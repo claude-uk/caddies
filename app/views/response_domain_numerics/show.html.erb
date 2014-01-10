@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "numeric answers", :lk => response_domain_numerics_path}  %>
+
+<h1>Numeric Answer</h1>
+<p>
+  <b>Id:</b>
+  <%= @response_domain_numeric.id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @response_domain_numeric.label %>
+</p>
+
+<p>
+  <b>Numeric type:</b>
+  <%= @response_domain_numeric.numeric_type.label if @response_domain_numeric.numeric_type %>
+</p>
+
+<p>
+  <b>Min:</b>
+  <%= @response_domain_numeric.min %>
+</p>
+
+<p>
+  <b>Max:</b>
+  <%= @response_domain_numeric.max %>
+</p>
+
+<p>
+  <b>All Answer Id:</b>
+  <%= @response_domain_numeric.response_domain_all.id %>
+  <label class="instruction">This is the Id required when creating/editing question items</label>
+</p>
+
+<%
+=begin %>
+<h2>Code scheme:</h2>
+  <ul>
+    <li>
+      <b>Id:</b>
+      <%= @response_domain_numeric.code_scheme.id %>
+    </li>
+    <li>
+      <b>Label:</b>
+      <%= @response_domain_numeric.code_scheme.label %>
+    </li>
+    <li>
+      <b>Codes:</b>
+      <table>
+        <tr>
+          <th>Value</th>
+          <th>Cat Id</th>
+          <th>Category label</th>
+          <th>Order</th>
+        </tr>
+
+        <% @response_domain_numeric.code_scheme.codes.each do |code| %>
+          <tr>
+            <td><%= code.cs_value %></td>
+            <td><%= code.category_id %></td>
+            <td><%= raw code.category.label %></td>
+            <td><%= code.cs_order %></td>
+          </tr>
+        <% end %>
+      </table>
+    </li>
+  </ul>
+<%
+=end %>
+
+
+<h2>Used in the following questions:</h2>
+<%= render :partial => "shared/question_items", :locals => {:rd_all => @response_domain_numeric.response_domain_all} %>
+
+
+<br />
+
+<%= link_to 'Edit', edit_response_domain_numeric_path(@response_domain_numeric) %> |
+<%= link_to 'Back', response_domain_numerics_path %>

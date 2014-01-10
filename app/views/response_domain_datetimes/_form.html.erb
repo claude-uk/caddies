@@ -1,0 +1,36 @@
+<%= form_for(@response_domain_datetime) do |f| %>
+  <% if @response_domain_datetime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@response_domain_datetime.errors.count, "error") %> prohibited this response_domain_datetime from being saved:</h2>
+
+      <ul>
+      <% @response_domain_datetime.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>
+    <%= f.label :label, 'Description' %>
+    <%= f.text_field :label, :size => 120 %>
+    </p>
+    <p>
+    <%= f.label :datetime_type, 'Type' %>
+    <%#= f.collection_select :datetime_type_id, DatetimeType.find(:all), :id, :label, :include_blank => true %>
+    <%= f.collection_select :datetime_type_id, DatetimeType.find(:all), :id, :label, :prompt => 'select a type' %>
+    </p>
+    <p>
+    <%= f.label :format %>
+    <%= f.text_field :format %>
+    <label class="instruction">Used for type 'Duration'. See 'Help' for a description of the ISO 8601 format</label>
+    </p>
+
+  <br />
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

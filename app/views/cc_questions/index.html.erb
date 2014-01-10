@@ -1,0 +1,31 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Question Components</h1>
+
+<%= link_to 'New Question Component', new_cc_question_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Question Library Id</th>
+    <th>Question Library Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_questions.each do |cc_question| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_question.id %></td>
+    <td><%= cc_question.textid %></td>
+    <td><%= cc_question.question_item.id %></td>
+    <td><%= cc_question.question_item.textid %></td>
+    <td><%= link_to 'Show', cc_question %></td>
+    <td><%= link_to 'Edit', edit_cc_question_path(cc_question) %></td>
+    <!--td><%#= link_to 'Destroy', cc_question, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

@@ -1,0 +1,155 @@
+		  <% if xmlconstruct.construct_type == 'CcSequence' %>
+		    <d:Sequence id="<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName><%= xmlconstruct.construct.textid %></d:ConstructName>
+		      <% xmlconstruct.children.each do |cc_child| %>
+			<d:ControlConstructReference>
+			  <r:Scheme>
+			    <r:ID><%= instance.cc_scheme %></r:ID>
+			    <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			    <r:Version><%= instance.version %></r:Version>
+			  </r:Scheme>
+			  <r:ID><%= cc_child.id %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</d:ControlConstructReference>
+		      <% end %>
+		    </d:Sequence>
+
+		    <% xmlconstruct.children.each do |cc_child| %>
+		      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => cc_child, :instance => instance}  %>
+		    <% end %>
+
+		  <% elsif xmlconstruct.construct_type == 'CcStatement' %>
+		    <d:StatementItem id="<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName><%= xmlconstruct.construct.textid %></d:ConstructName>
+                      <d:DisplayText xml:lang="en-GB">
+                        <d:LiteralText>
+                          <d:Text><%= xmlconstruct.construct.statement_item %></d:Text> 
+                        </d:LiteralText>
+                      </d:DisplayText>
+		    </d:StatementItem>
+
+		  <% elsif xmlconstruct.construct_type == 'CcQuestion' %>
+		    <d:QuestionConstruct id="<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName><%= xmlconstruct.construct.textid %></d:ConstructName>
+		      <d:QuestionReference>
+		        <r:Scheme>
+		          <r:ID><%= instance.question_scheme %></r:ID>
+		          <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+		          <r:Version><%= instance.version %></r:Version>
+		        </r:Scheme>
+		        <r:ID><%= xmlconstruct.construct.question_item.qi_Vid %></r:ID>
+		        <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+		        <r:Version><%= instance.version %></r:Version>
+		      </d:QuestionReference>
+		      <d:ResponseUnit><%= xmlconstruct.construct.response_unit.text %></d:ResponseUnit>
+		    </d:QuestionConstruct>
+
+		  <% elsif xmlconstruct.construct_type == 'CcLoop' %>
+		    <d:Loop id="<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName><%= xmlconstruct.construct.textid %></d:ConstructName>
+                      <d:InitialValue>
+                        <r:Code programmingLanguage="Neutral"><%= xmlconstruct.construct.xml_initial_value %></r:Code>
+                      </d:InitialValue>
+                      <d:LoopWhile>
+                        <r:Code programmingLanguage="Neutral"><%= xmlconstruct.construct.xml_loop_while %></r:Code>
+                      </d:LoopWhile>
+	              <d:ControlConstructReference>
+			<r:Scheme>
+			  <r:ID><%= instance.cc_scheme %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</r:Scheme>
+			<r:ID>loop_seq_<%= xmlconstruct.id %></r:ID>
+			<r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			<r:Version><%= instance.version %></r:Version>
+		      </d:ControlConstructReference>
+		    </d:Loop>
+
+		    <d:Sequence id="loop_seq_<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName>loop_seq_<%= xmlconstruct.construct.textid %></d:ConstructName>
+		      <% xmlconstruct.children.each do |cc_child| %>
+			<d:ControlConstructReference>
+			  <r:Scheme>
+			    <r:ID><%= instance.cc_scheme %></r:ID>
+			    <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			    <r:Version><%= instance.version %></r:Version>
+			  </r:Scheme>
+			  <r:ID><%= cc_child.id %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</d:ControlConstructReference>
+		      <% end %>
+		    </d:Sequence>
+
+		    <% xmlconstruct.children.each do |cc_child| %>
+		      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => cc_child, :instance => instance}  %>
+		    <% end %>
+
+		  <% elsif xmlconstruct.construct_type == 'CcIfthenelse' %>
+		    <d:IfThenElse id="<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName><%= xmlconstruct.construct.textid %></d:ConstructName>
+                      <d:IfCondition>
+                        <r:Code programmingLanguage="Neutral"><%= xmlconstruct.construct.condition %></r:Code>
+                      </d:IfCondition>
+                      <d:ThenConstructReference>
+			<r:Scheme>
+			  <r:ID><%= instance.cc_scheme %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</r:Scheme>
+			<r:ID>if_seq_<%= xmlconstruct.id %></r:ID>
+			<r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			<r:Version><%= instance.version %></r:Version>
+                      </d:ThenConstructReference>
+                      <d:ElseConstructReference>
+			<r:Scheme>
+			  <r:ID><%= instance.cc_scheme %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</r:Scheme>
+			<r:ID>else_seq_<%= xmlconstruct.id %></r:ID>
+			<r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			<r:Version><%= instance.version %></r:Version>
+                      </d:ElseConstructReference>
+		    </d:IfThenElse>
+
+		    <d:Sequence id="if_seq_<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName>if_seq_<%= xmlconstruct.construct.textid %></d:ConstructName>
+		      <% xmlconstruct.if_children.each do |cc_child| %>
+			<d:ControlConstructReference>
+			  <r:Scheme>
+			    <r:ID><%= instance.cc_scheme %></r:ID>
+			    <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			    <r:Version><%= instance.version %></r:Version>
+			  </r:Scheme>
+			  <r:ID><%= cc_child.id %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</d:ControlConstructReference>
+		      <% end %>
+		    </d:Sequence>
+
+		    <d:Sequence id="else_seq_<%= xmlconstruct.id %>" version="<%= instance.version %>">
+		      <d:ConstructName>else_seq_<%= xmlconstruct.construct.textid %></d:ConstructName>
+		      <% xmlconstruct.else_children.each do |cc_child| %>
+			<d:ControlConstructReference>
+			  <r:Scheme>
+			    <r:ID><%= instance.cc_scheme %></r:ID>
+			    <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			    <r:Version><%= instance.version %></r:Version>
+			  </r:Scheme>
+			  <r:ID><%= cc_child.id %></r:ID>
+			  <r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			  <r:Version><%= instance.version %></r:Version>
+			</d:ControlConstructReference>
+		      <% end %>
+		    </d:Sequence>
+
+		    <% xmlconstruct.children.each do |cc_child| %>
+		      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => cc_child, :instance => instance}  %>
+		    <% end %>
+		  <% end %>
+
+
+

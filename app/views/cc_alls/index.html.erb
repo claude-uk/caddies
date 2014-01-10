@@ -1,0 +1,35 @@
+<html>
+<head>
+<%= javascript_include_tag 'lib/jquery', 'jquery.treeview', 'custom' %>
+</head>
+
+<body>
+
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Control constructs (all types)</h1>
+
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Cc type</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_alls.each do |cc_all| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_all.id %></td>
+    <td><%= cc_all.construct_type %></td>
+    <td><%= link_to 'Show', cc_all %></td>
+    <td><%= link_to 'Edit', edit_cc_all_path(cc_all) %></td>
+    <!--td><%#= link_to 'Destroy', cc_all, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%#= link_to 'New Cc all', new_cc_all_path %>
+</body>
+</html>

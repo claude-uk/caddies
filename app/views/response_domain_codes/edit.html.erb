@@ -1,0 +1,12 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "code answers", :lk => response_domain_codes_path}  %>
+
+<h1>Edit Code Answer</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @response_domain_code.id %>
+</p>
+<%= render 'form' %>
+
+<%= link_to 'Show', @response_domain_code %> |
+<%= link_to 'Back', response_domain_codes_path %>

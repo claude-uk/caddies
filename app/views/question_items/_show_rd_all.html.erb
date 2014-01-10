@@ -1,0 +1,20 @@
+<h2>Response domain (all)</h2>
+  <ul>
+    <li>
+      <b>Id:</b>
+      <%= @question_item.response_domain_all_id %>
+    </li>
+    <li>
+      <b>Type Label:</b>
+      <%= @question_item.response_domain_all.response_domain_type.label %>
+    </li>
+    <li>
+      <b>Type Id:</b>
+      <%= @question_item.response_domain_all.response_domain_type.id %>
+    </li>
+  </ul>
+
+<%= render "show_rd_text" if @question_item.response_domain_all.response_domain_type.id == 1%>
+<%= render "show_rd_numeric" if @question_item.response_domain_all.response_domain_type.id == 2%>
+<%= render "show_rd_code" if @question_item.response_domain_all.response_domain_type.id == 3%>
+<%= render "show_rd_datetime" if @question_item.response_domain_all.response_domain_type.id == 4%>

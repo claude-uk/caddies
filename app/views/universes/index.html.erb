@@ -1,0 +1,27 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Universes</h1>
+
+<%= link_to 'New Universe', new_universe_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @universes.each do |universe| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= universe.id %></td>
+    <td><%= universe.univ_text %></td>
+    <td><%= link_to 'Show', universe %></td>
+    <td><%= link_to 'Edit', edit_universe_path(universe) %></td>
+    <!--td><%#= link_to 'Destroy', universe, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

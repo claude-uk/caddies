@@ -1,0 +1,29 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Statements</h1>
+
+<%= link_to 'New Statement', new_cc_statement_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_statements.each do |cc_statement| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_statement.id %></td>
+    <td><%= cc_statement.textid %></td>
+    <td><%= cc_statement.statement_item %></td>
+    <td><%= link_to 'Show', cc_statement %></td>
+    <td><%= link_to 'Edit', edit_cc_statement_path(cc_statement) %></td>
+    <!--td><%#= link_to 'Destroy', cc_statement, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

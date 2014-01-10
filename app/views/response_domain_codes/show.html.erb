@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "code answers", :lk => response_domain_codes_path}  %>
+
+<h1>Code Answer</h1>
+<p>
+  <b>Id:</b>
+  <%= @response_domain_code.id %>
+</p>
+
+<p>
+  <b>All Answer Id:</b>
+  <%= @response_domain_code.response_domain_all.id %>
+  <label class="instruction">This is the Id required when creating/editing question items</label>
+</p>
+
+<h2>Code scheme:</h2>
+  <ul>
+    <li>
+      <b>Id:</b>
+      <%= @response_domain_code.code_scheme.id %>
+    </li>
+    <li>
+      <b>Short description:</b>
+      <%= @response_domain_code.code_scheme.label %>
+    </li>
+    <li>
+      <b>Codes:</b>
+      <table>
+        <tr>
+          <th>Value</th>
+          <th>Category text</th>
+          <th>Cat Id</th>
+          <th>Order</th>
+        </tr>
+
+        <% @response_domain_code.code_scheme.codes.each do |code| %>
+          <tr>
+            <td><%= code.cs_value %></td>
+            <td><%= raw code.category.label %></td>
+            <td><%= code.category_id %></td>
+            <td><%= code.cs_order %></td>
+          </tr>
+        <% end %>
+      </table>
+</li>
+  </ul>
+
+
+<h2>Used in the following questions:</h2>
+<%= render :partial => "shared/question_items", :locals => {:rd_all => @response_domain_code.response_domain_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_response_domain_code_path(@response_domain_code) %> |
+<%= link_to 'Back', response_domain_codes_path %>

@@ -1,0 +1,35 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Loops</h1>
+
+<%= link_to 'New loop', new_cc_loop_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Loop variable</th>
+    <th>Initial value</th>
+    <th>End value</th>
+    <th>Loop while</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_loops.each do |cc_loop| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_loop.id %></td>
+    <td><%= cc_loop.textid %></td>
+    <td><%= cc_loop.loop_variable %></td>
+    <td><%= cc_loop.initial_value %></td>
+    <td><%= cc_loop.end_value %></td>
+    <td><%= cc_loop.loop_while %></td>
+    <td><%= link_to 'Show', cc_loop %></td>
+    <td><%= link_to 'Edit', edit_cc_loop_path(cc_loop) %></td>
+    <!--td><%#= link_to 'Destroy', cc_loop, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

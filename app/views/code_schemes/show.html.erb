@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "code schemes", :lk => code_schemes_path}  %>
+
+<h1>Code Scheme</h1>
+<p>
+  <b>Id:</b>
+  <%= @code_scheme.id %>
+</p>
+<p>
+  <b>Short Description:</b>
+  <%= @code_scheme.label %>
+</p>
+
+<h2>Codes</h2>
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Category Text</th>
+    <th>Cat Id</th>
+    <th>Order</th>
+  </tr>
+
+<% @code_scheme.codes.each do |code| %>
+  <tr>
+    <td><%= code.cs_value %></td>
+    <td><%= raw code.category.label if code.category %></td>
+    <td><%= code.category_id %></td>
+    <td><%= code.cs_order %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Edit', edit_code_scheme_path(@code_scheme) %> |
+<%= link_to 'Back', code_schemes_path %>

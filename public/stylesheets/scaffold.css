@@ -1,0 +1,159 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  /*font-family: helvetica, arial, sans-serif;*/
+  /*font-family: lucida sans unicode, lucida grande, sans-serif;*/
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+table {border-collapse: collapse}
+td {border: thin solid; border-color:LightGrey}
+
+
+/*Claude's stuff*/
+
+div.hidden { display: none; }
+.opaque { opacity: 0; }
+
+body {
+  /*background-image: url(/images/CLOSER-background-960x685.jpg);*/
+  background-image: url(/images/CLS_watermark.gif);
+  background-repeat: repeat;
+}
+
+#wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  background-color: White;
+  border-width: 1px;
+  border-style: solid;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #7092bd;	/*blue-gray*/
+}
+
+label.instruction {
+  color: DarkGreen;
+  font-style:italic;
+  margin-left: 2em
+}
+
+table.stripy tr.odd {
+  background-color: AliceBlue;
+}
+
+th, td {
+  padding: 2px 5px;
+}
+
+select {
+  font-family: monospace;
+}
+
+#header {
+  /*background-color: #e0e0e0;*/
+  background-color: AliceBlue;
+  border: 1px solid #aaa;
+  text-align: center;
+  margin: 0 auto 0 auto;
+}
+
+#toolbar {
+  text-align: right;
+  margin: 0 auto 0 auto;
+}
+
+#version {
+  margin: 0 auto 2em auto;
+}
+
+
+#main_menu ul li{
+  line-height: 200%;
+}
+
+#footer {
+  border: 1px solid #aaa;
+  /*border-left: 0px none;*/
+  /*border-right: 0px none;*/
+  color: #999;
+  background-color: AliceBlue;
+  /*background-color: White;*/
+  padding: 10px;
+  text-align: center;
+  margin: 4em auto 1em auto;
+}
+
+#footer p{
+  font-size: 80%;
+}
+
+#footer img{
+  /*border: thin solid; border-color: Black;*/
+  margin-left: 50x;
+  margin-right: 50px;
+}
+
+#breadcrumb table {border: none;}
+#breadcrumb td {border: none;}
+
+#constructoptions table {border: none;}
+#constructoptions tr {vertical-align: top;}
+#constructoptions td {border: none; padding:10px 50px;}
+
+#sortable1, #sortable2 { list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; }
+#sortable1 li, #sortable2 li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.0em; width: 120px; }

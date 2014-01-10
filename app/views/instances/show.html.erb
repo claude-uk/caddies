@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "shared/breadcrumb_list" %>
+
+<h1>DDI3 Instance</h1>
+
+<table>
+
+<tr><td><b>Id</b></td><td><%= @instance.id %></td>
+</tr>
+<tr><td><b>Agency</b></td><td><%= @instance.agency %></td>
+</tr>
+<tr><td><b>Version</b></td><td><%= @instance.version %></td>
+</tr>
+<tr><td><b>Instance</b></td><td><%= @instance.instance %></td>
+</tr>
+<tr><td><b>Instance Citation</b></td><td><%= @instance.inst_citation %></td>
+</tr>
+<tr><td><b>Resource Package</b></td><td><%= @instance.resource_package %></td>
+</tr>
+<tr><td><b>Resource Package Citation</b></td><td><%= @instance.rp_citation %></td>
+</tr>
+<tr><td><b>Purpose</b></td><td><%= @instance.purpose %></td>
+</tr>
+<tr><td><b>Purpose Text</b></td><td><%= @instance.purpose_text %></td>
+</tr>
+<tr><td><b>Control Construct Scheme</b></td><td><%= @instance.cc_scheme %></td>
+</tr>
+<tr><td><b>Category Scheme</b></td><td><%= @instance.category_scheme %></td>
+</tr>
+<tr><td><b>Question Scheme</b></td><td><%= @instance.question_scheme %></td>
+</tr>
+<tr><td><b>D Data Collection</b></td><td><%= @instance.ddata_collection %></td>
+</tr>
+<tr><td><b>Instrument</b></td><td><%= @instance.instrument %></td>
+</tr>
+<tr><td><b>Top Sequence</b></td><td><%= @instance.top_sequence %></td>
+</tr>
+
+</table>
+
+<p>
+<%= link_to 'Edit', ddi3instance_edit_path %> |
+<%= link_to 'Back', root_path %>
+</p>

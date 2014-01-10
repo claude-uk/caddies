@@ -1,0 +1,109 @@
+<%= form_for(@instance) do |f| %>
+  <% if @instance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instance.errors.count, "error") %> prohibited this instance from being saved:</h2>
+
+      <ul>
+      <% @instance.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>
+<table>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Agency %></td>
+    <td><%= f.text_field :agency %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Version %></td>
+    <td><%= f.text_field :version %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Instance %></td>
+    <td><%= f.text_field :instance %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Instance_Citation %></td>
+    <!--td><%#= f.text_field :inst_citation, :size => 200  %></td-->
+    <td><%= f.text_area :inst_citation, :cols => 96, :rows => 4 %>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Resource_Package %></td>
+    <td><%= f.text_field :resource_package %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Resource_Package_Citation %></td>
+    <td><%= f.text_area :rp_citation, :cols => 96, :rows => 4 %>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Purpose %></td>
+    <td><%= f.text_field :purpose %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Purpose_Text %></td>
+    <!--td><%#= f.text_field :purpose_text, :size => 160 %></td-->
+    <td><%= f.text_area :purpose_text, :cols => 96, :rows => 1 %>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Control_Construct_Scheme %></td>
+    <td><%= f.text_field :cc_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Category_Scheme %></td>
+    <td><%= f.text_field :category_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Question_Scheme %></td>
+    <td><%= f.text_field :question_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :D_Data_Collection %></td>
+    <td><%= f.text_field :ddata_collection %></td>
+  </div>
+  </tr>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Instrument %></td>
+    <td><%= f.text_field :instrument %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Top_Sequence %></td>
+    <td><%= f.text_field :top_sequence %></td>
+  </div>
+  </tr>
+</table>
+</p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

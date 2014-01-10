@@ -1,0 +1,51 @@
+<div id="main_menu">
+
+<h1>Questionnaire</h1>
+
+<ul>
+  <li>DDI3 Instance: <%= link_to "show", ddi3instance_path %>
+  		| <%= link_to "edit", ddi3instance_edit_path %>
+  		| <%= link_to "xml compact", ddi3instance_xmlclean_path, :target => '_blank' %>
+  		| <%= link_to "xml library", ddi3instance_xml_path, :target => '_blank' %>
+  		| <%= link_to "stats", ddi3instance_stats_path, :target => '_blank' %>
+  		| <%= link_to "qlist", ddi3instance_qlist_path, :target => '_blank' %>
+  		| <%= link_to "doc", ddi3instance_doc_path, :target => '_blank' %>
+  		</li>
+  <!--li><%#= link_to 'DDI3 Instance 1', instance1_show_path %></td-->
+  <li><%= link_to "Spine view", spine_path %></li>
+  <!--li><%#= link_to "Table of all control constructs", cc_alls_path %></li-->
+  <li>Tables of questionnaire components by type:</li>
+  <ul>
+    <li><%= link_to "Sequences", cc_sequences_path %></li>
+    <li><%= link_to "Loops", cc_loops_path %></li>
+    <li><%= link_to "Conditions", cc_ifthenelses_path %></li>
+    <li><%= link_to "Statements", cc_statements_path %></li>
+    <li><%= link_to "Question Components", cc_questions_path %></li>
+    <ul>
+      <li><%= link_to "Interviewees", response_units_path %></li>
+      <li><%= link_to "Universes", universes_path %></li>
+      <li><%= link_to "Question Library", question_items_path %></li>
+      <ul>
+        <li>Tables of answer choices by type:</li>
+        <ul>
+          <li><%= link_to "Text answers", response_domain_texts_path %></li>
+          <li><%= link_to "Numeric answers", response_domain_numerics_path %></li>
+          <li><%= link_to "Time and date answers", response_domain_datetimes_path %></li>
+          <li><%= link_to "Code answers", response_domain_codes_path %></li>
+          <ul>
+            <li><%= link_to "Code Schemes", code_schemes_path %></li>
+            <ul>
+              <li><%= link_to "Categories", categories_path %></li>
+            </ul>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+
+</div>
+
+
+
+

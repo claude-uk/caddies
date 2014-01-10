@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  textid: MyString
+  loop_variable: MyString
+  initial_value: 1
+  end_value: 1
+  loop_while: MyString
+  cc_all: 
+
+two:
+  textid: MyString
+  loop_variable: MyString
+  initial_value: 1
+  end_value: 1
+  loop_while: MyString
+  cc_all: 

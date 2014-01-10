@@ -1,0 +1,34 @@
+<%= form_for(@cc_ifthenelse) do |f| %>
+  <% if @cc_ifthenelse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cc_ifthenelse.errors.count, "error") %> prohibited this cc_ifthenelse from being saved:</h2>
+
+      <ul>
+      <% @cc_ifthenelse.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :textid, 'Name' %><br />
+    <%= f.text_field :textid %>
+  </div>
+  <div class="field">
+    <%= f.label :condition, 'Text' %><br />
+    <%#= f.text_field :condition, :size => 160 %>
+    <%= f.text_area :condition, :cols => 80, :rows => 3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parent_construct, 'Parent Component' %><br />
+    <%= f.fields_for :cc_all do |cc_all_fields| %>
+      <%= render :partial => "shared/spine_position_edit", :locals => {:f => cc_all_fields, :iparent => @cc_ifthenelse.cc_all.initial_parent, :ib => @cc_ifthenelse.cc_all.ifbranch} %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

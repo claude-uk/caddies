@@ -1,0 +1,15 @@
+  <h3><%= response_domain_all.response_domain_type.label %></h3>
+  <ul>
+    <!--li>Response Domain All</li>
+    <ul>
+      <li><b>Id: </b><%= response_domain_all.id %></li>
+      <li><b>Type Label: </b><%= response_domain_all.response_domain_type.label %></li>
+      <li><b>Type Id: </b><%= response_domain_all.response_domain_type.id %></li>
+    </ul-->
+
+    <%= render :partial => "show_rd_text", :locals => {:response_domain_all => response_domain_all}  if response_domain_all.response_domain_type.id == 1%>
+    <%= render :partial => "show_rd_numeric", :locals => {:response_domain_all => response_domain_all} if response_domain_all.response_domain_type.id == 2%>
+    <%= render :partial => "show_rd_code", :locals => {:response_domain_all => response_domain_all} if response_domain_all.response_domain_type.id == 3%>
+    <%= render :partial => "show_rd_datetime", :locals => {:response_domain_all => response_domain_all} if response_domain_all.response_domain_type.id == 4%>
+
+  </ul>

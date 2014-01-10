@@ -1,0 +1,35 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Code Schemes</h1>
+
+<%= link_to 'New Code Scheme', new_code_scheme_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Short Description</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+  </tr>
+
+<% @code_schemes.each do |code_scheme| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= code_scheme.id %></td>
+    <td><%= code_scheme.label %></td>
+    <td><%= link_to 'Show', code_scheme %></td>
+    <td><%= link_to 'Edit', edit_code_scheme_path(code_scheme) %></td>
+    <% if code_scheme.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', code_scheme, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</p>
+

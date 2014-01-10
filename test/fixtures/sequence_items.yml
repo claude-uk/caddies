@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  textid: MyString
+  sequence: 
+  cc_all: 
+  order: 1
+
+two:
+  textid: MyString
+  sequence: 
+  cc_all: 
+  order: 1

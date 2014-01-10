@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  textid: MyString
+  condition: MyString
+  if_cc_all_id: 1
+  else_cc_all_id: 1
+
+two:
+  textid: MyString
+  condition: MyString
+  if_cc_all_id: 1
+  else_cc_all_id: 1

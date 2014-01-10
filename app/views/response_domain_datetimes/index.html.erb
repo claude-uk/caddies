@@ -1,0 +1,35 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Time and Date Answers</h1>
+
+<%= link_to 'New Time and Date Answer', new_response_domain_datetime_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+   </tr>
+
+<% @response_domain_datetimes.each do |response_domain_datetime| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= response_domain_datetime.id %></td>
+    <td><%= response_domain_datetime.label %></td>
+    <td><%= link_to 'Show', response_domain_datetime %></td>
+    <td><%= link_to 'Edit', edit_response_domain_datetime_path(response_domain_datetime) %></td>
+    <% if response_domain_datetime.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', response_domain_datetime, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</p>
+

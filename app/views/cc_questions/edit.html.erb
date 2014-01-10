@@ -1,0 +1,8 @@
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Question Components", :lk => cc_questions_path}  %>
+
+<h1>Edit Question Component</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cc_question %> |
+<%= link_to 'Back', cc_questions_path %>

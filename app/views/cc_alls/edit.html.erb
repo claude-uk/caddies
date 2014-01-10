@@ -1,0 +1,25 @@
+<head>
+<%= javascript_include_tag 'lib/jquery' %>
+</head>
+
+<h1>Edit Parent of a Construct</h1>
+
+<p>
+  <b>Construct Id:</b>
+  <%= @cc_all.id %>
+</p>
+
+<p>
+  <b>Parent Construct Type:</b>
+  <%= @cc_all.parent.construct_type %>
+</p>
+
+<p>
+  <b>Parent Construct Id:</b>
+  <%= @cc_all.parent_id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cc_all %> |
+<%= link_to 'Back', cc_alls_path %>

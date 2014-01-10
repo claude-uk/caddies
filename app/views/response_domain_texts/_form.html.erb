@@ -1,0 +1,30 @@
+<%= form_for(@response_domain_text) do |f| %>
+  <% if @response_domain_text.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@response_domain_text.errors.count, "error") %> prohibited this response_domain_text from being saved:</h2>
+
+      <ul>
+      <% @response_domain_text.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>
+    <%= f.label :label, 'Description' %>
+    <%= f.text_field :label, :size => 120 %>
+    </p>
+    <p>
+    <%= f.label :maxlen, 'Maximum length' %>
+    <%= f.text_field :maxlen %>
+    </p>
+
+  <br />
+
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

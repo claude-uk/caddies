@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code_scheme: 
+  category: 
+  cs_value: 1
+  cs_order: 1
+
+two:
+  code_scheme: 
+  category: 
+  cs_value: 1
+  cs_order: 1

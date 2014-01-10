@@ -1,0 +1,11 @@
+<l:CategoryScheme agency="<%= instance.agency %>" id="<%= instance.category_scheme %>" version="<%= instance.version %>" versionDate="<%= DateTime.now %>">
+	<l:CategorySchemeName xml:lang="en-GB"><%= instance.category_scheme %></l:CategorySchemeName>
+
+<% @categories.each do |category| %>
+		<l:Category id="<%= category.id %>" missing="false" version="<%= instance.version %>" versionDate="<%= DateTime.now %>">
+			<l:CategoryName xml:lang="en-GB"><%= category.id %></l:CategoryName>
+			<r:Label xml:lang="en-GB"><%= category.label %></r:Label>
+		</l:Category>
+<% end %>
+
+</l:CategoryScheme>

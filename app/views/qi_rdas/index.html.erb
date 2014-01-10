@@ -1,0 +1,21 @@
+<h1>Listing qi_rdas</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qi_rdas.each do |qi_rda| %>
+  <tr>
+    <td><%= link_to 'Show', qi_rda %></td>
+    <td><%= link_to 'Edit', edit_qi_rda_path(qi_rda) %></td>
+    <td><%= link_to 'Destroy', qi_rda, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Qi rda', new_qi_rda_path %>

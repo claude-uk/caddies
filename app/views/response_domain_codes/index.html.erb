@@ -1,0 +1,37 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Code Answers</h1>
+
+<%= link_to 'New Code Answer', new_response_domain_code_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Code scheme Id</th>
+    <th>Code scheme description</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+  </tr>
+
+<% @response_domain_codes.each do |response_domain_code| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= response_domain_code.id %></td>
+    <td><%= response_domain_code.code_scheme.id %></td>
+    <td><%= response_domain_code.code_scheme.label %></td>
+    <td><%= link_to 'Show', response_domain_code %></td>
+    <td><%= link_to 'Edit', edit_response_domain_code_path(response_domain_code) %></td>
+    <% if response_domain_code.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', response_domain_code, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</p>
+

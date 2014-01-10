@@ -1,0 +1,40 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'jquery-ui-1.8.16.custom.min', 'control_construct' %>
+<% end %>
+
+
+      <p>
+      <%= f.label :parent_id %><br />
+      <%#= f.collection_select :parent_id, CcAll.find_all_by_construct_type(['CcSequence', 'CcLoop', 'CcIfthenelse']), :id, :id_plus2, {:include_blank => 'select a parent...'}, {:class => 'parent_select'} %>
+      <%= raw h(f.collection_select :parent_id, CcAll.where(:construct_type => ['CcSequence', 'CcLoop', 'CcIfthenelse']).includes(:construct), :id, :id_plus2, {:include_blank => 'select a parent...'}, {:class => 'parent_select'}).gsub(/~/,"&nbsp;") %>
+      </p>
+
+      <p>
+      <%= f.label :ifbranch, 'If-branch' %><br />
+      <%#= f.check_box :ifbranch, :disabled => :true %>
+      <%= f.check_box :ifbranch %>	<label class="instruction">If the parent is an if-then-else component: tick if the component is in the if-then branch, untick if it is in the else-then branch.</label>
+      </p>
+
+      <p>
+      <%= f.label :position %><br />
+      <%#= raw h(f.collection_select :next_sib, CcAll.find(iparent).children.order('cc_alls.position ASC'), :id, :id_plus2, {:include_blank => 'insert at the end or before...'}, {:class => 'sib_select'}).gsub(/~/,"&nbsp;") %>
+      <%#= raw h(f.collection_select :next_sib, CcAll.find(iparent).children_by_branch(ib).order('cc_alls.position ASC'), :id, :id_plus2, {:include_blank => 'insert at the end or before...'}, {:class => 'sib_select'}).gsub(/~/,"&nbsp;") %>
+      <%#= raw h(f.collection_select :next_sib, CcAll.find(iparent).children_by_branch(ib).includes(:children => [:construct]).order('cc_alls.position ASC'), :id, :id_plus2, {:include_blank => 'insert at the end or before...'}, {:class => 'sib_select'}).gsub(/~/,"&nbsp;") %>
+      <% if ['CcSequence', 'CcLoop'].include?(CcAll.find(iparent).construct_type) %>
+        <%= raw h(f.collection_select :next_sib, CcAll.find(iparent).children.includes(:construct).order('cc_alls.position ASC'), :id, :id_plus2, {:include_blank => 'insert at the end or before...'}, {:class => 'sib_select'}).gsub(/~/,"&nbsp;") %>
+      <% else %>
+        <%= raw h(f.collection_select :next_sib, CcAll.find(iparent).children.where(:ifbranch => ib).includes(:construct).order('cc_alls.position ASC'), :id, :id_plus2, {:include_blank => 'insert at the end or before...'}, {:class => 'sib_select'}).gsub(/~/,"&nbsp;") %>
+      <% end %>
+      </p>
+
+ <div id="all_options" class="hidden">
+ <%#= raw h(option_groups_from_collection_for_select(CcAll.find_all_by_construct_type(['CcSequence', 'CcLoop']), 'children', 'id', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+ <%#= raw h(option_groups_from_collection_for_select(CcAll.find_all_by_construct_type(['CcIfthenelse']), 'if_children', 'id_if', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+ <%#= raw h(option_groups_from_collection_for_select(CcAll.find_all_by_construct_type(['CcIfthenelse']), 'else_children', 'id_else', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+ <%= raw h(option_groups_from_collection_for_select(CcAll.where(:construct_type => ['CcSequence', 'CcLoop']).includes(:children => [:construct]), 'children', 'id', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+ <%= raw h(option_groups_from_collection_for_select(CcAll.where(:construct_type => ['CcIfthenelse']).includes(:if_children => [:construct]), 'if_children', 'id_if', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+ <%= raw h(option_groups_from_collection_for_select(CcAll.where(:construct_type => ['CcIfthenelse']).includes(:else_children => [:construct]), 'else_children', 'id_else', 'id', 'id_plus2')).gsub(/~/,"&nbsp;") %>
+
+
+ </div>
+

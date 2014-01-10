@@ -1,0 +1,37 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Text Answers</h1>
+
+<%= link_to 'New Text Answer', new_response_domain_text_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Maxlen</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+  </tr>
+
+<% @response_domain_texts.each do |response_domain_text| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= response_domain_text.id %></td>
+    <td><%= response_domain_text.label %></td>
+    <td><%= response_domain_text.maxlen %></td>
+    <td><%= link_to 'Show', response_domain_text %></td>
+    <td><%= link_to 'Edit', edit_response_domain_text_path(response_domain_text) %></td>
+    <% if response_domain_text.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', response_domain_text, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</p>
+

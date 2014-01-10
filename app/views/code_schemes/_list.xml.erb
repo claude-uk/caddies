@@ -1,0 +1,6 @@
+<% @code_schemes.each do |code_scheme| %>
+	<l:CodeScheme agency="<%= @instance.agency %>" id="<%= code_scheme.id %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>">
+		<l:CodeSchemeName xml:lang="en-GB"><%= code_scheme.label %></l:CodeSchemeName>
+		<%= render :partial => 'codes/list',  :locals => {:codes => code_scheme.codes, :instance => @instance}  %>
+	</l:CodeScheme>
+<% end %>

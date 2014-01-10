@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ddi:DDIInstance agency="<%= @instance.agency %>" id="<%= @instance.instance %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>" xmlns:d="ddi:datacollection:3_1" xmlns:dc="ddi:dcelements:3_1" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:ddi="ddi:instance:3_1" xmlns:g="ddi:group:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:r="ddi:reusable:3_1">
+	<r:Citation>
+		<r:Title xml:lang="en-GB"><%= @output_option %></r:Title>
+		<dc:DCElements>
+			<dc2:title xml:lang="en-GB"><%= @instance.inst_citation %></dc2:title>
+		</dc:DCElements>
+	</r:Citation>
+	<g:ResourcePackage agency="<%= @instance.agency %>" id="<%= @instance.resource_package %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>">
+		<r:Citation>
+			<r:Title xml:lang="en-GB"><%= @instance.rp_citation %></r:Title>
+			<dc:DCElements>
+				<dc2:title xml:lang="en-GB"><%= @instance.rp_citation %></dc2:title>
+			</dc:DCElements>
+		</r:Citation>
+		<g:Purpose id="<%= @instance.purpose %>">
+			<r:Content xml:lang="en-GB"><%= @instance.purpose_text %></r:Content>
+		</g:Purpose>
+		<g:DataCollection>
+			<d:DataCollection agency="<%= @instance.agency %>" id="<%= @instance.ddata_collection %>" version="<%= @instance.version %>">
+                          <d:ControlConstructScheme agency="<%= @instance.agency %>" id="<%= @instance.cc_scheme %>" version="<%= @instance.version %>">
+			    <d:ControlConstructSchemeName xml:lang="en-GB"><%= @instance.cc_scheme %></d:ControlConstructSchemeName>
+			      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => @first_construct, :instance => @instance}  %>
+                          </d:ControlConstructScheme>
+                          <d:Instrument agency="<%= @instance.agency %>" id="<%= @instance.instrument %>" version="<%= @instance.version %>">
+			    <d:InstrumentName><%= @instance.instrument %></d:InstrumentName>
+			    <d:ControlConstructReference>
+			      <r:Scheme>
+			        <r:ID><%= @instance.cc_scheme %></r:ID>
+			        <r:IdentifyingAgency><%= @instance.agency %></r:IdentifyingAgency>
+			        <r:Version><%= @instance.version %></r:Version>
+			      </r:Scheme>
+			      <r:ID>1<%#= @instance.top_sequence %></r:ID>
+			      <r:IdentifyingAgency><%= @instance.agency %></r:IdentifyingAgency>
+			      <r:Version><%= @instance.version %></r:Version>
+			    </d:ControlConstructReference>
+			  </d:Instrument>
+                        </d:DataCollection>
+		</g:DataCollection>
+		
+	<%= render :partial => 'question_items/list',  :locals => {:question_items => @question_items, :instance => @instance}  %>
+	<%= render :partial => 'categories/list',  :locals => {:categories =>  @categories, :instance => @instance}  %>
+	<%= render :partial => 'code_schemes/list',  :locals => {:code_schemes => @code_schemes, :instance => @instance}  %>
+	</g:ResourcePackage>
+</ddi:DDIInstance>

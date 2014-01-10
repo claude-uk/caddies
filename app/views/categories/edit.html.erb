@@ -1,0 +1,13 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "categories", :lk => categories_path}  %>
+
+<h1>Edit Category</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @category.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @category %> |
+<%= link_to 'Back', categories_path %>

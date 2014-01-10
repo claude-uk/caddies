@@ -1,0 +1,41 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Numeric Answers</h1>
+
+<%= link_to 'New Numeric Answer', new_response_domain_numeric_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Numeric type</th>
+    <th>Min</th>
+    <th>Max</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+  </tr>
+
+<% @response_domain_numerics.each do |response_domain_numeric| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= response_domain_numeric.id %></td>
+    <td><%= response_domain_numeric.label %></td>
+    <td><%= response_domain_numeric.numeric_type.label if response_domain_numeric.numeric_type %></td>
+    <td><%= response_domain_numeric.min %></td>
+    <td><%= response_domain_numeric.max %></td>
+    <td><%= link_to 'Show', response_domain_numeric %></td>
+    <td><%= link_to 'Edit', edit_response_domain_numeric_path(response_domain_numeric) %></td>
+    <% if response_domain_numeric.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', response_domain_numeric, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+</p>
+

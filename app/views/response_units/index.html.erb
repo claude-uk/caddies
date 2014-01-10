@@ -1,0 +1,27 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Interviewee Categories</h1>
+
+<%= link_to 'New Interviewee Category', new_response_unit_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @response_units.each do |response_unit| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= response_unit.id %></td>
+    <td><%= response_unit.text %></td>
+    <td><%= link_to 'Show', response_unit %></td>
+    <td><%= link_to 'Edit', edit_response_unit_path(response_unit) %></td>
+    <!--td><%= link_to 'Destroy', response_unit, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

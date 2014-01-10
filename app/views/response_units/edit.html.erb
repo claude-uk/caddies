@@ -1,0 +1,8 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "interviewees", :lk => response_units_path}  %>
+
+<h1>Edit Interviewee Category</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @response_unit %> |
+<%= link_to 'Back', response_units_path %>

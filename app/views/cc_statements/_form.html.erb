@@ -1,0 +1,33 @@
+<%= form_for(@cc_statement) do |f| %>
+  <% if @cc_statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cc_statement.errors.count, "error") %> prohibited this cc_statement from being saved:</h2>
+
+      <ul>
+      <% @cc_statement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :textid, 'Name' %><br />
+    <%= f.text_field :textid %>
+  </div>
+  <div class="field">
+    <%= f.label :statement_item, 'Text' %><br />
+    <%= f.text_field :statement_item, :size => 160 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :parent_construct, 'Parent Component' %><br />
+    <%= f.fields_for :cc_all do |cc_all_fields| %>
+      <%= render :partial => "shared/spine_position_edit", :locals => {:f => cc_all_fields, :iparent => @cc_statement.cc_all.initial_parent, :ib => @cc_statement.cc_all.ifbranch} %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

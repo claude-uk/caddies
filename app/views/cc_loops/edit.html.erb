@@ -1,0 +1,8 @@
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Loops", :lk => cc_loops_path}  %>
+
+<h1>Edit Loop</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cc_loop %> |
+<%= link_to 'Back', cc_loops_path %>

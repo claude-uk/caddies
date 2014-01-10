@@ -1,0 +1,27 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Sequences</h1>
+
+<%= link_to 'New Sequence', new_cc_sequence_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_sequences.each do |cc_sequence| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_sequence.id %></td>
+    <td><%= cc_sequence.textid %></td>
+    <td><%= link_to 'Show', cc_sequence %></td>
+    <td><%= link_to 'Edit', edit_cc_sequence_path(cc_sequence) %></td>
+    <!--td><%#= link_to 'Destroy', cc_sequence, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>
+

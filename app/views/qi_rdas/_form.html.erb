@@ -1,0 +1,17 @@
+<%= form_for(@qi_rda) do |f| %>
+  <% if @qi_rda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qi_rda.errors.count, "error") %> prohibited this qi_rda from being saved:</h2>
+
+      <ul>
+      <% @qi_rda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

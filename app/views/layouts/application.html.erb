@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ddi3 <%= "#{Rails.env}" %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= favicon_link_tag %>
+  <%= yield :head %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div id="header">
+     <%#= image_tag("ddi3_survey_editor_aliceblue.png") %>
+     <%= image_tag("caddies_aliceblue03.png") %>
+  </div>
+  <div id="toolbar">
+     <%= link_to 'Profile', "/ddiprofile3_1_questionnaire_cg.xml", {:target => '_blank'} %>
+      | <%= link_to 'Help', "/help.html##{request.fullpath.sub(%r|/([^/]*).*|, '\1')}", {:target => '_blank'} %>
+  </div>
+  <div id="version">
+     <h3>Version 0.11: <%= "#{Rails.env}" %></h3>
+  </div>
+
+  <div id="wrapper">
+    <%= yield %>
+  </div>
+
+  <div id="footer">
+     <p>CADDIES - CLS Abridged DDI Editor for Surveys - version 0.11 - 2013 - Centre for Longitudinal Studies - Institute of Education</p>
+     <%= image_tag("ioe_logo.png") %>
+     <%= image_tag("CLS_logo.png") %>
+     <%= image_tag("ddi_logo.png") %>
+  </div>
+</body>
+</html>

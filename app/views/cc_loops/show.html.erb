@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Loops", :lk => cc_loops_path}  %>
+
+<h1>Loop</h1>
+<p>
+  <b>Id:</b>
+  <%= @cc_loop.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @cc_loop.textid %>
+</p>
+
+<p>
+  <b>Loop variable:</b>
+  <%= @cc_loop.loop_variable %>
+</p>
+
+<p>
+  <b>Initial value:</b>
+  <%= @cc_loop.initial_value %>
+</p>
+
+<p>
+  <b>End value:</b>
+  <%= @cc_loop.end_value %>
+</p>
+
+<p>
+  <b>Loop while:</b>
+  <%= @cc_loop.loop_while %>
+</p>
+
+<%= render :partial => "shared/spine_position", :locals => {:wrapper => @cc_loop.cc_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_cc_loop_path(@cc_loop) %> |
+<%= link_to 'Back', cc_loops_path %>

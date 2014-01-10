@@ -1,0 +1,13 @@
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Statements", :lk => cc_statements_path}  %>
+
+<h1>Edit Statement Construct</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @cc_statement.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cc_statement %> |
+<%= link_to 'Back', cc_statements_path %>

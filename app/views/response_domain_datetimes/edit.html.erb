@@ -1,0 +1,12 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "time and date answers", :lk => response_domain_datetimes_path}  %>
+
+<h1>Edit Time and Date Answer</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @response_domain_datetime.id %>
+</p>
+<%= render 'form' %>
+
+<%= link_to 'Show', @response_domain_datetime %> |
+<%= link_to 'Back', response_domain_datetimes_path %>

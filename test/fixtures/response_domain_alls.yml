@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  response_domain_type: 
+  response_domain_idx: 1
+
+two:
+  response_domain_type: 
+  response_domain_idx: 1

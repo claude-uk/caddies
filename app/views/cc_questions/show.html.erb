@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Question Components", :lk => cc_questions_path}  %>
+
+<h1>Question Component</h1>
+<p>
+  <b>Id:</b>
+  <%= @cc_question.id %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @cc_question.textid %>
+</p>
+<p>
+  <b>Interviewee:</b>
+  <%= @cc_question.response_unit.text %>
+</p>
+
+<h2>Question Item</h2>
+<p>
+  <b>Id:</b>
+  <%= @cc_question.question_item.id %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @cc_question.question_item.textid %>
+</p>
+<p>
+  <b>Text:</b>
+</p>
+<p>
+  <%= text_area_tag "literal", @cc_question.question_item.literal, {:size => "100x4", :readonly => true} %>
+</p>
+
+<h2>Universe</h2>
+<table>
+  <% @cc_question.universes.each do |universe| %>
+    <tr>
+      <td><%= raw universe.univ_text%></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= render :partial => "shared/spine_position", :locals => {:wrapper => @cc_question.cc_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_cc_question_path(@cc_question) %> |
+<%= link_to 'Back', cc_questions_path %>

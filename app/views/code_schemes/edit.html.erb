@@ -1,0 +1,13 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "code schemes", :lk => code_schemes_path}  %>
+
+<h1>Edit Code Scheme</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @code_scheme.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @code_scheme %> |
+<%= link_to 'Back', code_schemes_path %>

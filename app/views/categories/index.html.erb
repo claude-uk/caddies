@@ -1,0 +1,49 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.16.custom' %>
+  <%= javascript_include_tag 'lib/jquery', 'jquery-ui-1.8.16.custom.min' %>
+<% end %>
+
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Categories</h1>
+
+<%= link_to 'New Category', new_category_path %>
+
+<p>
+<div id="categories_search">
+  <%= form_tag categories_path, :method => :get do %>
+    <%= auto_complete_field_tag_jquery(:search, params[:search], {:placeholder => "Type Space For Search Options", :size => 50}) %>
+    <button id='submit_search' style="font-size: 12px;">Search</button>
+  <% end -%>
+</div>
+</p>
+
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= category.id %></td>
+    <td><%= raw category.label %></td>
+    <td><%= link_to 'Show', category %></td>
+    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+    <% if category.used %>
+      <td>&#10004;</td>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td><%= link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

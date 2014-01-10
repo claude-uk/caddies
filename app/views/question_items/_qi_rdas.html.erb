@@ -1,0 +1,16 @@
+<p>
+  <%= f.text_field :response_domain_all_id, :readonly => true, :size => 6 %>
+  <%= f.text_field :question_item_id, :readonly => true, :size => 20 %>
+
+  <% f.fields_for :response_domain_all do |builder| %>
+      <%= builder.label :id, "field" %>
+      <%= builder.text_field :id %>
+  <% end %>
+  
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Response Domain" %>
+</p>
+
+
+
+

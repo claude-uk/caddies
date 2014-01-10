@@ -1,0 +1,15 @@
+<% codes.each do |code| %>
+	<l:Code>
+		<l:CategoryReference>
+			<r:Scheme>
+				<r:ID><%= instance.category_scheme %></r:ID>
+				<r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+				<r:Version><%= instance.version %></r:Version>
+			</r:Scheme>
+			<r:ID><%= code.category_id %></r:ID>
+			<r:IdentifyingAgency><%= instance.agency %></r:IdentifyingAgency>
+			<r:Version><%= instance.version %></r:Version>
+		</l:CategoryReference>
+		<l:Value><%= code.cs_value %></l:Value>
+	</l:Code>
+<% end %>

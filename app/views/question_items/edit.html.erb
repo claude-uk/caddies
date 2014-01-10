@@ -1,0 +1,13 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "question items", :lk => question_items_path}  %>
+
+<h1>Edit Question Item</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @question_item.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @question_item %> |
+<%= link_to 'Back', question_items_path %>

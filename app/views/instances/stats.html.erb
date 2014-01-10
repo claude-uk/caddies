@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<%= render "shared/breadcrumb_list" %>
+
+<h1>DDI3 Statistics</h1>
+
+<h2>CLS Metrics v.0.1</h2>
+
+<p>
+<em>The Cell Count is the number of ddi3 xml elements.
+<br/>
+The Synaptic Density is the ratio of the number of references over the Cell Count.</em>
+</p>
+
+<table>
+
+<tr><td><b>Cell Count</b></td><td><%= @instance.totalElt %></td>
+</tr>
+<tr><td><b>Synaptic Density</b></td><td><%= "%.2f" % @instance.synapticDensity %>%</td>
+</tr>
+
+</table>
+
+<h2>Details</h2>
+<p>
+<em>The sequence count excludes the generated sequences which wrap the loop and ifthenelse children.
+</em>
+</p>
+
+<p>
+<table>
+<tr><td>Sequence Constructs</td><td><%= @instance.sequenceCount %></td>
+</tr>
+<tr><td>Loop Constructs</td><td><%= @instance.loopCount %></td>
+</tr>
+<tr><td>Ifthenelse Constructs</td><td><%= @instance.ifthenelseCount %></td>
+</tr>
+<tr><td>Question Constructs</td><td><%= @instance.questionCount %></td>
+</tr>
+<tr><td>Statement Constructs</td><td><%= @instance.statementCount %></td>
+</tr>
+<tr><td>.</td><td></td>
+</tr>
+<tr><td>Question Items</td><td><%= @instance.qiCount %></td>
+</tr>
+<tr><td>Code Schemes</td><td><%= @instance.csCount %></td>
+</tr>
+<tr><td>Categories</td><td><%= @instance.categoryCount %></td>
+</tr>
+</table>
+</p>
+
+<p>
+<%= link_to 'Back', root_path %>
+</p>

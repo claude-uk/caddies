@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Statements", :lk => cc_statements_path}  %>
+
+<h1>Statement</h1>
+<p>
+  <b>Id:</b>
+  <%= @cc_statement.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @cc_statement.textid %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @cc_statement.statement_item %>
+</p>
+
+<%= render :partial => "shared/spine_position", :locals => {:wrapper => @cc_statement.cc_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_cc_statement_path(@cc_statement) %>|
+<%= link_to 'Back', cc_statements_path %>

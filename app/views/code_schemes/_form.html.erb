@@ -1,0 +1,84 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'jquery-ui-1.8.16.custom.min' %>
+  <%= javascript_include_tag 'code_schemes' %>
+  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.16.custom' %>
+  <style>
+    .instruction {color: grey;}
+    #sortable1 { float: none; }
+    #sortable1 tr td a { text-decoration: underline; }
+  </style>
+<% end %>
+
+
+<%= form_for(@code_scheme) do |f| %>
+  <% if @code_scheme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@code_scheme.errors.count, "error") %> prohibited this code_scheme from being saved:</h2>
+
+      <ul>
+      <% @code_scheme.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :label, 'Short Description' %></b><br />
+    <%= f.text_field :label, :size => 80 %>
+  </div>
+
+  <br/>
+
+  <h2>Codes</h2>
+
+  <p>
+  <label class="instruction">Drag and drop the rows to change the order of the codes</label>
+  </p>
+
+  <div class="csbuild">
+    <table id="sortable1" class="connectedSortable">
+     <thead>
+      <tr>
+        <th>Values</th>
+        <th>Category Text</th>
+        <th>Cat Id</th>
+      </tr>
+     </thead>
+     <tbody>
+      <% @code_scheme.codes.each_with_index do |code, index| %>
+          <tr class="ui-state-default" id=<%= "coderow_" + code.cs_value + "+" + code.category_id.to_s() + "+" + code.id.to_s() %> >
+          <!--tr class="ui-state-default" id=<%= "coderow_" + index.to_s() %> -->
+            <td><%= code.cs_value %></td>
+            <td><%= raw code.category.label if code.category %></td>
+            <td><%= code.category_id %></td>
+            <td class="islink"><%= link_to_function 'Edit', 'edit_row(this.parentNode.parentNode.rowIndex)' %></td>
+            <td class="islink"><%= link_to_function 'Remove', 'remove_from_mylist(this.parentNode.parentNode.id, this.parentNode.parentNode.rowIndex)' %></td>
+          </tr>
+      <% end %>
+     </tbody>
+    </table>
+    <%= hidden_field_tag :code_table %>
+    <%= hidden_field_tag :deletables %>
+  </div>
+
+  <p class="instruction">
+  <%= label_tag 'new_code', nil, :id => 'entry_mode' %>
+  </p>
+  <p>
+    <%= text_field_tag :newvalue, nil, :size => 4 %>
+    <%#= collection_select :newcat, :id, Category.all, :id, :label_with_id, {:prompt => 'select a category...'}, {:style => 'visibility: visible; width: 600px'} %>
+    <%= collection_select :newcat, :id, Category.order('categories.label COLLATE NOCASE ASC').all, :id, :label_plus_id, {:prompt => 'select a category...'}, {:style => 'visibility: visible; width: 700px'} %>
+    <br/>
+    <%= button_to_function "Add to list", "add_to_mylist_or_apply()", :id => 'entry_button' %>
+    <%= button_to_function "Cancel", "set_to_new_mode()", :id => 'reset_button', :disabled => :true %>
+  </p>
+
+  <br/>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

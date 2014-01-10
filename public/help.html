@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CADDIES - CLS Abridged DDI Editor for Surveys - Help</title>
+  <style type="text/css">
+    body {
+        margin: 20;
+        margin-bottom: 25px;
+        padding: 20;
+        background-color: #f0f0f0;
+        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        font-size: 13px;
+        color: #333;
+      }
+    h1, h2, h3 { color: #7092bd; }
+    table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-collapse: collapse;
+      }
+    td {
+        padding: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+  </style>
+</head>
+
+<body>
+  <h1>CADDIES - CLS Abridged DDI Editor for Surveys - Help</h1>
+  <h2>Generalities</h2>
+    <p>
+    This website edits survey metadata held in a relational database.
+    <br/>
+    The database schema (architecture) is based on the ddi3 xml schema.
+    <br/>
+    This means that duplication is held to a minimum and that editable fields for a given object
+    are usually set by reference to objects in another table, in practice through menu options.
+    </p>
+
+
+  <h2>The questionnaire</h2>
+    <p>
+    The home page (questionnaire) lists the tables in a nested list format which corresponds approximately to
+    the database schema with the outer nesting levels being dependent on the inner levels.
+    To enter new material, the easiest way is to start at the bottom with the categories and gradually work your way up through the dependent tables.
+    </p>
+
+  <a id='ddi3instance'></a>
+  <h2>DDI3 Instance</h2>
+  <p>
+  <b>Show</b> displays the top level information of the metadata set, the names of the building blocks of the xml schema.
+  </p>
+  <p>
+  <b>Edit</b> is used to enter or edit this information.
+  There are default values such as <em>xxx_inst01</em> where the <em>xxx</em> is to be replaced with a code specific to the metadata set being entered, e.g. <em>mcs5_inst01</em>.
+  </p>
+  <p>
+  <b>Xml compact</b> is the final outcome of this editor. It shows the metadata in ddi3.1 xml format.
+  Xml compact only outputs the elements that are used in the top sequence, their children and their references.
+  Use <em>right-click > Save Page as...</em> to save it to a file.
+  As the page handles all the metadata, it may be relatively slow to load.
+  </p>
+  <p>
+  <b>Xml library</b> shows the metadata in ddi3 xml format.
+  In contrast to <em>xml compact</em>, it includes all the library-type elements, such as the question items or code schemes, whether they are used in the top sequence or not.
+  <em>Xml library</em> may be used to output the intermediate stages of building a ddi3 instance file or to explicitely capture a question library or a code scheme set.
+  Neither <em>xml compact</em> nor <em>xml library</em> includes the questionnaire components used in the attic.
+  </p>
+  <p>
+  <b>Stats</b> displays some summary statistics on the metadata entered.
+  </p>
+  <p>
+  <b>Qlist</b> outputs a question list for writing mapping files between questions and variables.
+  It only uses the question components of the top sequence, in questionnnaire order.
+  It outputs the name of the question component, the intent of the question item and the text of the question item.
+  </p>
+
+  <a id='spine'></a>
+  <h2>Spine view</h2>
+  <p>
+  The spine view shows the questionnaire in tree-view format with components having a parent and children components reflecting the architecture of the questionnaire.
+  Each component shows its spine id, its type (question, statement, sequence, loop or condition) and its name.
+  </p>
+  <p>
+  Conditions have two child branches: the if-then branch which is followed if the condition is true and the else-then branch if the condition is false.
+  </p>
+  <p>
+  The tree-view components are collapsible and right-clicking on the name accesses the <em>view</em> and <em>edit</em> page of the component.
+  </p>
+  <p>
+  The attic is a scratchpad to help with editing. Its components are not included in the xml file, but the categories, code schemes, questions items are included as they may be used elsewhere.
+  </p>
+
+  <a id='categories'></a>
+  <h2>Categories</h2>
+    <p>
+    Categories are the <em>choices</em> in the multiple-choice questions.
+    If the same text or choice appears in more than one multiple-choice question, you only need to create a category once.
+    </p>
+    <h3>Listing and viewing categories</h3>
+      The index page lists all categories by default or the results of the search option.
+      Categories are deletable provided they are not used in any code scheme.
+    <h3>Adding a new category</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Categories'.</li>
+        <li>Check that the category does not already exist.</li>
+        <li>Click on 'New category' at the top of the list.</li>
+        <li>In 'New Category', enter your new label.</li>
+        <li>Click on 'Create'.</li>
+        <li>Repeat for as many categories as required.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+    <h3>Editing a category</h3>
+    <p>
+      If you edit the text of a category, as it is used by reference, it will be changed in all the code schemes where it is used.
+    </p>
+
+  <a id='code_schemes'></a>
+  <h2>Code schemes</h2>
+    <p>
+    Code schemes are the lists of multiple choices with their associated codes or values, e.g. <em>yes 1, no 0</em>.
+    Again, you only need to create a code scheme once, even if it appears in more than one question.
+    Code schemes are deletable provided they are not used in any code answer.
+    </p>
+    <h3>Adding a new code scheme</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Code Schemes'.</li>
+        <li>Click on 'New code scheme' at the top of the list.</li>
+        <li>In 'New Code Scheme', enter your short description, for example the name of the question where it is used or <em>yesno</em> or <em>months</em>
+          for the more generic code schemes.</li>
+        <li>Select a category from the menu, add its value or code (1, 2, 3... or X, Y, Z...), click on <em>add to list</em>, repeat for all choices.</li>
+        <li>Drag-and-drop the rows in the table if you want to change the order.</li>
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+  <a id='response_domain_codes'></a>
+  <h2>Code answers</h2>
+    <p>
+    Strictly speaking, as this is about the questionnaire, these are the options available for the question answers rather than the actual answers.
+    Any of the answer types are deletable provided they are not used in any question item.
+    </p>
+    <p>
+    For code answers, all that is required is to assign a code scheme to a new code answer.
+    The code answer takes on the name of the code scheme.
+    </p>
+    <h3>Adding a new code answer</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Code answers'.</li>
+        <li>Click on 'New Code answer' at the top of the list.</li>
+        <li>In 'New Code answer', select the code scheme.</li>
+        <li>Click on 'Create'.</li>
+        <li>A new linked entry in the table 'All Answers' is automatically created in the background.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+
+  <a id='response_domain_datetimes'></a>
+  <h2>Time and date answers</h2>
+    <p>
+    It is a good idea to create fairly generic time and date answers such as <em>date</em> or <em>duration in hours and minutes</em> as required by the questionnaire.
+    </p>
+    <h3>Adding a new time and date answer</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Time and date answers'.</li>
+        <li>Click on 'New time and date answer' at the top of the list.</li>
+        <li>In 'New time and date answer', enter your new label.</li>
+        <li>Select the type</li>
+        <li>If the new domain is of type 'Duration', enter the format using the following description
+          for example 'PTnnH' for duration in hours or 'PTnnHnnM' for duration in hours ands minutes.</li>
+        <li>Click on 'Create'.</li>
+        <li>A new linked entry in the table 'All Answers' is automatically created in the background.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+    <blockquote>
+    <h4>ISO 8601 Duration (from DDI3.1 Technical Specification Overview)</h4>
+    <p>
+      Provides a duration of time represented by one of the following formats (specific format must be declared)
+      PnnYnnMnnDTnnHnnMnnS where n is replaced with the number of unit types for example ‘P3Y6M4DT12H30M0S’
+      defines ‘a period of three years, six months, four days, twelve hours, thirty minutes, and zero seconds’.
+      Elements may be omitted if their value is zero. T is used to separate date and time elements
+      so that P3M is 3 months and PT3M is three minutes.
+      Alternative format P<date>T<time> ‘P0003-06-04T12:30:00’.
+    </p>
+    </blockquote>
+
+  <a id='response_domain_numerics'></a>
+  <h2>Numeric answers</h2>
+    <h3>Adding a new numeric answer</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Numeric answers'.</li>
+        <li>Click on 'New Numeric answer' at the top of the list.</li>
+        <li>In 'New Numeric answer', enter required values.</li>
+        <li>Click on 'Create'.</li>
+        <li>A new linked entry in the table 'All Answers' is automatically created in the background.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+  <a id='response_domain_texts'></a>
+  <h2>Text answers</h2>
+    <p>
+    The most commonly used set of text answers is: 'short text', 'long text' and 'null answer'.
+    The latter is used for <em>header</em> questions which introduce more specific questions but which in themselves don't require any answer.
+    </p>
+    <h3>Adding a new text answer</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Text answers'.</li>
+        <li>Click on 'New Text answers' at the top of the list.</li>
+        <li>In 'New Text answers', enter your new maximum length.</li>
+        <li>Click on 'Create'.</li>
+        <li>A new linked entry in the table 'All Answers' is automatically created in the background.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+  <a id='question_items'></a>
+  <h2>Question library</h2>
+    <p>
+    The question library contains question items which are made up of the text of a question and of the possible answers.
+    They are to be thought of as context-free items which can then be used or instantiated in a questionnaire as part of a question component.
+    </p>
+
+    <h3>Listing the question items</h3>
+    <p>
+    The search box operates on the fields <em>Intent</em> and <em>Literal</em>.
+    The question items are deletable provided they are not used in any question component no matter whether it is in the top sequence or in the attic.
+    </p>
+
+    <h3>Adding a new question item</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Question library (question items)'.</li>
+        <li>Click on 'New question item' at the bottom of the list.</li>
+        <li>In 'New Question Item', fill required fields.</li>
+        <li>Select one or more type of answer from the menu. You could for example have a numeric answer for a measure plus a code answer for 'refused/don't knows' or a code answer plus a text answer for the 'other, specify' selection.</li>
+        <li>Click on 'Add to list' after each.</li>
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
+
+  <a id='universes'></a>
+  <h2>Universes</h2>
+    <p>
+    The universes refer to the sub-sets of cohort members a question may apply to, for example <em>all cohort members</em> or <em>female cohort members</em>.
+    </p>
+
+  <a id='response_units'></a>
+  <h2>Interviewees</h2>
+    <p>
+    The interviewees are the people answering the questions. For most questionnaires, 'Cohort member' is sufficient.
+    </p>
+
+  <a id='cc_sequences'></a>
+  <h2>Sequences</h2>
+    <p>
+    With the questions, statements, loops and conditions, sequences are one of the questionnaire component types.
+    They all follow a similar <em>list/show/edit/new</em> page pattern with a type-specific section and a generic component section.
+    The easiest way to proceed, is probably to first enter the main sequences which correspond to the main sections of the questionnaire.
+    An empty starter database contains the sequence <em>top sequence</em> which is the root or starting point of the questionnaire
+    and <em>the attic</em> which is a scrachpad.
+    </p>
+
+    <h3>Adding a new sequence</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Sequences'.</li>
+        <li>Click on 'New Sequence' at the top of the list.</li>
+        <li>In 'New sequence', fill the name field.</li>
+        <li>The rest is about the position of the component in the questionnaire:</li>
+        <li>Select the <em>parent</em>, which is an existing sequence, condition or loop component</li>
+        <li>Tick on <em>if-branch</em> if the parent is a condition and if the component is in the <em>if-then</em> branch rather than the <em>else-then</em> branch.</li>
+        <li>The position menu gives you a list of existing child-components in order to insert the new component at the right position.
+          Nb: if this is not working in 'Internet explorer', try 'Firefox'.</li>
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire or go to spine view.</li>
+      </ul>
+
+  <a id='cc_questions'></a>
+  <h2>Question components</h2>
+    <p>
+    They are the questions as used in a questionnaire. In addition to the <em>question item</em> information, they have a specific position in the questionnaire,
+    an interviewee and universes.
+    </p>
+
+    <h3>Adding a new question component</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Question components'.</li>
+        <li>Click on 'New Question Component' at the top of the list.</li>
+        <li>In 'New Question Component', fill required fields.</li>
+        <li>In the 'universes' menu, it is possible to select more than one universe and it is assumed that they are <em>and'ed.</em></li>
+        <li>See the <em>sequence</em> instructions for parent and position selections.
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire or go to spine view.</li>
+      </ul>
+
+  <a id='cc_statements'></a>
+  <h2>Statements</h2>
+    <p>
+    Statements are questionnaire components, i.e. they exist as a child-component of a sequence, loop or condition.
+    (For statements inside questions, use the text field the question item).
+    They have some text, but don't require an answer from the interviewee.
+    </p>
+
+    <h3>Adding a new statement</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Statements'.</li>
+        <li>Click on 'New Statement' at the top of the list.</li>
+        <li>In 'New Statement', fill the name and text fields.</li>
+        <li>See the <em>sequence</em> instructions for parent and position selections.
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire or go to spine view.</li>
+      </ul>
+
+  <a id='cc_loops'></a>
+  <h2>Loops</h2>
+    <p>
+    Loops are for parts of the questionnaire which are repeated a fixed number of times or while a conditon is true.
+    </p>
+
+    <h3>Adding a new loop</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Loops'.</li>
+        <li>Click on 'New Loop' at the top of the list.</li>
+        <li>In 'New Loop', fill the required fields.</li>
+        <li>See the <em>sequence</em> instructions for parent and position selections.
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire or go to spine view.</li>
+      </ul>
+
+  <a id='cc_ifthenelses'></a>
+  <h2>Conditions</h2>
+    <p>
+    Conditions allow the questionnaire to fork depending on some condition statement which may be true or false.
+    More commonly, it is used to only ask some question if the answer to the preceeding question makes it relevant.
+    </p>
+
+    <h3>Adding a new condition</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Conditions'.</li>
+        <li>Click on 'New Condition' at the top of the list.</li>
+        <li>In 'New Condition', fill the required fields.</li>
+        <li>See the <em>sequence</em> instructions for parent and position selections.
+        <li>Click on 'Create'.</li>
+        <li>Go back to questionnaire or go to spine view.</li>
+      </ul>
+
+  <h2>Terminology</h2>
+  <p>
+  For the user interface we replaced the ddi3-derived database terminology with more user-friendly descriptives.
+  However, for power users the table below provides the mapping between the GUI names and the original ddi3 tags or database field names.
+  The ddi3 terminology also appears in the urls of the pages.
+    <br/>
+    The translation of the xml schema to the database schema was done with the addition of generic 'wrapper' objects (questionnaire components, all answers)
+    around the typed objects directly derived from the xml schema (sequences, text answers).
+    This is what allows us to link and manipulate them in a uniform manner.
+  </p>
+  <table>
+    <tr><th>ddi3</th>						<th>GUI</th></tr>
+    <tr><td>control construct scheme</td>	<td>spine</td></tr>
+    <tr><td>control construct</td>			<td>questionnaire component</td></tr>
+    <tr><td>question construct</td>			<td>question component</td></tr>
+    <tr><td>question items</td>				<td>question library</td></tr>
+    <tr><td>question literal</td>			<td>question text</td></tr>
+    <tr><td>category label</td>				<td>category text</td></tr>
+    <tr><td>code scheme label</td>			<td>short description</td></tr>
+    <tr><td>response domains</td>			<td>answer choices, answers</td></tr>
+    <tr><td>response domain label</td>		<td>description</td></tr>
+    <tr><td>maxlen</td>						<td>maximum length</td></tr>
+    <tr><td>response domain all id</td>		<td>all answer id</td></tr>
+    <tr><td>control construct all id</td>	<td>spine id</td></tr>
+    <tr><td>statement item</td>				<td>statement text</td></tr>
+    <tr><td>control construct textid</td>	<td>control construct name</td></tr>
+  </table>
+
+  <h2>Credits</h2>
+  <p>
+  Thanks to Mark James <a href="http://www.famfamfam.com/" target="_blank">www.famfamfam.com</a> for icons used in the Questionnaire Documentation page.
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.16.custom' %>
+  <%= javascript_include_tag 'lib/jquery', 'jquery-ui-1.8.16.custom.min' %>
+  <%#= javascript_include_tag 'jquery-1.6.2.min' %>
+<% end %>
+
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Question Items</h1>
+
+<%= link_to 'New Question Item', new_question_item_path %>
+
+<p>
+<div id="qitems_search">
+  <%= form_tag question_items_path, :method => :get do %>
+    <%= auto_complete_field_tag_jquery(:search, params[:search], {:placeholder => "Type Space For Search Options", :size => 50}) %>
+    <button id='submit_search' style="font-size: 12px;">Search</button>
+  <% end -%>
+</div>
+</p>
+
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Intent</th>
+    <th></th>
+    <th></th>
+    <th>used</th>
+    <th>in top sequence</th>
+    <th></th>
+  </tr>
+
+<% @question_items.each do |question_item| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= question_item.id %></td>
+    <td><%= question_item.textid %></td>
+    <td><%= question_item.intent %></td>
+    <td><%= link_to 'Show', question_item %></td>
+    <td><%= link_to 'Edit', edit_question_item_path(question_item) %></td>
+    <% if question_item.used %>
+      <td>&#10004;</td>
+      <% if question_item.used_in_top_sequence %>
+        <td>&#10004;</td>
+      <% else %>
+        <td>&#10006;</td>
+      <% end %>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td></td>
+      <td><%= link_to 'Delete', question_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

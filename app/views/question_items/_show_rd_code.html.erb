@@ -1,0 +1,29 @@
+    <!--li>Response Domain Code</li>
+    <ul-->
+      <li><b>Id: </b><%= response_domain_all.domain.id %></li>
+      <li><b>Code scheme: </b></li>
+      <ul>
+        <li><b>Id: </b><%= response_domain_all.domain.code_scheme_id %></li>
+        <li><b>Description: </b><%= response_domain_all.domain.code_scheme.label %></li>
+        <li><b>Codes: </b></li>
+        <p>
+        <table>
+          <tr>
+            <th>Value</th>
+            <th>Category label</th>
+            <th>Cat Id</th>
+            <th>Order</th>
+          </tr>
+
+        <% response_domain_all.domain.code_scheme.codes.each do |code| %>
+          <tr>
+            <td><%= code.cs_value %></td>
+            <td><%= raw code.category.label %></td>
+            <td><%= code.category_id %></td>
+            <td><%= code.cs_order %></td>
+          </tr>
+        <% end %>
+        </table>
+        </p>
+      </ul>
+    <!--/ul-->

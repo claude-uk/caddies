@@ -1,0 +1,13 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "universes", :lk => universes_path}  %>
+
+<h1>Edit Universe</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @universe.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @universe %> |
+<%= link_to 'Back', universes_path %>

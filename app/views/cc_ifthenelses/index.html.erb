@@ -1,0 +1,28 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Conditions</h1>
+
+<%= link_to 'New Condition', new_cc_ifthenelse_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cc_ifthenelses.each do |cc_ifthenelse| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= cc_ifthenelse.id %></td>
+    <td><%= cc_ifthenelse.textid %></td>
+    <td><%= cc_ifthenelse.condition %></td>
+    <td><%= link_to 'Show', cc_ifthenelse %></td>
+    <td><%= link_to 'Edit', edit_cc_ifthenelse_path(cc_ifthenelse) %></td>
+    <!--td><%#= link_to 'Destroy', cc_ifthenelse, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+</p>

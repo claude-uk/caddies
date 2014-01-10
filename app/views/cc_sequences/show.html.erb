@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_construct", :locals => {:linktxt => "Sequences", :lk => cc_sequences_path}  %>
+
+<h1>Sequence</h1>
+<p>
+  <b>Id:</b>
+  <%= @cc_sequence.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @cc_sequence.textid %>
+</p>
+
+<%= render :partial => "shared/spine_position", :locals => {:wrapper => @cc_sequence.cc_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_cc_sequence_path(@cc_sequence) %> |
+<%= link_to 'Back', cc_sequences_path %>

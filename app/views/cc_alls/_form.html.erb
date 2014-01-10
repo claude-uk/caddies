@@ -1,0 +1,49 @@
+<%= form_for(@cc_all) do |f| %>
+  <% if @cc_all.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cc_all.errors.count, "error") %> prohibited this cc_all from being saved:</h2>
+
+      <ul>
+      <% @cc_all.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p>obsolete code</p>
+
+  <div class="field">
+    <%= f.label :parent_construct %><br />
+    <%#= f.collection_select :parent_id, CcAll.find_all_by_cc_type_id([1, 2, 5]), :id, :id_plus, {:prompt => 'select a parent'} %>
+  </div>
+
+
+  <div id="constructoptions">
+  <table>
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :order_in_sequence %><br />
+          <%= f.number_field :position, :in => 1..10, :size => 5 %>
+        </div>
+      </td>
+
+      <td>
+        <div class="field" id="ifelse">
+          <%= f.label :branch_in_condition %><br />
+          <%= radio_button_tag(:parent_type, "if_branch") %>
+          <%= label_tag(:if_branch, "If branch") %>
+          <br/>
+          <%= radio_button_tag(:parent_type, "else_branch") %>
+          <%= label_tag(:else_branch, "Else branch") %>
+        </div>
+      </td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

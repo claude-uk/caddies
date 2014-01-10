@@ -1,0 +1,23 @@
+<h2>Spine position</h2>
+<p>
+  <b>Spine Id:</b>
+  <%= wrapper.id %>
+</p>
+
+<p>
+  <b>Parent Component</b>
+  <ul>
+    <% if wrapper.parent %>
+      <li>Type: <%= wrapper.parent.construct_type %></li>
+      <li>Spine Id: <%= wrapper.parent_id %></li>
+      <li>Position in parent: <%= wrapper.position %></li>
+      <% if wrapper.parent.construct_type == 'CcIfthenelse' %>
+        <li>Branch: <%if wrapper.ifbranch == true %>If branch<% end %>
+                    <%if wrapper.ifbranch == false %>Else branch<% end %>
+        </li>
+      <% end %>
+    <% else %>
+      <li>No parent or Top-level component</li>
+    <% end %>
+  </ul>
+</p>

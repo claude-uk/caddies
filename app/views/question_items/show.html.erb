@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "question items", :lk => question_items_path}  %>
+
+<h1>Question Item</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @question_item.id %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= @question_item.textid %>
+</p>
+
+<p>
+  <b>Question text:</b>
+  <p>
+  <%= text_area_tag "literal", @question_item.literal, {:size => "100x4", :readonly => true} %>
+  </p>
+</p>
+
+<p>
+  <b>Intent:</b>
+  <%= @question_item.intent %>
+</p>
+
+<%#= render "show_rd_all" if @question_item.response_domain_all %>
+
+<h2>Answers</h2>
+<%= render :partial => "response_domain_all", :collection => @question_item.response_domain_alls %>
+
+<%= link_to 'Edit', edit_question_item_path(@question_item) %> |
+<%= link_to 'Back', question_items_path %>

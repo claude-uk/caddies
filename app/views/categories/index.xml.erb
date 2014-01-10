@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ddi:DDIInstance agency="<%= @instance.agency %>" id="<%= @instance.instance %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>" xmlns:d="ddi:datacollection:3_1" xmlns:dc="ddi:dcelements:3_1" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:ddi="ddi:instance:3_1" xmlns:g="ddi:group:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:r="ddi:reusable:3_1">
+
+<%#= render :partial => 'list',  :locals => {:categories => "categories"}  %>
+<%#= render :partial => 'list'  %>
+<%= render :partial => 'list',  :locals => {:categories =>  @categories, :instance => @instance}  %>
+
+</ddi:DDIInstance>

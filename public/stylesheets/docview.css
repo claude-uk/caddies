@@ -1,0 +1,93 @@
+.doctree li { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#.doctree ul.codes {
+	#list-style-image: url('/images/sqyellow.png');
+	#list-style: square url("/images/sqyellow.png");
+#}
+
+.doctree li.code { 
+	padding: 0;
+	margin: 0;
+	list-style: square url("/images/sqyellow.png");
+}
+
+.doctree span.error { 
+	padding: 50;
+	color: orange;
+	font-style:italic;
+	font-size:80%;
+}
+
+.doctree span.CcSequence, .doctree span.CcIfthenelse, .doctree span.CcLoop {
+	padding: 1px 0 1px 18px;
+	display: block;
+	font-weight: bold;
+}
+.doctree span.CcQuestion {
+	padding: 1px 0 1px 18px;
+	background: url(/images/help.png) 0 0 no-repeat;
+	display: block;
+	font-weight: bold;
+}
+
+.doctree span.question_content {
+	padding: 1px 0 1px 18px;
+	display: block;
+  	#font-family: "Comic Sans MS", cursive, sans-serif;
+  	font-family: Georgia, serif;
+}
+
+.doctree li.answer {
+	padding: 1px 10px 1px 10px;
+	margin: 10px 36px;
+	width: 100px;
+	#display: block;
+	background: LightYellow;
+	border: 1px solid Black;
+  	font-family: Georgia, serif;
+}
+
+.doctree li.codeanswer {
+	#padding: 1px 10px 1px 10px;
+	margin: 10px 18px;
+	#display: block;
+  	font-family: Georgia, serif;
+}
+
+.doctree span.CcStatement {
+	padding: 1px 0 1px 18px;
+	background: url(/images/comment.png) 0 0 no-repeat;
+	display: block;
+  	#font-family: "Comic Sans MS", cursive, sans-serif;
+  	font-family: Georgia, serif;
+}
+
+.doctree span.file {
+	padding: 1px 0 1px 18px;
+	display: block;
+}
+
+.doctree span.CcSequence {
+	background: #999 url(/images/arrow_down.png) left no-repeat;
+	color: #fff;
+	font-weight: bold;
+}
+
+.doctree span.CcIfthenelse {
+	background: #eee url(/images/arrow_branch_down2.png) left no-repeat;
+	font-weight: bold;
+}
+
+.doctree span.branch {
+	padding: 1px 0 1px 18px;
+	background: url(/images/bullet_green.png) 0 0 no-repeat;
+}
+
+.doctree span.CcLoop {
+	background: #eee url(/images/arrow_rotate_clockwise.png) left no-repeat;
+	font-weight: bold;
+}

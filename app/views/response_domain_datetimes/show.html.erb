@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "time and date answers", :lk => response_domain_datetimes_path}  %>
+
+<h1>Time and Date Answer</h1>
+<p>
+  <b>Id:</b>
+  <%= @response_domain_datetime.id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @response_domain_datetime.label %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @response_domain_datetime.datetime_type.label %>
+</p>
+
+<p>
+  <b>Format:</b>
+  <%= @response_domain_datetime.format %>
+  <label class="instruction">See 'Help' for details</label>
+</p>
+
+<p>
+  <b>All Answer Id:</b>
+  <%= @response_domain_datetime.response_domain_all.id %>
+  <label class="instruction">This is the Id required when creating/editing question items</label>
+</p>
+
+<h2>Used in the following questions:</h2>
+<%= render :partial => "shared/question_items", :locals => {:rd_all => @response_domain_datetime.response_domain_all} %>
+
+<br />
+
+<%= link_to 'Edit', edit_response_domain_datetime_path(@response_domain_datetime) %> |
+<%= link_to 'Back', response_domain_datetimes_path %>

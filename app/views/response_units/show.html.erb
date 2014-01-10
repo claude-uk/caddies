@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "interviewees", :lk => response_units_path}  %>
+
+<h1>Interviewee Category</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @response_unit.id %>
+</p>
+<p>
+  <b>Description:</b>
+  <%= @response_unit.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_response_unit_path(@response_unit) %> |
+<%= link_to 'Back', response_units_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  textid: MyString
+  literal: MyString
+  intent: MyString
+  response_domain_all: 
+
+two:
+  textid: MyString
+  literal: MyString
+  intent: MyString
+  response_domain_all: 

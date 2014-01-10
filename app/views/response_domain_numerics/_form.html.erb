@@ -1,0 +1,38 @@
+<%= form_for(@response_domain_numeric) do |f| %>
+  <% if @response_domain_numeric.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@response_domain_numeric.errors.count, "error") %> prohibited this response_domain_numeric from being saved:</h2>
+
+      <ul>
+      <% @response_domain_numeric.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p>
+    <%= f.label :label, 'Description' %><br />
+    <%= f.text_field :label, :size => 120 %>
+    </p>
+    <p>
+    <%= f.label :numeric_type %><br />
+    <%= f.collection_select :numeric_type_id, NumericType.find(:all), :id, :label, :prompt => 'select a type' %>
+    </p>
+    <p>
+    <%= f.label :min %><br />
+    <%= f.text_field :min %>
+    </p>
+    <p>
+    <%= f.label :max %><br />
+    <%= f.text_field :max %>
+    </p>
+  </div>
+
+  <br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
