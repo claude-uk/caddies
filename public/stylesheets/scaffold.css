@@ -96,6 +96,10 @@ table.stripy tr.odd {
   background-color: AliceBlue;
 }
 
+table.qref tr td{
+  border: none;
+}
+
 th, td {
   padding: 2px 5px;
 }

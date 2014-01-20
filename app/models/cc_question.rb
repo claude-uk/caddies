@@ -1,7 +1,7 @@
 class CcQuestion < ActiveRecord::Base
   validates :textid, :presence => true, :uniqueness => true, :ascii_format => true, :no_spaces => true
-  validates_presence_of :question_item_id, :response_unit_id
-  belongs_to :question_item
+  validates_presence_of :question_reference_type, :question_reference_id, :response_unit_id
+  belongs_to :question_reference, :polymorphic => true
   belongs_to :response_unit
   has_many :cc_question_universes
   has_many :universes, :through => :cc_question_universes

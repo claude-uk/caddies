@@ -16,21 +16,8 @@
   <%= @cc_question.response_unit.text %>
 </p>
 
-<h2>Question Item</h2>
-<p>
-  <b>Id:</b>
-  <%= @cc_question.question_item.id %>
-</p>
-<p>
-  <b>Name:</b>
-  <%= @cc_question.question_item.textid %>
-</p>
-<p>
-  <b>Text:</b>
-</p>
-<p>
-  <%= text_area_tag "literal", @cc_question.question_item.literal, {:size => "100x4", :readonly => true} %>
-</p>
+<!-- evaluates question reference type and goes to appropriate partial (_question_item or _question_grid) automatically -->
+<%= render :partial => @cc_question.question_reference, :as => :q %>
 
 <h2>Universe</h2>
 <table>

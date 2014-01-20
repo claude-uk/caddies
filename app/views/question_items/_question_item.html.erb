@@ -1,0 +1,15 @@
+<h2>Question Item</h2>
+<p>
+  <b>Id:</b>
+  <%= q.id %>
+</p>
+<p>
+  <b>Name:</b>
+  <%= q.textid %>
+</p>
+<p>
+  <b>Text:</b>
+</p>
+<p>
+  <%= text_area_tag "literal", q.literal, {:size => "100x4", :readonly => true} %>
+</p>

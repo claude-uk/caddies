@@ -9,6 +9,7 @@
   <tr>
     <th>Id</th>
     <th>Name</th>
+    <th>Question Type Id</th>
     <th>Question Library Id</th>
     <th>Question Library Name</th>
     <th></th>
@@ -19,8 +20,9 @@
   <tr class="<%= cycle('odd', 'even') -%>">
     <td><%= cc_question.id %></td>
     <td><%= cc_question.textid %></td>
-    <td><%= cc_question.question_item.id %></td>
-    <td><%= cc_question.question_item.textid %></td>
+    <td><%= cc_question.question_reference_type %></td>
+    <td><%= cc_question.question_reference_id %></td>
+    <td><%= cc_question.question_reference.textid %></td>
     <td><%= link_to 'Show', cc_question %></td>
     <td><%= link_to 'Edit', edit_cc_question_path(cc_question) %></td>
     <!--td><%#= link_to 'Destroy', cc_question, :confirm => 'Are you sure?', :method => :delete %></td-->

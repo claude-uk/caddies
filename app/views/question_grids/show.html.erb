@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Textid:</b>
+  <%= @question_grid.textid %>
+</p>
+
+<p>
+  <b>Literal:</b>
+  <%= @question_grid.literal %>
+</p>
+
+<p>
+  <b>Intent:</b>
+  <%= @question_grid.intent %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_grid_path(@question_grid) %> |
+<%= link_to 'Back', question_grids_path %>

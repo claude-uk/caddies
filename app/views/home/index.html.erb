@@ -24,18 +24,22 @@
     <ul>
       <li><%= link_to "Interviewees", response_units_path %></li>
       <li><%= link_to "Universes", universes_path %></li>
-      <li><%= link_to "Question Library", question_items_path %></li>
+      <li>Question Library:</li>
       <ul>
-        <li>Tables of answer choices by type:</li>
+        <li><%= link_to "Question Items", question_items_path %> (Simple questions)</li>
+        <li><%= link_to "Question Grids", question_grids_path %> (Compound questions)</li>
         <ul>
-          <li><%= link_to "Text answers", response_domain_texts_path %></li>
-          <li><%= link_to "Numeric answers", response_domain_numerics_path %></li>
-          <li><%= link_to "Time and date answers", response_domain_datetimes_path %></li>
-          <li><%= link_to "Code answers", response_domain_codes_path %></li>
+          <li>Tables of answer choices by type:</li>
           <ul>
-            <li><%= link_to "Code Schemes", code_schemes_path %></li>
+            <li><%= link_to "Text answers", response_domain_texts_path %></li>
+            <li><%= link_to "Numeric answers", response_domain_numerics_path %></li>
+            <li><%= link_to "Time and date answers", response_domain_datetimes_path %></li>
+            <li><%= link_to "Code answers", response_domain_codes_path %></li>
             <ul>
-              <li><%= link_to "Categories", categories_path %></li>
+              <li><%= link_to "Code Schemes", code_schemes_path %></li>
+              <ul>
+                <li><%= link_to "Categories", categories_path %></li>
+              </ul>
             </ul>
           </ul>
         </ul>

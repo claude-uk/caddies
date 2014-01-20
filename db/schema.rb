@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215181431) do
+ActiveRecord::Schema.define(:version => 20140120104707) do
 
   create_table "categories", :force => true do |t|
     t.string   "label"
@@ -54,10 +54,11 @@ ActiveRecord::Schema.define(:version => 20130215181431) do
 
   create_table "cc_questions", :force => true do |t|
     t.string   "textid"
-    t.integer  "question_item_id"
+    t.integer  "question_reference_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "response_unit_id"
+    t.string   "question_reference_type"
   end
 
   create_table "cc_sequences", :force => true do |t|
@@ -122,6 +123,14 @@ ActiveRecord::Schema.define(:version => 20130215181431) do
   create_table "qi_rdas", :force => true do |t|
     t.integer  "question_item_id"
     t.integer  "response_domain_all_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "question_grids", :force => true do |t|
+    t.string   "textid"
+    t.string   "literal"
+    t.string   "intent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

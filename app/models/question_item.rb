@@ -5,7 +5,7 @@ class QuestionItem < ActiveRecord::Base
   validates :intent, :ascii_format => true
   has_many :qi_rdas, :dependent => :destroy
   accepts_nested_attributes_for :qi_rdas, :allow_destroy => true
-  has_many :cc_questions
+  has_many :cc_questions, :as => :question_reference
   has_many :response_domain_alls, :through => :qi_rdas
   scoped_search :on => [:literal, :intent]
   #named_scope :in_top_sequence, :conditions => { :used_in_top_sequence => true }
@@ -17,9 +17,12 @@ class QuestionItem < ActiveRecord::Base
 
   #used in question constructs, allow for 4 digit index
   def id_plus
-    id1 = "#{id}".rjust(4, '.')
+    #sep = '.'
+    sep = '~'
+    #sep = '&nbsp;'	#gets protected, shows literally
+    id1 = "#{id}".rjust(4, sep)
     id2 = "#{textid}"
-    id1 + '...' + id2
+    id1 + sep*3 + id2
   end
   
   def qi_Vid

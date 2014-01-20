@@ -3,7 +3,7 @@ class CcQuestionsController < ApplicationController
   # GET /cc_questions.xml
   def index
     #@cc_questions = CcQuestion.all
-    @cc_questions = CcQuestion.find(:all, :include => [:cc_all, :question_item])
+    @cc_questions = CcQuestion.find(:all, :include => [:cc_all, :question_reference])
 
     respond_to do |format|
       format.html # index.html.erb

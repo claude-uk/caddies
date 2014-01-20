@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'cc_questions' %>
+<% end %>
+
 <%= form_for(@cc_question) do |f| %>
   <% if @cc_question.errors.any? %>
     <div id="error_explanation">
@@ -18,15 +22,32 @@
   <div class="field">
     <%= f.label :response_unit, 'Interviewee' %><br />
     <!--%= f.text_field :response_unit, :size => 120 %-->
-    <%= f.collection_select :response_unit_id, ResponseUnit.find(:all), :id, :text, :prompt => 'select an interviewee' %>
+    <%= f.collection_select :response_unit_id, ResponseUnit.find(:all), :id, :text, {:include_blank => 'select an interviewee...'} %>
   </div>
+
+
   <div class="field">
-    <%= f.label :question_item, 'Question Item' %><br />
-    <%= f.collection_select :question_item_id, QuestionItem.find(:all), :id, :id_plus, :prompt => 'select a question item' %>
+    <%= f.label :question_reference, 'Question Reference' %><br />
+    <table class="qref">
+      <tr>
+        <td><%= f.radio_button :question_reference_type, 'QuestionItem' %></td>
+        <td>Question Item</td>
+        <!--td><%#= f.collection_select :question_reference_id, QuestionItem.find(:all), :id, :id_plus, {:include_blank => 'select a question item...'} %></td-->
+        <td><%= raw h(select_tag :qitem_id, options_from_collection_for_select(QuestionItem.find(:all), :id, :id_plus), {:include_blank => 'select a question item...'}).gsub(/~/,"&nbsp;") %></td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :question_reference_type, 'QuestionGrid' %></td>
+        <td>Question Grid</td>
+        <td><%= raw h(select_tag :qgrid_id, options_from_collection_for_select(QuestionGrid.find(:all), :id, :id_plus), {:include_blank => 'select a question grid...'}).gsub(/~/,"&nbsp;") %></td>
+      </tr>
+    </table>
+    <%= f.hidden_field :question_reference_id %>
   </div>
+
+
   <div class="field">
     <%= f.label :universes %><br />
-    <%= f.collection_select :universe_ids, Universe.find(:all), :id, :id_plus, {:prompt => 'select all universes'}, {:multiple => :true} %>
+    <%= f.collection_select :universe_ids, Universe.find(:all), :id, :id_plus, {:include_blank => 'select all relevant universes...'}, {:multiple => :true} %>
   </div>
 
   <div class="field">
