@@ -1,27 +1,57 @@
-<h1>Listing question_grids</h1>
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.16.custom' %>
+  <%= javascript_include_tag 'lib/jquery', 'jquery-ui-1.8.16.custom.min' %>
+<% end %>
 
-<table>
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Question Grids</h1>
+
+<%= link_to 'New Question Grid', new_question_grid_path %>
+
+<p>
+<div id="qgrids_search">
+  <%= form_tag question_grids_path, :method => :get do %>
+    <%= auto_complete_field_tag_jquery(:search, params[:search], {:placeholder => "Type Space For Search Options", :size => 50}) %>
+    <button id='submit_search' style="font-size: 12px;">Search</button>
+  <% end -%>
+</div>
+</p>
+
+<table class="stripy">
   <tr>
-    <th>Textid</th>
-    <th>Literal</th>
+    <th>Id</th>
+    <th>Name</th>
     <th>Intent</th>
     <th></th>
     <th></th>
+    <th>used</th>
+    <th>in top sequence</th>
     <th></th>
   </tr>
 
 <% @question_grids.each do |question_grid| %>
-  <tr>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= question_grid.id %></td>
     <td><%= question_grid.textid %></td>
-    <td><%= question_grid.literal %></td>
     <td><%= question_grid.intent %></td>
     <td><%= link_to 'Show', question_grid %></td>
     <td><%= link_to 'Edit', edit_question_grid_path(question_grid) %></td>
-    <td><%= link_to 'Destroy', question_grid, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if question_grid.used %>
+      <td>&#10004;</td>
+      <% if question_grid.used_in_top_sequence %>
+        <td>&#10004;</td>
+      <% else %>
+        <td>&#10006;</td>
+      <% end %>
+      <td></td>
+    <% else %>
+      <td>&#10006;</td>
+      <td></td>
+      <td><%= link_to 'Delete', question_grid, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Question grid', new_question_grid_path %>

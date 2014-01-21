@@ -2,7 +2,8 @@ class QuestionGridsController < ApplicationController
   # GET /question_grids
   # GET /question_grids.xml
   def index
-    @question_grids = QuestionGrid.all
+    @question_grids = QuestionGrid.search_for(params[:search]).includes(:cc_questions)
+    @instance = Instance.find(1)	#for xml output?
 
     respond_to do |format|
       format.html # index.html.erb

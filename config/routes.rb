@@ -60,6 +60,10 @@ Ddi3::Application.routes.draw do
     get :auto_complete_search, :on => :collection
   end
   
+  resources :question_grids do
+    get :auto_complete_search, :on => :collection
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

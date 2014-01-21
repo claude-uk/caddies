@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :textid %><br />
+    <%= f.label :textid, 'Name' %><br />
     <%= f.text_field :textid %>
   </div>
   <div class="field">
-    <%= f.label :literal %><br />
-    <%= f.text_field :literal %>
+    <%= f.label :literal, 'Question header text' %><br />
+    <%= f.text_area :literal, :cols => 100, :rows => 4 %>
   </div>
   <div class="field">
     <%= f.label :intent %><br />

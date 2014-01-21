@@ -1,13 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "question grids", :lk => question_grids_path}  %>
+
+<h1>Question Grid</h1>
+
+
 <p>
-  <b>Textid:</b>
+  <b>Id:</b>
+  <%= @question_grid.id %>
+</p>
+<p>
+  <b>Name:</b>
   <%= @question_grid.textid %>
 </p>
 
 <p>
-  <b>Literal:</b>
-  <%= @question_grid.literal %>
+  <b>Question header text:</b>
+  <p>
+  <%= text_area_tag "literal", @question_grid.literal, {:size => "100x4", :readonly => true} %>
+  </p>
 </p>
 
 <p>

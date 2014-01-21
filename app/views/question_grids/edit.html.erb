@@ -1,4 +1,11 @@
-<h1>Editing question_grid</h1>
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "question grids", :lk => question_grids_path}  %>
+
+<h1>Edit Question Grid</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @question_grid.id %>
+</p>
 
 <%= render 'form' %>
 
