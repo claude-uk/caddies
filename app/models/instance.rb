@@ -118,7 +118,7 @@ class Instance < ActiveRecord::Base
           collect_questions(cc_child)
         end
       elsif node.construct_type == 'CcQuestion'
-        self.qlist.push("|" + node.construct.textid + "|" + node.construct.question_item.intent.squish + "|" + node.construct.question_item.literal.squish) 
+        self.qlist.push("|" + node.construct.textid + "|" + node.construct.question_reference.intent.squish + "|" + node.construct.question_reference.literal.squish) 
       end
     end
 

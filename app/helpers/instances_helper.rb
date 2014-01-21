@@ -48,37 +48,41 @@ module InstancesHelper
 
     #node content, ie for questions
     if (node_class == "CcQuestion")
-      html << "<span class=\"question_content\">#{node.construct.question_item.literal}</span>\n"
-      html << '<ul>'
-      node.construct.question_item.response_domain_alls.each do |rda|
-        if rda.domain_type == 'ResponseDomainText'
-          html << "<li class=\"answer\">Text</li>"
-        elsif rda.domain_type == 'ResponseDomainNumeric'
-          #if rda.domain.label.present?
-          #  numeric = rda.domain.label
-          if rda.domain.numeric_type.label.present?
-            numeric = rda.domain.numeric_type.label          
-          else
-            numeric = 'Numeric'
-          end
-          html << "<li class=\"answer\">#{numeric}</li>"
-        elsif rda.domain_type == 'ResponseDomainDatetime'
-          if rda.domain.datetime_type.label.present?
-            datetime = rda.domain.datetime_type.label          
-          else
-            datetime = 'Datetime'
-          end
-          html << "<li class=\"answer\">#{datetime}</li>"
-        elsif rda.domain_type == 'ResponseDomainCode'
-          #html << "<li class=\"answer\">Code</li>"
-          html << "<li class=\"codeanswer\"><ul class=\"codes\">\n"
-          rda.domain.code_scheme.codes.each do |code|
-            html << "<li class=\"code\">#{code.category.label}</li>\n"
-          end
-          html << "</li></ul>"
-        end
+      html << "<span class=\"question_content\">#{node.construct.question_reference.literal}</span>\n"
+      if (node.construct.question_reference_type == 'QuestionItem')
+      	html << '<ul>'
+				node.construct.question_reference.response_domain_alls.each do |rda|
+					if rda.domain_type == 'ResponseDomainText'
+						html << "<li class=\"answer\">Text</li>"
+					elsif rda.domain_type == 'ResponseDomainNumeric'
+						#if rda.domain.label.present?
+						#  numeric = rda.domain.label
+						if rda.domain.numeric_type.label.present?
+							numeric = rda.domain.numeric_type.label          
+						else
+							numeric = 'Numeric'
+						end
+						html << "<li class=\"answer\">#{numeric}</li>"
+					elsif rda.domain_type == 'ResponseDomainDatetime'
+						if rda.domain.datetime_type.label.present?
+							datetime = rda.domain.datetime_type.label          
+						else
+							datetime = 'Datetime'
+						end
+						html << "<li class=\"answer\">#{datetime}</li>"
+					elsif rda.domain_type == 'ResponseDomainCode'
+						#html << "<li class=\"answer\">Code</li>"
+						html << "<li class=\"codeanswer\"><ul class=\"codes\">\n"
+						rda.domain.code_scheme.codes.each do |code|
+							html << "<li class=\"code\">#{code.category.label}</li>\n"
+						end
+						html << "</li></ul>"
+					end
+				end
+				html << '</ul>'
+			else
+				html << "<ul><li class=\"grid\"></li></ul>"
       end
-      html << '</ul>'
     end
     
     

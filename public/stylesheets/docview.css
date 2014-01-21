@@ -41,6 +41,14 @@
   	font-family: Georgia, serif;
 }
 
+.doctree li.grid {
+	display: block;
+	background: url(/images/grid.png) 0 0 no-repeat;
+	width: 121px;
+	height: 46px;
+	margin: 10px 36px;
+}
+
 .doctree li.answer {
 	padding: 1px 10px 1px 10px;
 	margin: 10px 36px;
