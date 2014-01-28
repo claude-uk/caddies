@@ -1,0 +1,39 @@
+<table class=biggrid>
+  <tr>
+	<th>
+	<% if @question_grid.corner_label == 'Vertical' and @question_grid.vertical_codelist.present? %>
+		<%= @question_grid.vertical_codelist.label %>
+	<% elsif @question_grid.corner_label == 'Horizontal' %>
+	    <%= @question_grid.horizontal_codelist.label %>
+	<% end %>
+	</th>
+
+	<% @question_grid.horizontal_codelist.codes.each do |code| %>
+    	<th><%= code.category.label %></th>
+	<% end %>
+  </tr>
+
+  <% if !@question_grid.vertical_codelist.nil? %>
+	  <% @question_grid.vertical_codelist.codes.each do |code| %>
+			<tr>
+			  <td><%= code.category.label %></td>
+			  <% @question_grid.horizontal_codelist.codes.each do %>
+				<td>&nbsp;</td>
+			  <% end %>
+			</tr>
+	  <% end %>
+  <% end %>
+  <% for i in 1..@question_grid.vertical_roster_rows %>
+    <tr>
+		<% if i == 1 and @question_grid.vertical_roster_label.present? %>
+		  <td class="rosterlabel"><%= @question_grid.vertical_roster_label %></td>
+		<% else %>
+		  <td>&nbsp;</td>
+		<% end %>
+		<% @question_grid.horizontal_codelist.codes.each do %>
+		  <td>&nbsp;</td>
+		<% end %>
+    </tr>
+  <% end %>
+</table>
+

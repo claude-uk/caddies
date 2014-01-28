@@ -23,6 +23,37 @@
     <%= f.label :intent %><br />
     <%= f.text_field :intent %>
   </div>
+
+  <h2>Grid frame</h2>
+
+  <div class="field">
+    <%= f.label :top_corner_label %><br />
+    <%= f.select :corner_label, %w[Vertical Horizontal], {:include_blank => 'select code list for label or none...'} %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :horizontal_headers %><br />
+    <%= raw h(f.collection_select :horizontal_codelist_id, CodeScheme.find(:all), :id, :label_with_id, {:include_blank => 'select a code list...'}).gsub(/~/,"&nbsp;") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :vertical_headers %><br />
+    <%= raw h(f.collection_select :vertical_codelist_id, CodeScheme.find(:all), :id, :label_with_id, {:include_blank => 'select a code list...'}).gsub(/~/,"&nbsp;") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :editable_vertical_header_rows %><br />
+    <%= f.number_field :vertical_roster_rows %>
+  </div>
+
+  <div class="field">
+    <%= f.label :editable_vertical_header_label %><br />
+    <%= f.text_field :vertical_roster_label %>
+  </div>
+
+  <h2>Answer fields</h2>
+
   <div class="actions">
     <%= f.submit %>
   </div>

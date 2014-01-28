@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140120104707) do
+ActiveRecord::Schema.define(:version => 20140123183320) do
 
   create_table "categories", :force => true do |t|
     t.string   "label"
@@ -133,6 +133,11 @@ ActiveRecord::Schema.define(:version => 20140120104707) do
     t.string   "intent"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "vertical_codelist_id"
+    t.integer  "vertical_roster_rows",   :default => 0
+    t.string   "vertical_roster_label"
+    t.integer  "horizontal_codelist_id"
+    t.string   "corner_label"
   end
 
   create_table "question_items", :force => true do |t|

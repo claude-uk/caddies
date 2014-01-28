@@ -26,6 +26,38 @@
   <%= @question_grid.intent %>
 </p>
 
+<h2>Grid frame</h2>
+
+<p>
+  <b>Top corner label:</b>
+  <%= @question_grid.corner_label %>
+</p>
+
+<p>
+  <b>Horizontal headers:</b>
+  <%= @question_grid.horizontal_codelist.label unless @question_grid.horizontal_codelist.nil? %>
+</p>
+
+<p>
+  <b>Vertical headers:</b>
+  <%= @question_grid.vertical_codelist.label unless @question_grid.vertical_codelist.nil? %>
+</p>
+
+<p>
+  <b>Editable vertical header rows:</b>
+  <%= @question_grid.vertical_roster_rows %>
+</p>
+
+<p>
+  <b>Editable vertical header label:</b>
+  <%= @question_grid.vertical_roster_label %>
+</p>
+
+<p>
+<%= render 'table' %>
+</p>
+
+<h2>Answer fields</h2>
 
 <%= link_to 'Edit', edit_question_grid_path(@question_grid) %> |
 <%= link_to 'Back', question_grids_path %>

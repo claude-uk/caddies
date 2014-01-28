@@ -6,8 +6,9 @@ class CodeScheme < ActiveRecord::Base
   accepts_nested_attributes_for :codes, :allow_destroy => true
 	
   def label_with_id
-    t = "#{id}".rjust(2, '.')
-    t + '...' + "#{label}"
+    sep = '~'
+    t = "#{id}".rjust(2, sep)
+    t + sep*3 + "#{label}"
   end
 
   def used

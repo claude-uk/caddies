@@ -100,8 +100,31 @@ table.qref tr td{
   border: none;
 }
 
+table.biggrid, table.biggrid th {
+  border: medium solid;
+  border-color: #7092bd;
+}
+
+table.biggrid td{
+  border: thin solid;
+  border-color: #7092bd;
+}
+
+table.biggrid tr td:first-child {
+  border-right: medium solid;
+  border-color: #7092bd;
+}
+
 th, td {
   padding: 2px 5px;
+}
+
+table.biggrid tr td.rosterlabel {
+  padding-left: 0;
+  padding-top: 0;
+  vertical-align: top;
+  font-size: 60%;
+  #color: grey;
 }
 
 select {

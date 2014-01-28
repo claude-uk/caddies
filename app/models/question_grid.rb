@@ -2,7 +2,11 @@ class QuestionGrid < ActiveRecord::Base
   validates :textid, :presence => true, :uniqueness => true, :ascii_format => true, :no_spaces => true
   validates :literal, :presence => true, :ascii_format => true
   validates :intent, :ascii_format => true
+  validates_numericality_of :vertical_roster_rows, :only_integer => true, :allow_nil => true
+  validates_presence_of :horizontal_codelist_id		#but verticals could be all roster
   has_many :cc_questions, :as => :question_reference
+  belongs_to :vertical_codelist, :class_name => 'CodeScheme'
+  belongs_to :horizontal_codelist, :class_name => 'CodeScheme'
   scoped_search :on => [:literal, :intent]
 
 
