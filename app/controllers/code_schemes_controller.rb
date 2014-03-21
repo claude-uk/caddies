@@ -91,12 +91,14 @@ class CodeSchemesController < ApplicationController
        row_hash = {:id => row, :_destroy => '1' }
        params[:code_scheme][:codes_attributes] << row_hash
      end     
-#     render :text => params.inspect
+     #render :text => params.inspect
 
     @code_scheme = CodeScheme.find(params[:id])
 
     respond_to do |format|
       if @code_scheme.update_attributes(params[:code_scheme])
+      	@code_scheme.reload
+        @code_scheme.reset_question_grids()			#it's after the update to access the new set of codes
         format.html { redirect_to(@code_scheme, :notice => 'Code scheme was successfully updated.') }
         format.xml  { head :ok }
       else

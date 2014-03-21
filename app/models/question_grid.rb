@@ -5,6 +5,9 @@ class QuestionGrid < ActiveRecord::Base
   validates_numericality_of :vertical_roster_rows, :only_integer => true, :allow_nil => true
   validates_presence_of :horizontal_codelist_id		#but verticals could be all roster
   has_many :cc_questions, :as => :question_reference
+  has_many :columns, :class_name => 'QgridRda', :dependent => :destroy, :include => [:code], :order => 'codes.cs_order ASC'
+  accepts_nested_attributes_for :columns, :allow_destroy => true
+  #has_many :response_domain_alls, :through => :columns
   belongs_to :vertical_codelist, :class_name => 'CodeScheme'
   belongs_to :horizontal_codelist, :class_name => 'CodeScheme'
   scoped_search :on => [:literal, :intent]

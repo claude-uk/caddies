@@ -31,6 +31,33 @@
 <% end %>
 </table>
 
+<h2>Used in the following question grids:</h2>
+<p>
+<label class="instruction">In addition to being used in answers, code schemes can be used for the headers of question grids.</label>
+</p>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Header</th>
+  </tr>
+  <% @code_scheme.question_grids_h.each do |grid| %>
+    <tr>
+      <td><%= grid.id %></td>
+      <td><%= grid.textid %></td>
+      <td>Horizontal</td>
+    </tr>
+  <% end %>
+  <% @code_scheme.question_grids_v.each do |grid| %>
+    <tr>
+      <td><%= grid.id %></td>
+      <td><%= grid.textid %></td>
+      <td>Vertical</td>
+    </tr>
+  <% end %>
+</table>
+
 <br />
 
 <%= link_to 'Edit', edit_code_scheme_path(@code_scheme) %> |

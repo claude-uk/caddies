@@ -36,4 +36,17 @@ class ResponseDomainAll < ActiveRecord::Base
       rd_label = domain.code_scheme.label || "code"
     end
   end
+
+  def specific_type
+    type = response_domain_type.label
+    if type == "text"
+      stype = "text"
+    elsif type == "code"
+      stype = "code"
+    elsif type == "numeric"
+      stype = domain.numeric_type.label
+    elsif type == "datetime"
+      stype = domain.datetime_type.label
+    end
+  end
 end

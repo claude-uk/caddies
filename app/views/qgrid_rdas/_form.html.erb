@@ -1,0 +1,22 @@
+<%= form_for(@qgrid_rda) do |f| %>
+  <% if @qgrid_rda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@qgrid_rda.errors.count, "error") %> prohibited this qgrid_rda from being saved:</h2>
+
+      <ul>
+      <% @qgrid_rda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :answers %><br />
+    <%= raw h(f.collection_select :response_domain_all_id, ResponseDomainAll.all, :id, :id_plus2, {:include_blank => 'select answers...'}, {:style => 'visibility: visible; width: 600px'}).gsub(/~/,"&nbsp;") %>
+  </div>
+
+ <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

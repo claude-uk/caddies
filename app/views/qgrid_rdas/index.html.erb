@@ -1,0 +1,21 @@
+<h1>Listing qgrid_rdas</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @qgrid_rdas.each do |qgrid_rda| %>
+  <tr>
+    <td><%= link_to 'Show', qgrid_rda %></td>
+    <td><%= link_to 'Edit', edit_qgrid_rda_path(qgrid_rda) %></td>
+    <td><%= link_to 'Destroy', qgrid_rda, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Qgrid rda', new_qgrid_rda_path %>

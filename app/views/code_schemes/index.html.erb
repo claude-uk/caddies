@@ -11,7 +11,8 @@
     <th>Short Description</th>
     <th></th>
     <th></th>
-    <th>used</th>
+    <th>used in answers</th>
+    <th>used in q. grids</th>
     <th></th>
   </tr>
 
@@ -21,12 +22,23 @@
     <td><%= code_scheme.label %></td>
     <td><%= link_to 'Show', code_scheme %></td>
     <td><%= link_to 'Edit', edit_code_scheme_path(code_scheme) %></td>
+    <% flag = 0 %>
     <% if code_scheme.used %>
       <td>&#10004;</td>
-      <td></td>
+      <% flag += 1 %>
     <% else %>
       <td>&#10006;</td>
+    <% end %>
+    <% if code_scheme.used_in_question_grids %>
+      <td>&#10004;</td>
+      <% flag += 1 %>
+    <% else %>
+      <td>&#10006;</td>
+    <% end %>
+    <% if flag == 0 %>
       <td><%= link_to 'Delete', code_scheme, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% else %>
+      <td></td>
     <% end %>
   </tr>
 <% end %>

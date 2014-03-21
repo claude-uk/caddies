@@ -41,6 +41,17 @@ class QuestionGridsController < ApplicationController
   # POST /question_grids
   # POST /question_grids.xml
   def create
+    #I create and add the column params from the existing params so that the columns are created as nested attributes
+    cols = CodeScheme.find(params[:question_grid][:horizontal_codelist_id]).codes
+    carray = []
+    cols.each do |col|
+      c = Hash.new
+    	c[:code_id] = col.id
+    	carray.push(c)
+    end
+    params[:question_grid][:columns_attributes] = carray
+    #render :text => params.inspect
+
     @question_grid = QuestionGrid.new(params[:question_grid])
 
     respond_to do |format|
@@ -58,6 +69,30 @@ class QuestionGridsController < ApplicationController
   # PUT /question_grids/1.xml
   def update
     @question_grid = QuestionGrid.find(params[:id])
+    #if the horizontal codelist is changed, I reset the columns
+    if @question_grid.horizontal_codelist_id.to_s != params[:question_grid][:horizontal_codelist_id]
+    	#render :text => @question_grid.horizontal_codelist_id.to_s + ' diff ' + params[:question_grid][:horizontal_codelist_id]
+    	carray = []
+    	#columns to destroy
+    	#@question_grid.columns.destroy_all()
+    	@question_grid.columns.each do |col|
+    		c = Hash.new
+    		c[:id] = col.id
+    		c[:_destroy] = '1'
+    		carray.push(c)
+    	end
+    	#columns to add
+    	cols = CodeScheme.find(params[:question_grid][:horizontal_codelist_id]).codes
+    	cols.each do |col|
+      	c = Hash.new
+    		c[:code_id] = col.id
+    		carray.push(c)
+    	end
+    	params[:question_grid][:columns_attributes] = carray
+      #render :text => params.inspect
+    #else
+      #render :text => params.inspect
+    end
 
     respond_to do |format|
       if @question_grid.update_attributes(params[:question_grid])

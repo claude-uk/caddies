@@ -1,4 +1,5 @@
 <table class=biggrid>
+  <!--header row-->
   <tr>
 	<th>
 	<% if @question_grid.corner_label == 'Vertical' and @question_grid.vertical_codelist.present? %>
@@ -9,10 +10,43 @@
 	</th>
 
 	<% @question_grid.horizontal_codelist.codes.each do |code| %>
+	<!--% @question_grid.columns.each do |code| %-->
     	<th><%= code.category.label %></th>
 	<% end %>
   </tr>
 
+  <!--response domains-->
+  <tr class="response_domains1">
+    <td>Edit answers:</td>
+	<% @question_grid.columns.each do |column| %>
+		<% if column.response_domain_all.present? %>
+	    	<td><%= link_to column.response_domain_all.anylabel, edit_qgrid_rda_path(column) %></td>
+	    <% else %>
+	    	<td><%= link_to "none", edit_qgrid_rda_path(column) %></td>
+	    <% end %>
+	<% end %>
+  </tr>
+
+  <tr class="response_domains2">
+    <td></td>
+	<% @question_grid.columns.each do |column| %>
+		<% if column.response_domain_all.present? %>
+	    	<% if column.response_domain_all.domain_type != "ResponseDomainCode" %>
+	    	    <td><%= column.response_domain_all.specific_type %></td>
+	    	<% else %>
+	     	    <td class="code"><ul>
+	    	    <% column.response_domain_all.domain.code_scheme.codes.each do |code| %>
+	    	    	<li class="code"><span class="value"><%= code.cs_value %></span>-<%= code.category.label %></li>
+		    	<% end %>
+		    	</ul></td>
+		    <% end %>
+	    <% else %>
+	    	    <td></td>
+	    <% end %>
+	<% end %>
+  </tr>
+
+  <!--other rows-->
   <% if !@question_grid.vertical_codelist.nil? %>
 	  <% @question_grid.vertical_codelist.codes.each do |code| %>
 			<tr>
@@ -35,5 +69,6 @@
 		<% end %>
     </tr>
   <% end %>
+
 </table>
 

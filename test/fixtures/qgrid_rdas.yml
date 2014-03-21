@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  question_grid: 
+  response_domain_all: 
+  column_idx: 1
+
+two:
+  question_grid: 
+  response_domain_all: 
+  column_idx: 1

@@ -1,6 +1,8 @@
 Ddi3::Application.routes.draw do
   resources :question_grids
 
+  resources :qgrid_rdas
+
   resources :response_units
 
   resources :instances

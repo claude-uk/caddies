@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140123183320) do
+ActiveRecord::Schema.define(:version => 20140129154947) do
 
   create_table "categories", :force => true do |t|
     t.string   "label"
@@ -116,6 +116,14 @@ ActiveRecord::Schema.define(:version => 20140123183320) do
 
   create_table "numeric_types", :force => true do |t|
     t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "qgrid_rdas", :force => true do |t|
+    t.integer  "question_grid_id"
+    t.integer  "code_id"
+    t.integer  "response_domain_all_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

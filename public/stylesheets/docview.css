@@ -4,15 +4,21 @@
 	list-style: none;
 }
 
-#.doctree ul.codes {
-	#list-style-image: url('/images/sqyellow.png');
-	#list-style: square url("/images/sqyellow.png");
-#}
+/*
+.doctree ul.codes {
+	list-style-image: url('/images/sqyellow.png');
+	list-style: square url("/images/sqyellow.png");
+}
+*/
 
 .doctree li.code { 
 	padding: 0;
 	margin: 0;
 	list-style: square url("/images/sqyellow.png");
+}
+
+.doctree li.code span.cs_value { 
+	font-weight: bold;
 }
 
 .doctree span.error { 
@@ -37,10 +43,11 @@
 .doctree span.question_content {
 	padding: 1px 0 1px 18px;
 	display: block;
-  	#font-family: "Comic Sans MS", cursive, sans-serif;
+  	/*font-family: "Comic Sans MS", cursive, sans-serif;*/
   	font-family: Georgia, serif;
 }
 
+/*
 .doctree li.grid {
 	display: block;
 	background: url(/images/grid.png) 0 0 no-repeat;
@@ -48,6 +55,7 @@
 	height: 46px;
 	margin: 10px 36px;
 }
+*/
 
 .doctree li.answer {
 	padding: 1px 10px 1px 10px;
@@ -60,17 +68,90 @@
 }
 
 .doctree li.codeanswer {
-	#padding: 1px 10px 1px 10px;
+	/*padding: 1px 10px 1px 10px;*/
 	margin: 10px 18px;
-	#display: block;
+	/*display: block;*/
   	font-family: Georgia, serif;
+}
+
+/*
+.doctree li.docgrid {
+	display: block;
+	margin-right: auto;
+}
+*/
+
+.doctree table.docgrid {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 18px;
+	display: block;
+  	border: none solid;
+  	border-color: #7092bd;
+  	font-size: 80%;
+}
+
+.doctree table.docgrid th {
+  	border: thin solid;
+  	border-color: #7092bd;
+  	/*font-weight: normal;*/
+}
+
+.doctree table.docgrid tr.responsedomains {
+	background: #eee;
+	text-align: center;
+	vertical-align: center;
+}
+
+.doctree table.docgrid td{
+  	border: thin solid;
+  	border-color: #7092bd;
+  	font-size: inherit;
+}
+
+/*
+.doctree table.docgrid tr.responsedomains td.code{
+	text-align: left;
+	vertical-align: top;
+  	font-size: 80%;
+  	line-height: 90%;
+}
+*/
+
+.doctree table.docgrid td.gridcode{
+	text-align: left;
+	vertical-align: top;
+}
+
+.doctree table.docgrid tr.responsedomains td.gridcode ul{
+	list-style-type: none;
+	margin-left: 0px;
+	margin-top: 5px;
+	padding: 0px;
+  	font-size: 80%;
+  	line-height: 90%;
+}
+
+.doctree table.docgrid tr.responsedomains td.gridcode li.gridcode span.value{
+	font-weight: bold;
+}
+
+.doctree table.docgrid td.rosterlabel{
+	padding-left: 0;
+	padding-top: 0;
+	vertical-align: top;
+  	font-size: 80%;
+}
+
+.doctree table.docgrid td.answer{
+	background: LightYellow;
 }
 
 .doctree span.CcStatement {
 	padding: 1px 0 1px 18px;
 	background: url(/images/comment.png) 0 0 no-repeat;
 	display: block;
-  	#font-family: "Comic Sans MS", cursive, sans-serif;
+  	/*font-family: "Comic Sans MS", cursive, sans-serif;*/
   	font-family: Georgia, serif;
 }
 
