@@ -87,7 +87,7 @@ function edit_row(index) {
     //document.getElementById('newcat_id').selectedIndex = document.getElementById('sortable1').rows[index].cells[1].innerHTML;
     //select by value
     sel = document.getElementById('newcat_id');
-    val = document.getElementById('sortable1').rows[index].cells[1].innerHTML;
+    val = document.getElementById('sortable1').rows[index].cells[2].innerHTML;
     for (i=0; i<sel.options.length; i++) {
       if (sel.options[i].value == val) {
 	sel.selectedIndex = i;

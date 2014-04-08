@@ -62,7 +62,17 @@ module InstancesHelper
 						else
 							numeric = 'Numeric'
 						end
-						html << "<li class=\"answer\">#{numeric}</li>"
+						if rda.domain.min.present?
+							from = rda.domain.min         
+						else
+							from = '~'
+						end
+						if rda.domain.max.present?
+							to = rda.domain.max          
+						else
+							to = '~'
+						end
+						html << "<li class=\"answer\">#{numeric} (#{from} to #{to})</li>"
 					elsif rda.domain_type == 'ResponseDomainDatetime'
 						if rda.domain.datetime_type.label.present?
 							datetime = rda.domain.datetime_type.label          

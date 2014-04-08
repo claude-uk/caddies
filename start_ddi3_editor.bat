@@ -1,3 +1,3 @@
 rails server -p 3000
-#start rails server -p 3000
-#start rails server -p 3030
+rem start rails server -p 3000
+rem start rails server -p 3030

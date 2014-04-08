@@ -1,0 +1,318 @@
+<ddi:DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd"
+		xmlns:d="ddi:datacollection:3_2"
+		xmlns:ddi="ddi:instance:3_2"
+		xmlns:g="ddi:group:3_2"
+		xmlns:l="ddi:logicalproduct:3_2"
+		xmlns:r="ddi:reusable:3_2"
+		xmlns:pr="ddi:ddiprofile:3_2"
+		xmlns:xhtml="http://www.w3.org/1999/xhtml"
+		versionDate="2014-04-04">
+  <r:URN>urn:ddi:uk.cls:caddies_v012:1.0.0</r:URN>	
+  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-04-04">      
+      <r:URN>urn:ddi:uk.cls:caddies_v012_profile_3_2:1.0.0</r:URN>	
+      <pr:DDIProfileName><r:String xml:lang="en-GB">DDI3.2 Profile as implemented in CADDIES version 0.12</r:String></pr:DDIProfileName>
+      <r:Label><r:Content xml:lang="en-GB">CADDIES v0.12 DDI3.2 Profile</r:Content></r:Label>
+      <r:Description><r:Content xml:lang="en_GB">
+        <xhtml:pre>
+          DDI3.2 Profile as implemented in CADDIES v0.12 and exportable as xml.
+          In this document, I explicitely include as Used the elements implemented in the software.
+          Contrary to DDI specifications, I do not assume that all the child-elements of a Used element are used.
+          I specify the xpath predicate [1] when I implement a non-repeatable version of a repeatable DDI element.
+          I assume and do not explicitely specify NotUsed with predicate [position()>1] for further sibling elements.
+          I assume the default Description from the DDI specifications.
+          I specify the terminology used in the GUI in the AlternateName element.
+          I specify in the Instructions element any validation implemented in the GUI.
+          Additional terminology and validation which relate to the database schema only are used in the GUI and are not specified here.
+          For every text element I assume a fixed attribute xml:lang="en-GB".
+          The versionDate attribute is an ISO timestamp of the date and time the file was generated.
+          I do not specify how all the attributes are used.
+          The universe element is not used as it is assumed that it will be computed from the control construct scheme.
+          For every element the mandatory child element r:URN is implied.
+        </xhtml:pre>
+      </r:Content></r:Description>
+      <pr:XPathVersion>2.0</pr:XPathVersion>
+      <pr:DDINamespace>3.2</pr:DDINamespace>
+      
+
+      <pr:Used path="/ddi:DDIInstance/r:Citation" />
+      <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title" />
+      <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title/r:String[1]" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/s:Purpose" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/s:Purpose/r:Content[1]" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme[1]">
+        <pr:AlternateName xml:lang="en">spine</pr:AlternateName>
+      </pr:Used>
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName/r:String[1]" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command">
+        <pr:Instructions xml:lang="en">validation: only_integer allow_nil</pr:Instructions>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition">
+        <pr:AlternateName xml:lang="en">condition</pr:AlternateName>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command">
+        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference//r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct">
+        <pr:AlternateName xml:lang="en">question component</pr:AlternateName>
+      </pr:Used>
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference">
+        <pr:Instructions xml:lang="en">validation: presence</pr:Instructions>
+      </pr:Used>             
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ResponseUnit">
+        <pr:Instructions xml:lang="en">validation: presence</pr:Instructions>
+      </pr:Used>             
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText/d:Text" />
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:TypeOfObject" />
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme[1,2]">
+        <pr:AlternateName xml:lang="en">question library</pr:AlternateName>
+        <pr:Instructions xml:lang="en">one scheme for question items, one for question grids</pr:Instructions>
+      </pr:Used>      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName/r:String[1]" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText/d:Text">
+        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionIntent">
+        <pr:Instructions xml:lang="en">validation: ascii_format</pr:Instructions>
+      </pr:Used> 
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:TypeOfObject" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:TypeOfObject" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/d:InstructionAttachmentLocation[1]">
+        <pr:Instructions xml:lang="en">ddi3.2 reference pages too unclear to further specify</pr:Instructions>
+      </pr:Used>       
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText/d:Text">
+        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionIntent">
+        <pr:Instructions xml:lang="en">validation: ascii_format</pr:Instructions>
+      </pr:Used> 
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension[1,2]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension[1]/d:Roster" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label/r:Content[1]" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:TypeOfObject" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:TypeOfObject" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined/d:SelectDimension[1,2]" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/d:InstructionAttachmentLocation[1]" >
+        <pr:Instructions xml:lang="en">ddi3.2 reference too unclear to further specify</pr:Instructions>
+      </pr:Used>       
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText/d:Text" />
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label/r:Content[1]">
+        <pr:AlternateName xml:lang="en">category text</pr:AlternateName>
+        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
+      </pr:Used> 
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName/r:String[1]" />
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label/r:Content[1]">
+        <pr:AlternateName xml:lang="en">short description</pr:AlternateName>
+        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
+      </pr:Used>       
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference/r:TypeOfObject" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:Value" />
+
+
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme">
+        <pr:Instructions xml:lang="en">one scheme for each type of representation used: text, numeric, datetime</pr:Instructions>
+      </pr:Used>
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName/r:String[1]" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label/r:Content[1]" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label/r:Content[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:Low" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:High" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumericTypeCode" />
+      
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label/r:Content[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateFieldFormat" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateTypeCode" />
+      
+  </pr:DDIProfile>
+</ddi:DDIInstance>

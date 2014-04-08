@@ -32,7 +32,7 @@
     <p>
     This website edits survey metadata held in a relational database.
     <br/>
-    The database schema (architecture) is based on the ddi3 xml schema.
+    The database schema (architecture) is based on the ddi3 xml schema, ddi3.1 for Caddies v0.11, ddi3.2 for Caddies v0.12 onwards.
     <br/>
     This means that duplication is held to a minimum and that editable fields for a given object
     are usually set by reference to objects in another table, in practice through menu options.
@@ -63,8 +63,8 @@
   </p>
   <p>
   <b>Xml library</b> shows the metadata in ddi3 xml format.
-  In contrast to <em>xml compact</em>, it includes all the library-type elements, such as the question items or code schemes, whether they are used in the top sequence or not.
-  <em>Xml library</em> may be used to output the intermediate stages of building a ddi3 instance file or to explicitely capture a question library or a code scheme set.
+  In contrast to <em>xml compact</em>, it includes all the library-type elements, such as the question items or code lists, whether they are used in the top sequence or not.
+  <em>Xml library</em> may be used to output the intermediate stages of building a ddi3 instance file or to explicitely capture a question library or a code list scheme.
   Neither <em>xml compact</em> nor <em>xml library</em> includes the questionnaire components used in the attic.
   </p>
   <p>
@@ -89,7 +89,7 @@
   The tree-view components are collapsible and right-clicking on the name accesses the <em>view</em> and <em>edit</em> page of the component.
   </p>
   <p>
-  The attic is a scratchpad to help with editing. Its components are not included in the xml file, but the categories, code schemes, questions items are included as they may be used elsewhere.
+  The attic is a scratchpad to help with editing. Its components are not included in the xml file, but the categories, code lists, questions items are included as they may be used elsewhere.
   </p>
 
   <a id='categories'></a>
@@ -100,7 +100,7 @@
     </p>
     <h3>Listing and viewing categories</h3>
       The index page lists all categories by default or the results of the search option.
-      Categories are deletable provided they are not used in any code scheme.
+      Categories are deletable provided they are not used in any code list.
     <h3>Adding a new category</h3>
       <ul>
         <li>From the home page 'Questionnaire' go to 'Categories'.</li>
@@ -113,22 +113,22 @@
       </ul>
     <h3>Editing a category</h3>
     <p>
-      If you edit the text of a category, as it is used by reference, it will be changed in all the code schemes where it is used.
+      If you edit the text of a category, as it is used by reference, it will be changed in all the code lists where it is used.
     </p>
 
   <a id='code_schemes'></a>
-  <h2>Code schemes</h2>
+  <h2>Code lists</h2>
     <p>
-    Code schemes are the lists of multiple choices with their associated codes or values, e.g. <em>yes 1, no 0</em>.
-    Again, you only need to create a code scheme once, even if it appears in more than one question.
-    Code schemes are deletable provided they are not used in any code answer.
+    Code lists are the lists of multiple choices with their associated codes or values, e.g. <em>yes 1, no 0</em>.
+    Again, you only need to create a code list once, even if it appears in more than one question.
+    Code lists are deletable provided they are not used in any code answer or question grid.
     </p>
-    <h3>Adding a new code scheme</h3>
+    <h3>Adding a new code list</h3>
       <ul>
-        <li>From the home page 'Questionnaire' go to 'Code Schemes'.</li>
-        <li>Click on 'New code scheme' at the top of the list.</li>
-        <li>In 'New Code Scheme', enter your short description, for example the name of the question where it is used or <em>yesno</em> or <em>months</em>
-          for the more generic code schemes.</li>
+        <li>From the home page 'Questionnaire' go to 'Code Lists'.</li>
+        <li>Click on 'New code list' at the top of the list.</li>
+        <li>In 'New Code List', enter your short description, for example the name of the question where it is used or <em>yesno</em> or <em>months</em>
+          for the more generic code lists.</li>
         <li>Select a category from the menu, add its value or code (1, 2, 3... or X, Y, Z...), click on <em>add to list</em>, repeat for all choices.</li>
         <li>Drag-and-drop the rows in the table if you want to change the order.</li>
         <li>Click on 'Create'.</li>
@@ -142,14 +142,14 @@
     Any of the answer types are deletable provided they are not used in any question item.
     </p>
     <p>
-    For code answers, all that is required is to assign a code scheme to a new code answer.
-    The code answer takes on the name of the code scheme.
+    For code answers, all that is required is to assign a code list to a new code answer.
+    The code answer takes on the name of the code list.
     </p>
     <h3>Adding a new code answer</h3>
       <ul>
         <li>From the home page 'Questionnaire' go to 'Code answers'.</li>
         <li>Click on 'New Code answer' at the top of the list.</li>
-        <li>In 'New Code answer', select the code scheme.</li>
+        <li>In 'New Code answer', select the code list.</li>
         <li>Click on 'Create'.</li>
         <li>A new linked entry in the table 'All Answers' is automatically created in the background.</li>
         <li>Go back to questionnaire.</li>
@@ -215,13 +215,17 @@
       </ul>
 
   <a id='question_items'></a>
+  <a id='question_grids'></a>
+  <a id='qgrid_rdas'></a>
   <h2>Question library</h2>
     <p>
-    The question library contains question items which are made up of the text of a question and of the possible answers.
-    They are to be thought of as context-free items which can then be used or instantiated in a questionnaire as part of a question component.
+    The question library contains simple question items and more complex question grids. The question items are made up of the text of a question and of the possible answers.
+    They may also contain interviewer instructions. The question grids also have the main text of the question and optional interviewer instructions.
+    They then have a grid layout which is made up of the horizontal and vertical headers and of the possible answers for each column.
+    Both question items and grids are to be thought of as context-free items which can then be used or instantiated in a questionnaire as part of a question component.
     </p>
 
-    <h3>Listing the question items</h3>
+    <h3>Listing the question items or question grids</h3>
     <p>
     The search box operates on the fields <em>Intent</em> and <em>Literal</em>.
     The question items are deletable provided they are not used in any question component no matter whether it is in the top sequence or in the attic.
@@ -229,8 +233,8 @@
 
     <h3>Adding a new question item</h3>
       <ul>
-        <li>From the home page 'Questionnaire' go to 'Question library (question items)'.</li>
-        <li>Click on 'New question item' at the bottom of the list.</li>
+        <li>From the home page 'Questionnaire' go to 'Question Items'.</li>
+        <li>Click on 'New question item' at the top of the list.</li>
         <li>In 'New Question Item', fill required fields.</li>
         <li>Select one or more type of answer from the menu. You could for example have a numeric answer for a measure plus a code answer for 'refused/don't knows' or a code answer plus a text answer for the 'other, specify' selection.</li>
         <li>Click on 'Add to list' after each.</li>
@@ -238,6 +242,30 @@
         <li>Go back to questionnaire.</li>
       </ul>
 
+    <h3>Adding a new question grid</h3>
+      <ul>
+        <li>From the home page 'Questionnaire' go to 'Question Grids'.</li>
+        <li>Click on 'New question grid' at the top of the list.</li>
+        <li>In 'New Question Grid', fill required fields.</li>
+        <li>Select a code list for the horizontal headers from the menu.</li>
+        <li>Optionally select a code list for the vertical headers (column 0) from the menu.</li>
+        <li>Alternatively or in addition add the number of blank cells in column 0 (editable vertical headers).</li>
+        <li>Optionally add a label such as 'other, specify'.</li>
+        <li>Select whether you want the name of the vertical or horizontal code list to become the text in top left corner (cell 0,0).</li>
+        <li>Click on 'Create', this creates a question grid without answers.</li>
+        <li>Go to the next step 'Adding answers to a question grid'.</li>
+      </ul>
+
+    <h3>Adding or editing answers in a question grid</h3>
+      <ul>
+        <li>In 'Question Grid' click on 'none' or on the existing answer.</li>
+        <li>Select an answer from the menu.</li>
+        <li>Click 'update'.</li>
+        <li>Repeat for the other columns.</li>
+        <li>Warning 1: if you edit the selection of the horizontal headers, the answers will be reset to 'none'.</li>
+        <li>Warning 2: if you edit the code list of the horizontal headers, the answers will be reset to 'none'.</li>
+        <li>Go back to questionnaire.</li>
+      </ul>
   <a id='universes'></a>
   <h2>Universes</h2>
     <p>
@@ -347,7 +375,7 @@
   <p>
   For the user interface we replaced the ddi3-derived database terminology with more user-friendly descriptives.
   However, for power users the table below provides the mapping between the GUI names and the original ddi3 tags or database field names.
-  The ddi3 terminology also appears in the urls of the pages.
+  The ddi3 terminology (ddi3.1) also appears in the urls of the pages.
     <br/>
     The translation of the xml schema to the database schema was done with the addition of generic 'wrapper' objects (questionnaire components, all answers)
     around the typed objects directly derived from the xml schema (sequences, text answers).
@@ -361,7 +389,7 @@
     <tr><td>question items</td>				<td>question library</td></tr>
     <tr><td>question literal</td>			<td>question text</td></tr>
     <tr><td>category label</td>				<td>category text</td></tr>
-    <tr><td>code scheme label</td>			<td>short description</td></tr>
+    <tr><td>code list label</td>			<td>short description</td></tr>
     <tr><td>response domains</td>			<td>answer choices, answers</td></tr>
     <tr><td>response domain label</td>		<td>description</td></tr>
     <tr><td>maxlen</td>						<td>maximum length</td></tr>

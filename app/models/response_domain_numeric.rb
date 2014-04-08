@@ -1,5 +1,6 @@
 class ResponseDomainNumeric < ActiveRecord::Base
   validates :label, :presence => true, :ascii_format => true
+  validates :numeric_type, :presence => true
   validates_numericality_of :min, :only_integer => true, :allow_nil => true
   validates_numericality_of :max, :only_integer => true, :allow_nil => true
   belongs_to :numeric_type
