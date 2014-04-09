@@ -15,6 +15,12 @@
     <%= f.label :textid, 'Name' %><br />
     <%= f.text_field :textid %>
   </div>
+
+  <div class="field">
+    <%= f.label :instructions, 'Instructions (optional)' %><br />
+      <%= raw h(f.collection_select :instruction_id, Instruction.find(:all), :id, :short_text_with_id, {:include_blank => 'select interviewer instructions...'}).gsub(/~/,"&nbsp;") %>
+    </div>
+
   <div class="field">
     <%= f.label :literal, 'Question header text' %><br />
     <%= f.text_area :literal, :cols => 100, :rows => 4 %>

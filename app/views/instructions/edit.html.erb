@@ -1,0 +1,14 @@
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "Instructions", :lk => instructions_path}  %>
+
+<h1>Edit Instruction</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @instruction.id %>
+</p>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @instruction %> |
+<%= link_to 'Back', instructions_path %>
+

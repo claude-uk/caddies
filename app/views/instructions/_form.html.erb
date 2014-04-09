@@ -1,0 +1,21 @@
+<%= form_for(@instruction) do |f| %>
+  <% if @instruction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@instruction.errors.count, "error") %> prohibited this instruction from being saved:</h2>
+
+      <ul>
+      <% @instruction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :instruction_text, 'Instruction text' %><br />
+    <%= f.text_area :instruction_text, :cols => 100, :rows => 4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

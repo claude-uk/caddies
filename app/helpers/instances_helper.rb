@@ -48,6 +48,9 @@ module InstancesHelper
 
     #node content, ie for questions
     if (node_class == "CcQuestion")
+      if (node.construct.question_reference.instruction.present?)
+        html << "<span class=\"question_instruction\">#{node.construct.question_reference.instruction.instruction_text}</span>\n"
+      end
       html << "<span class=\"question_content\">#{node.construct.question_reference.literal}</span>\n"
       if (node.construct.question_reference_type == 'QuestionItem')
       	html << '<ul>'

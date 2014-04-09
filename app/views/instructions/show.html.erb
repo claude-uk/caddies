@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<%= render :partial => "shared/breadcrumb_single", :locals => {:linktxt => "instructions", :lk => instructions_path}  %>
+
+<h1>Instruction</h1>
+
+<p>
+  <b>Id:</b>
+  <%= @instruction.id %>
+</p>
+
+<p>
+  <b>Instruction text:</b>
+</p>
+
+<p>
+  <%= text_area_tag "instruction_text", @instruction.instruction_text, {:size => "100x4", :readonly => true} %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_instruction_path(@instruction) %> |
+<%= link_to 'Back', instructions_path %>

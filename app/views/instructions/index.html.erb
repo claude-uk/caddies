@@ -1,0 +1,28 @@
+<%= render "shared/breadcrumb_list" %>
+
+<h1>Instructions</h1>
+
+<%= link_to 'New Instruction', new_instruction_path %>
+
+<p>
+<table class="stripy">
+  <tr>
+    <th>Id</th>
+    <th>Instruction Text (abridged)</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @instructions.each do |instruction| %>
+  <tr class="<%= cycle('odd', 'even') -%>">
+    <td><%= instruction.id %></td>
+    <td><%= instruction.short_text %></td>
+    <td><%= link_to 'Show', instruction %></td>
+    <td><%= link_to 'Edit', edit_instruction_path(instruction) %></td>
+    <!--td><%#= link_to 'Destroy', instruction, :confirm => 'Are you sure?', :method => :delete %></td-->
+  </tr>
+<% end %>
+</table>
+
+</p>

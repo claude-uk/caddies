@@ -1,4 +1,6 @@
 Ddi3::Application.routes.draw do
+  resources :instructions
+
   resources :question_grids
 
   resources :qgrid_rdas

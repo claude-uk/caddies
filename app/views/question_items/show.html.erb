@@ -13,11 +13,20 @@
   <%= @question_item.textid %>
 </p>
 
+<% if @question_item.instruction.present? %>
+  <p>
+    <b>Interviewer instruction:</b>
+  </p>
+  <p>
+    <%= text_area_tag "instruction", @question_item.instruction.instruction_text, {:size => "100x2", :readonly => true} %>
+  </p>
+<% end %>
+
 <p>
   <b>Question text:</b>
-  <p>
+</p>
+<p>
   <%= text_area_tag "literal", @question_item.literal, {:size => "100x4", :readonly => true} %>
-  </p>
 </p>
 
 <p>

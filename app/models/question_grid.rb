@@ -10,6 +10,7 @@ class QuestionGrid < ActiveRecord::Base
   #has_many :response_domain_alls, :through => :columns
   belongs_to :vertical_codelist, :class_name => 'CodeScheme'
   belongs_to :horizontal_codelist, :class_name => 'CodeScheme'
+  belongs_to :instruction
   scoped_search :on => [:literal, :intent]
 
 

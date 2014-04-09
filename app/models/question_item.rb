@@ -7,6 +7,7 @@ class QuestionItem < ActiveRecord::Base
   accepts_nested_attributes_for :qi_rdas, :allow_destroy => true
   has_many :cc_questions, :as => :question_reference
   has_many :response_domain_alls, :through => :qi_rdas
+  belongs_to :instruction
   scoped_search :on => [:literal, :intent]
   #named_scope :in_top_sequence, :conditions => { :used_in_top_sequence => true }
   

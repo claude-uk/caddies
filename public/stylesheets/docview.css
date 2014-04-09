@@ -47,6 +47,15 @@
   	font-family: Georgia, serif;
 }
 
+.doctree span.question_instruction {
+	padding: 1px 0 1px 18px;
+	display: block;
+  	/*font-family: "Comic Sans MS", cursive, sans-serif;*/
+  	font-family: Georgia, serif;
+  	font-style: italic;
+  	color: Gray;
+}
+
 /*
 .doctree li.grid {
 	display: block;
