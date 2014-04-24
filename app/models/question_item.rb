@@ -26,6 +26,11 @@ class QuestionItem < ActiveRecord::Base
     id1 + sep*3 + id2
   end
   
+	#for xml output
+  def type_of_object
+    "QuestionItem"
+  end
+  
   def qi_Vid
     "qi_V" + "#{id}".rjust(5, '0')
   end

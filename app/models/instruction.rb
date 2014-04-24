@@ -1,5 +1,9 @@
 class Instruction < ActiveRecord::Base
 
+  def ii_Vid
+    "ii_V" + "#{id}".rjust(5, '0')
+  end
+
   def short_text
     self.instruction_text.truncate(80, :separator => ' ')
   end

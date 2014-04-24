@@ -1,0 +1,14 @@
+<r:ManagedRepresentationScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.managed_representation_text_scheme %>:<%= @instance.version %></r:URN>
+	<l:ManagedRepresentationSchemeName><r:String  xml:lang="en-GB"><%#= instance.managed_representation_text_scheme %></r:String></l:ManagedRepresentationSchemeName>
+
+<% @response_domain_texts.each do |rdt| %>
+		<l:ManagedTextRepresentation maxLength="<%= rdt.maxlen %>">
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdt.id %>:<%= @instance.version %></r:URN>
+			<r:Label>
+			  <r:Content xml:lang="en-GB"><%= rdt.label %></r:Content>
+			</r:Label>
+		</l:ManagedTextRepresentation>
+<% end %>
+
+</r:ManagedRepresentationScheme>

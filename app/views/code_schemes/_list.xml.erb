@@ -1,6 +1,15 @@
+<l:CodeListScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.codelist_scheme %>:<%= @instance.version %></r:URN>
+	<l:CodeListSchemeName><r:String  xml:lang="en-GB"><%#= instance.codelist_scheme %></r:String></l:CodeListSchemeName>
+
 <% @code_schemes.each do |code_scheme| %>
-	<l:CodeScheme agency="<%= @instance.agency %>" id="<%= code_scheme.id %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>">
-		<l:CodeSchemeName xml:lang="en-GB"><%= code_scheme.label %></l:CodeSchemeName>
+	<l:CodeList>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code_scheme.id %>:<%= @instance.version %></r:URN>
+		<r:Label>
+		  <r:Content xml:lang="en-GB"><%= code_scheme.label %></r:Content>
+		</r:Label>
 		<%= render :partial => 'codes/list',  :locals => {:codes => code_scheme.codes, :instance => @instance}  %>
-	</l:CodeScheme>
+	</l:CodeList>
 <% end %>
+
+</l:CodeListScheme>

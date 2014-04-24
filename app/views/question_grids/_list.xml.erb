@@ -1,0 +1,105 @@
+<d:QuestionScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.question_scheme %>:<%= @instance.version %></r:URN>
+	<d:QuestionSchemeName><r:String xml:lang="en-GB"><%= instance.question_scheme %></r:String></d:QuestionSchemeName>
+
+<% question_grids.each do |question_grid| %>
+	<d:QuestionGrid>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.qi_Vid %>:<%= @instance.version %></r:URN>
+		<d:QuestionItemName><r:String xml:lang="en-GB"><%= question_grid.textid %></r:String></d:QuestionItemName>
+		<d:QuestionText>
+			<d:LiteralText>
+				<d:Text xml:lang="en-GB"><%= question_grid.literal %></d:Text>
+			</d:LiteralText>
+		</d:QuestionText>
+		<d:QuestionIntent>
+			<r:Content xml:lang="en-GB"><%= question_grid.intent %></r:Content>
+		</d:QuestionIntent>
+		
+		<% if question_grid.corner_label == "vertical" %>
+		    <d:GridDimension rank="1" displayCode="false" displayLabel="true">
+		<% else %>
+		    <d:GridDimension rank="1" displayCode="false" displayLabel="false">
+		<% end %>
+		
+		<% if question_grid.vertical_codelist %>
+		    	<d:CodeDomain>
+				<r:CodeListReference>
+					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.vertical_codelist.id %>:<%= @instance.version %></r:URN>
+					<r:TypeOfObject>CodeList</r:TypeOfObject>
+				</r:CodeListReference>
+		    	</d:CodeDomain>
+		<% end %>
+		
+		<% if (question_grid.vertical_roster_rows) and (question_grid.vertical_roster_rows > 0) %>
+		    	<d:Roster minimumRequired="<%= question_grid.vertical_roster_rows %>">
+		    	  <r:Label>
+			    <r:Content xml:lang="en-GB"><%= question_grid.vertical_roster_label %></r:Content>
+		    	  </r:Label>
+		    	</d:Roster>
+		<% end %>
+		
+		    </d:GridDimension>		  
+
+		  <% if question_grid.corner_label == "horizontal" %>
+		    <d:GridDimension rank="2" displayCode="false" displayLabel="true">
+		  <% else %>
+		    <d:GridDimension rank="2" displayCode="false" displayLabel="false">
+		  <% end %>
+		  
+		    	<d:CodeDomain>
+				<r:CodeListReference>
+					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.horizontal_codelist.id %>:<%= @instance.version %></r:URN>
+					<r:TypeOfObject>CodeList</r:TypeOfObject>
+				</r:CodeListReference>
+		    	</d:CodeDomain>
+		    </d:GridDimension>		  		
+
+		<% if (question_grid.response_domain_count > 1) %>
+  		    <d:StructuredMixedGridResponseDomain>
+	                  <% question_grid.columns.collect{|c| c.response_domain_all}.each_with_index do |rda, index| %>
+	                    <% if !rda.nil? %>
+	      	                  <d:GridResponseDomain>
+	      	  		    <% if rda.response_domain_type.id == 1 %>
+	      	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda.domain } %>
+	      	  		    <% elsif rda.response_domain_type.id == 2 %>
+	      	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda.domain } %>
+	      	  		    <% elsif rda.response_domain_type.id == 3 %>
+	      	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda.domain.code_scheme_id, :instance => instance} %>
+	      	  		    <% elsif rda.response_domain_type.id == 4 %>
+	      	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
+	      	  		    <% end %>
+	      	  		      <d:GridAttachment>
+	      	  		        <CellCoordinatesAsDefined>
+	      	  		          <SelectDimension rank="1" allValues="true" />
+	      	  		          <SelectDimension rank="2" specificValue="<%= index + 1 %>" />
+	      	  		        </CellCoordinatesAsDefined>
+	      	  		      </d:GridAttachment>
+	      	                  </d:GridResponseDomain>
+	                    <% end %>
+	  		  <% end %>
+  		    </d:StructuredMixedGridResponseDomain>
+
+  		<% elsif question_grid.response_domain_count == 1 %>
+	                  <% rda_type = question_grid.columns.first.response_domain_all.response_domain_type.id %>
+	                  <% rda_domain = question_grid.columns.first.response_domain_all.domain %>
+	  		  <% if rda_type == 1 %>
+	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda_domain } %>
+	  		  <% elsif rda_type == 2 %>
+	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda_domain } %>
+	  		  <% elsif rda_type == 3 %>
+	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda_domain.code_scheme_id, :instance => instance} %>
+	  		  <% elsif rda_type == 4 %>
+	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda_domain} %>
+	  		  <% end %>
+  		<% end %>
+		
+		<% if question_grid.instruction %>
+			<d:InterviewerInstructionReference>
+			  <r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.instruction.ii_Vid %>:<%= @instance.version %></r:URN>
+			  <r:TypeOfObject>Instruction</r:TypeOfObject>
+			</d:InterviewerInstructionReference>
+  		<% end %>
+	</d:QuestionGrid>
+<% end %>
+
+</d:QuestionScheme>

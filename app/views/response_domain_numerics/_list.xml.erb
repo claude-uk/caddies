@@ -1,0 +1,19 @@
+<r:ManagedRepresentationScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.managed_representation_numeric_scheme %>:<%= @instance.version %></r:URN>
+	<l:ManagedRepresentationSchemeName><r:String  xml:lang="en-GB"><%#= instance.managed_representation_numeric_scheme %></r:String></l:ManagedRepresentationSchemeName>
+
+<% @response_domain_numerics.each do |rdn| %>
+		<l:ManagedNumericRepresentation>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdn.id %>:<%= @instance.version %></r:URN>
+			<r:Label>
+			  <r:Content xml:lang="en-GB"><%= rdn.label %></r:Content>
+			</r:Label>
+			<r:NumberRange>
+			  <r:Low><%= rdn.min %></r:Low>
+			  <r:High><%= rdn.max %></r:High>
+			</r:NumberRange>
+			<r:NumericTypeCode><%= rdn.numeric_type.label %></r:NumericTypeCode>
+		</l:ManagedNumericRepresentation>
+<% end %>
+
+</r:ManagedRepresentationScheme>

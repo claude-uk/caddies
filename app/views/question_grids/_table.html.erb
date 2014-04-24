@@ -57,6 +57,8 @@
 			</tr>
 	  <% end %>
   <% end %>
+
+  <% if !@question_grid.vertical_roster_rows.nil? %>
   <% for i in 1..@question_grid.vertical_roster_rows %>
     <tr>
 		<% if i == 1 and @question_grid.vertical_roster_label.present? %>
@@ -68,6 +70,7 @@
 		  <td>&nbsp;</td>
 		<% end %>
     </tr>
+  <% end %>
   <% end %>
 
 </table>

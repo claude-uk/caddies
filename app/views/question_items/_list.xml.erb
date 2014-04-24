@@ -1,36 +1,57 @@
-<d:QuestionScheme agency="<%= instance.agency %>" id="<%= instance.question_scheme %>" version="<%= instance.version %>" versionDate="<%= DateTime.now %>">
-	<d:QuestionSchemeName xml:lang="en-GB"><%= instance.question_scheme %></d:QuestionSchemeName>
+<d:QuestionScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.question_scheme %>:<%= @instance.version %></r:URN>
+	<d:QuestionSchemeName><r:String xml:lang="en-GB"><%= instance.question_scheme %></r:String></d:QuestionSchemeName>
 
 <% question_items.each do |question_item| %>
-	<d:QuestionItem id="<%= question_item.qi_Vid %>" version="<%= instance.version %>" versionDate="<%= DateTime.now %>">
-		<d:QuestionItemName xml:lang="en-GB"><%= question_item.textid %></d:QuestionItemName>
-		<d:QuestionText xml:lang="en-GB">
+	<d:QuestionItem>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_item.qi_Vid %>:<%= @instance.version %></r:URN>
+		<d:QuestionItemName><r:String xml:lang="en-GB"><%= question_item.textid %></r:String></d:QuestionItemName>
+		<d:QuestionText>
 			<d:LiteralText>
-				<d:Text><%= question_item.literal %></d:Text>
+				<d:Text xml:lang="en-GB"><%= question_item.literal %></d:Text>
 			</d:LiteralText>
 		</d:QuestionText>
-		<d:QuestionIntent xml:lang="en-GB"><%= question_item.intent %></d:QuestionIntent>
+		<d:QuestionIntent>
+			<r:Content xml:lang="en-GB"><%= question_item.intent %></r:Content>
+		</d:QuestionIntent>
 
 		<% if question_item.response_domain_alls %>
 		  <% if question_item.response_domain_alls.count > 1 %>
   		    <d:StructuredMixedResponseDomain>
-  		  <% end %>
-                  <% question_item.response_domain_alls.each do |rda| %>
-  		    <% if rda.response_domain_type.id == 1 %>
-  		      <%= render :partial => "question_items/xml_rd_text", :locals => {:rdtext => rda.domain } %>
-  		    <% elsif rda.response_domain_type.id == 2 %>
-  		      <%= render :partial => "question_items/xml_rd_numeric", :locals => {:rdnum => rda.domain } %>
-  		    <% elsif rda.response_domain_type.id == 3 %>
-  		      <%= render :partial => "question_items/xml_rd_code", :locals => {:rdcodeid => rda.domain.code_scheme_id, :instance => instance} %>
-  		    <% elsif rda.response_domain_type.id == 4 %>
-  		      <%= render :partial => "question_items/xml_rd_datetime", :locals => {:rddt => rda.domain} %>
-  		    <% end %>
-  		  <% end %>
-		  <% if question_item.response_domain_alls.count > 1 %>
+	                  <% question_item.response_domain_alls.each do |rda| %>
+	                    <d:ResponseDomainInMixed>
+	  		    <% if rda.response_domain_type.id == 1 %>
+	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda.domain } %>
+	  		    <% elsif rda.response_domain_type.id == 2 %>
+	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda.domain } %>
+	  		    <% elsif rda.response_domain_type.id == 3 %>
+	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda.domain.code_scheme_id, :instance => instance} %>
+	  		    <% elsif rda.response_domain_type.id == 4 %>
+	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
+	  		    <% end %>
+	                    </d:ResponseDomainInMixed>
+	  		  <% end %>
   		    </d:StructuredMixedResponseDomain>
+  		  <% else %>
+	                  <% question_item.response_domain_alls.each do |rda| %>
+	  		    <% if rda.response_domain_type.id == 1 %>
+	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda.domain } %>
+	  		    <% elsif rda.response_domain_type.id == 2 %>
+	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda.domain } %>
+	  		    <% elsif rda.response_domain_type.id == 3 %>
+	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda.domain.code_scheme_id, :instance => instance} %>
+	  		    <% elsif rda.response_domain_type.id == 4 %>
+	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
+	  		    <% end %>
+	  		  <% end %>  		  
   		  <% end %>
 		<% end %>
-
+		<% if question_item.instruction %>
+			<d:InterviewerInstructionReference>
+			  <r:URN>urn:ddi:<%= @instance.agency %>:<%= question_item.instruction.ii_Vid %>:<%= @instance.version %></r:URN>
+			  <r:TypeOfObject>Instruction</r:TypeOfObject>
+			</d:InterviewerInstructionReference>
+  		<% end %>
 	</d:QuestionItem>
 <% end %>
 

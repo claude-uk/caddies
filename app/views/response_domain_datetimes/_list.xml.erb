@@ -1,0 +1,16 @@
+<r:ManagedRepresentationScheme versionDate="<%= DateTime.now %>">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.managed_representation_datetime_scheme %>:<%= @instance.version %></r:URN>
+	<l:ManagedRepresentationSchemeName><r:String  xml:lang="en-GB"><%#= instance.managed_representation_datetime_scheme %></r:String></l:ManagedRepresentationSchemeName>
+
+<% @response_domain_datetimes.each do |rdd| %>
+		<l:ManagedDateTimeRepresentation>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdd.id %>:<%= @instance.version %></r:URN>
+			<r:Label>
+			  <r:Content xml:lang="en-GB"><%= rdd.label %></r:Content>
+			</r:Label>
+			<r:DateFieldFormat><%= rdd.format %></r:DateFieldFormat>
+			<r:DateTypeCode><%= rdd.datetime_type.label %></r:DateTypeCode>
+		</l:ManagedDateTimeRepresentation>
+<% end %>
+
+</r:ManagedRepresentationScheme>

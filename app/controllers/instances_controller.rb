@@ -39,11 +39,16 @@ class InstancesController < ApplicationController
     #@instance = Instance.find(params[:id])
     @instance = Instance.first
     @question_items = QuestionItem.all
+    @question_grids = QuestionGrid.all
+    @instructions = Instruction.all
     @categories = Category.all
     @code_schemes = CodeScheme.find(:all, :include => :codes)
+    @response_domain_texts = ResponseDomainText.all
+    @response_domain_numerics = ResponseDomainNumeric.all
+    @response_domain_datetimes = ResponseDomainDatetime.all
     #Really I should trace it back from the text id of the topsequence in instance...
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.11 with the xml library option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12 with the xml library option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,10 +61,15 @@ class InstancesController < ApplicationController
   def ddi3clean
     @instance = Instance.first
     @question_items = QuestionItem.all_used_in_top_sequence
+    @question_grids = QuestionGrid.all_used_in_top_sequence
+    @instructions = Instruction.all		#_used_in_top_sequence
     @code_schemes = CodeScheme.all_used_in_top_sequence(@question_items)
     @categories = Category.all_used_in_top_sequence(@code_schemes)
+    @response_domain_texts = ResponseDomainText.all		#_used_in_top_sequence
+    @response_domain_numerics = ResponseDomainNumeric.all		#_used_in_top_sequence
+    @response_domain_datetimes = ResponseDomainDatetime.all		#_used_in_top_sequence
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.11 with the xml compact option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12 with the xml compact option"
 
     respond_to do |format|
       format.html # show.html.erb

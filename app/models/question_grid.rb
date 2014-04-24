@@ -24,6 +24,14 @@ class QuestionGrid < ActiveRecord::Base
     id1 + sep*3 + id2
   end
 
+  def type_of_object
+    "QuestionGrid"
+  end
+  
+  def qi_Vid
+    "qg_V" + "#{id}".rjust(5, '0')
+  end
+
   def used
     return cc_questions.any?
   end
@@ -48,6 +56,26 @@ class QuestionGrid < ActiveRecord::Base
       end
     end
     return auits
+  end
+  
+  #used in the xml output to determine if a simple response domain is needed
+  #return 0 if there are no rdas or all rdas are null, 1 if there is a single non-null rda for all columns, else the count
+  def response_domain_count
+    if self.columns.any?
+      rda_hash = self.columns.group_by(&:response_domain_all_id)
+      if rda_hash.count == 1
+        if rda_hash.keys[0].nil?
+          return 0
+        else
+          return 1
+        end
+      else
+        return rda_hash.count
+      end
+      
+    else
+      return 0
+    end
   end
 
 end

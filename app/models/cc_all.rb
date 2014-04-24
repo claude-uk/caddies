@@ -10,7 +10,17 @@ class CcAll < ActiveRecord::Base
   #attr_accessible :children_attributes
   #after_save :generate_position
     
-
+  #used in xml output, translate construct_type to the type of object string required in references
+  def type_of_object
+    case self.construct_type
+    when 'CcSequence' then 'Sequence'
+    when 'CcLoop' then 'Loop'
+    when 'CcIfThenElse' then 'IfThenElse'
+    when 'CcQuestion' then 'QuestionConstruct'
+    when 'CcStatement' then 'Statement'
+    end
+  end
+    
   def descendants
     dnodes = childnodes(self)        
     errors.add(:parent_id, "There is a loop in the chain of constructs " + dnodes.join(", ")) if dnodes.include?(parent_id)

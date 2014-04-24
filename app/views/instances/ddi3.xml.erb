@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ddi:DDIInstance agency="<%= @instance.agency %>" id="<%= @instance.instance %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>" xmlns:d="ddi:datacollection:3_1" xmlns:dc="ddi:dcelements:3_1" xmlns:dc2="http://purl.org/dc/elements/1.1/" xmlns:ddi="ddi:instance:3_1" xmlns:g="ddi:group:3_1" xmlns:l="ddi:logicalproduct:3_1" xmlns:r="ddi:reusable:3_1">
+<ddi:DDIInstance versionDate="<%= DateTime.now %>" xmlns:d="ddi:datacollection:3_2" xmlns:ddi="ddi:instance:3_2" xmlns:g="ddi:group:3_2" xmlns:l="ddi:logicalproduct:3_2" xmlns:r="ddi:reusable:3_2">
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.instance %>:<%= @instance.version %></r:URN>
 	<r:Citation>
-		<r:Title xml:lang="en-GB"><%= @output_option %></r:Title>
-		<dc:DCElements>
-			<dc2:title xml:lang="en-GB"><%= @instance.inst_citation %></dc2:title>
-		</dc:DCElements>
+		<r:Title><r:String xml:lang="en-GB"><%= @output_option %></r:String></r:Title>
 	</r:Citation>
-	<g:ResourcePackage agency="<%= @instance.agency %>" id="<%= @instance.resource_package %>" version="<%= @instance.version %>" versionDate="<%= DateTime.now %>">
+	<g:ResourcePackage versionDate="<%= DateTime.now %>">
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.resource_package %>:<%= @instance.version %></r:URN>
 		<r:Citation>
-			<r:Title xml:lang="en-GB"><%= @instance.rp_citation %></r:Title>
-			<dc:DCElements>
-				<dc2:title xml:lang="en-GB"><%= @instance.rp_citation %></dc2:title>
-			</dc:DCElements>
+			<r:Title><r:String xml:lang="en-GB"><%= @instance.rp_citation %></r:String></r:Title>
 		</r:Citation>
-		<g:Purpose id="<%= @instance.purpose %>">
+		<r:Purpose id="<%= @instance.purpose %>">
 			<r:Content xml:lang="en-GB"><%= @instance.purpose_text %></r:Content>
-		</g:Purpose>
-		<g:DataCollection>
-			<d:DataCollection agency="<%= @instance.agency %>" id="<%= @instance.ddata_collection %>" version="<%= @instance.version %>">
-                          <d:ControlConstructScheme agency="<%= @instance.agency %>" id="<%= @instance.cc_scheme %>" version="<%= @instance.version %>">
-			    <d:ControlConstructSchemeName xml:lang="en-GB"><%= @instance.cc_scheme %></d:ControlConstructSchemeName>
-			      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => @first_construct, :instance => @instance}  %>
-                          </d:ControlConstructScheme>
-                          <d:Instrument agency="<%= @instance.agency %>" id="<%= @instance.instrument %>" version="<%= @instance.version %>">
-			    <d:InstrumentName><%= @instance.instrument %></d:InstrumentName>
-			    <d:ControlConstructReference>
-			      <r:Scheme>
-			        <r:ID><%= @instance.cc_scheme %></r:ID>
-			        <r:IdentifyingAgency><%= @instance.agency %></r:IdentifyingAgency>
-			        <r:Version><%= @instance.version %></r:Version>
-			      </r:Scheme>
-			      <r:ID>1<%#= @instance.top_sequence %></r:ID>
-			      <r:IdentifyingAgency><%= @instance.agency %></r:IdentifyingAgency>
-			      <r:Version><%= @instance.version %></r:Version>
-			    </d:ControlConstructReference>
-			  </d:Instrument>
-                        </d:DataCollection>
-		</g:DataCollection>
+		</r:Purpose>
+		<d:DataCollection versionDate="<%= DateTime.now %>">
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.ddata_collection %>:<%= @instance.version %></r:URN>
+
+                        <d:ControlConstructScheme>
+				<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.cc_scheme %>:<%= @instance.version %></r:URN>
+			    	<d:ControlConstructSchemeName><r:String xml:lang="en-GB"><%= @instance.cc_scheme %></r:String></d:ControlConstructSchemeName>
+			      	<%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => @first_construct, :instance => @instance}  %>
+                        </d:ControlConstructScheme>
+
+                        <d:InstrumentScheme>
+				<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.instrument_scheme %>:<%= @instance.version %></r:URN>
+			    	<d:InstrumentSchemeName><r:String xml:lang="en-GB"><%#= @instance.instrument_scheme %></r:String></d:InstrumentSchemeName>
+                        	<d:Instrument>
+					<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.instrument %>:<%= @instance.version %></r:URN>
+			    		<d:InstrumentName><r:String xml:lang="en-GB"><%= @instance.instrument %></r:String></d:InstrumentName>
+			    		<d:ControlConstructReference>
+						<r:URN>urn:ddi:<%= @instance.agency %>:1:<%= @instance.version %></r:URN>
+						<r:TypeOfObject>Sequence</r:TypeOfObject>
+			    		</d:ControlConstructReference>
+			  	</d:Instrument>
+                        </d:InstrumentScheme>
+
+                </d:DataCollection>
 		
 	<%= render :partial => 'question_items/list',  :locals => {:question_items => @question_items, :instance => @instance}  %>
+	<%= render :partial => 'question_grids/list',  :locals => {:question_grids => @question_grids, :instance => @instance}  %>
+	<%= render :partial => 'instructions/list',  :locals => {:instructions => @instructions, :instance => @instance}  %>
 	<%= render :partial => 'categories/list',  :locals => {:categories =>  @categories, :instance => @instance}  %>
 	<%= render :partial => 'code_schemes/list',  :locals => {:code_schemes => @code_schemes, :instance => @instance}  %>
+	<%= render :partial => 'response_domain_texts/list',  :locals => {:response_domain_texts => @response_domain_texts, :instance => @instance}  %>
+	<%= render :partial => 'response_domain_numerics/list',  :locals => {:response_domain_numerics => @response_domain_numerics, :instance => @instance}  %>
+	<%= render :partial => 'response_domain_datetimes/list',  :locals => {:response_domain_datetimes => @response_domain_datetimes, :instance => @instance}  %>
 	</g:ResourcePackage>
 </ddi:DDIInstance>
