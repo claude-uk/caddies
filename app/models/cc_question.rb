@@ -8,6 +8,10 @@ class CcQuestion < ActiveRecord::Base
   has_one :cc_all, :as => :construct, :dependent => :destroy
   accepts_nested_attributes_for :cc_all
   #after_initialize :init
+
+	include SharedMethods
+  @@type_prefix = "qc"
+  cattr_reader :type_prefix
   
   #no longer needed
   def init

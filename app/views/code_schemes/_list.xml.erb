@@ -4,7 +4,7 @@
 
 <% @code_schemes.each do |code_scheme| %>
 	<l:CodeList>
-		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code_scheme.id %>:<%= @instance.version %></r:URN>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code_scheme.urn_id %>:<%= @instance.version %></r:URN>
 		<r:Label>
 		  <r:Content xml:lang="en-GB"><%= code_scheme.label %></r:Content>
 		</r:Label>

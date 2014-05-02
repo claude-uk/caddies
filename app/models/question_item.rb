@@ -10,6 +10,10 @@ class QuestionItem < ActiveRecord::Base
   belongs_to :instruction
   scoped_search :on => [:literal, :intent]
   #named_scope :in_top_sequence, :conditions => { :used_in_top_sequence => true }
+
+	include SharedMethods
+  @@type_prefix = "qi"
+  cattr_reader :type_prefix
   
   def ascii_literal
     #not yet in ruby 1.8.7

@@ -4,7 +4,7 @@
 
 <% @response_domain_texts.each do |rdt| %>
 		<l:ManagedTextRepresentation maxLength="<%= rdt.maxlen %>">
-			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdt.id %>:<%= @instance.version %></r:URN>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdt.urn_id %>:<%= @instance.version %></r:URN>
 			<r:Label>
 			  <r:Content xml:lang="en-GB"><%= rdt.label %></r:Content>
 			</r:Label>

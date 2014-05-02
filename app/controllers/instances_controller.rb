@@ -62,12 +62,12 @@ class InstancesController < ApplicationController
     @instance = Instance.first
     @question_items = QuestionItem.all_used_in_top_sequence
     @question_grids = QuestionGrid.all_used_in_top_sequence
-    @instructions = Instruction.all		#_used_in_top_sequence
-    @code_schemes = CodeScheme.all_used_in_top_sequence(@question_items)
+    @instructions = Instruction.all_used_in_top_sequence(@question_items, @question_grids)
+    @code_schemes = CodeScheme.all_used_in_top_sequence(@question_items, @question_grids)
     @categories = Category.all_used_in_top_sequence(@code_schemes)
-    @response_domain_texts = ResponseDomainText.all		#_used_in_top_sequence
-    @response_domain_numerics = ResponseDomainNumeric.all		#_used_in_top_sequence
-    @response_domain_datetimes = ResponseDomainDatetime.all		#_used_in_top_sequence
+    @response_domain_texts = ResponseDomainText.all_used_in_top_sequence(@question_items, @question_grids)
+    @response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
+    @response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
     @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12 with the xml compact option"
 

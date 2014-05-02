@@ -4,6 +4,13 @@ class Instance < ActiveRecord::Base
   attr_accessor :ccRef, :qiRef, :totalElt, :totalRef, :rdcodeRef, :synapticDensity, :codeRef
   attr_accessor :qlist
   #attr_accessor :qgCount, : qgHeaderRef, :instructionCount, :instructionRef
+  @@prefix = "pms"
+  cattr_reader :prefix
+  @@sep = "."
+  cattr_reader :sep
+  @@just = 6
+  cattr_reader :just
+
 
   #I need to count the constructs from parent to child from the top sequence as I don't want to include the ones in the attic
   #I don't need to count the construct references separately, as they are all referenced in their parent,

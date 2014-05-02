@@ -4,7 +4,7 @@
 
 <% @categories.each do |category| %>
 		<l:Category>
-			<r:URN>urn:ddi:<%= @instance.agency %>:<%= category.id %>:<%= @instance.version %></r:URN>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= category.urn_id %>:<%= @instance.version %></r:URN>
 			<l:CategoryName><r:String xml:lang="en-GB"><%= category.id %></r:String></l:CategoryName>
 			<r:Label>
 			  <r:Content xml:lang="en-GB"><%= category.label %></r:Content>

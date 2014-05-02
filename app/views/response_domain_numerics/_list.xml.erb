@@ -4,7 +4,7 @@
 
 <% @response_domain_numerics.each do |rdn| %>
 		<l:ManagedNumericRepresentation>
-			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdn.id %>:<%= @instance.version %></r:URN>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdn.urn_id %>:<%= @instance.version %></r:URN>
 			<r:Label>
 			  <r:Content xml:lang="en-GB"><%= rdn.label %></r:Content>
 			</r:Label>

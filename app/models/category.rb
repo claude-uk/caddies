@@ -4,6 +4,10 @@ class Category < ActiveRecord::Base
   belongs_to :instance
   scoped_search :on => [:label]
 
+	include SharedMethods
+  @@type_prefix = "ca"
+  cattr_reader :type_prefix
+
   def instance_id
     1
   end

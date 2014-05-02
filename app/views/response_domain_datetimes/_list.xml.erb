@@ -4,7 +4,7 @@
 
 <% @response_domain_datetimes.each do |rdd| %>
 		<l:ManagedDateTimeRepresentation>
-			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdd.id %>:<%= @instance.version %></r:URN>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= rdd.urn_id %>:<%= @instance.version %></r:URN>
 			<r:Label>
 			  <r:Content xml:lang="en-GB"><%= rdd.label %></r:Content>
 			</r:Label>

@@ -4,6 +4,8 @@ class ResponseDomainAll < ActiveRecord::Base
   #has_many :question_items
   has_many :qi_rdas
   has_many :question_items, :through => :qi_rdas
+  has_many :qgrid_rdas
+  has_many :question_grids, :through => :qgrid_rdas
   
   #allow for 4 digit index
   def id_plus

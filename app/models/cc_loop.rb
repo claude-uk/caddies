@@ -6,6 +6,13 @@ class CcLoop < ActiveRecord::Base
   has_one :cc_all, :as => :construct, :dependent => :destroy
   accepts_nested_attributes_for :cc_all
   #after_initialize :init
+
+	include SharedMethods
+  @@type_prefix = "lp"
+  cattr_reader :type_prefix
+	include LoopMethods
+  @@selp_prefix = "selp"
+  cattr_reader :selp_prefix
   
   #no longer needed
   def init

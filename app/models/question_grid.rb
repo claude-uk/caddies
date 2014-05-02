@@ -13,6 +13,10 @@ class QuestionGrid < ActiveRecord::Base
   belongs_to :instruction
   scoped_search :on => [:literal, :intent]
 
+	include SharedMethods
+  @@type_prefix = "qg"
+  cattr_reader :type_prefix
+
 
   #used in question constructs, allow for 4 digit index
   def id_plus
