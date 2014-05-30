@@ -10,7 +10,6 @@ class CcLoop < ActiveRecord::Base
 	include SharedMethods
   @@type_prefix = "lp"
   cattr_reader :type_prefix
-	include LoopMethods
   @@selp_prefix = "selp"
   cattr_reader :selp_prefix
   

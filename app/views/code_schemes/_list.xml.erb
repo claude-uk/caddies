@@ -1,14 +1,14 @@
 <l:CodeListScheme versionDate="<%= DateTime.now %>">
-	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.codelist_scheme %>:<%= @instance.version %></r:URN>
-	<l:CodeListSchemeName><r:String  xml:lang="en-GB"><%#= instance.codelist_scheme %></r:String></l:CodeListSchemeName>
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.code_list_scheme_urn_id %>:<%= @instance.version %></r:URN>
+	<l:CodeListSchemeName><r:String  xml:lang="en-GB"><%= instance.code_list_scheme %></r:String></l:CodeListSchemeName>
 
-<% @code_schemes.each do |code_scheme| %>
+<% @code_schemes.each do |code_list| %>
 	<l:CodeList>
-		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code_scheme.urn_id %>:<%= @instance.version %></r:URN>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code_list.urn_id %>:<%= @instance.version %></r:URN>
 		<r:Label>
-		  <r:Content xml:lang="en-GB"><%= code_scheme.label %></r:Content>
+		  <r:Content xml:lang="en-GB"><%= code_list.label %></r:Content>
 		</r:Label>
-		<%= render :partial => 'codes/list',  :locals => {:codes => code_scheme.codes, :instance => @instance}  %>
+		<%= render :partial => 'codes/list',  :locals => {:codes => code_list.codes, :instance => @instance}  %>
 	</l:CodeList>
 <% end %>
 

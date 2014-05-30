@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140409143600) do
+ActiveRecord::Schema.define(:version => 20140515120808) do
 
   create_table "categories", :force => true do |t|
     t.string   "label"
@@ -98,11 +98,10 @@ ActiveRecord::Schema.define(:version => 20140409143600) do
   create_table "instances", :force => true do |t|
     t.string   "agency"
     t.string   "version"
-    t.string   "instance"
+    t.string   "prefix"
     t.string   "inst_citation"
-    t.string   "resource_package"
     t.string   "rp_citation"
-    t.string   "purpose"
+    t.string   "instrument_scheme"
     t.string   "purpose_text"
     t.string   "cc_scheme"
     t.string   "category_scheme"
@@ -112,6 +111,12 @@ ActiveRecord::Schema.define(:version => 20140409143600) do
     t.string   "top_sequence"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "question_grid_scheme"
+    t.string   "instruction_scheme"
+    t.string   "code_list_scheme"
+    t.string   "mrep_text_scheme"
+    t.string   "mrep_num_scheme"
+    t.string   "mrep_dt_scheme"
   end
 
   create_table "instructions", :force => true do |t|

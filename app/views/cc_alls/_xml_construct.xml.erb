@@ -53,13 +53,13 @@
                         </r:Command>
                       </d:LoopWhile>
 	              <d:ControlConstructReference>
-		        <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.loop_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.loop_sequence_urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Sequence</r:TypeOfObject>
 		      </d:ControlConstructReference>
 		    </d:Loop>
 
 		    <d:Sequence>
-		      <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.loop_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.loop_sequence_urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB">loop_seq_<%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
 		      <% xmlconstruct.children.each do |cc_child| %>
 			<d:ControlConstructReference>
@@ -84,17 +84,17 @@
                         </r:Command>
                       </d:IfCondition>
                       <d:ThenConstructReference>
-		        <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.then_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.then_sequence_urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Sequence</r:TypeOfObject>
                       </d:ThenConstructReference>
                       <d:ElseConstructReference>
-		        <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
 			 <r:TypeOfObject>Sequence</r:TypeOfObject>
                       </d:ElseConstructReference>
 		    </d:IfThenElse>
 
 		    <d:Sequence>
-		      <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.then_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.then_sequence_urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB">then_seq_<%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
 		      <% xmlconstruct.if_children.each do |cc_child| %>
 			<d:ControlConstructReference>
@@ -105,7 +105,7 @@
 		    </d:Sequence>
 
 		    <d:Sequence>
-		      <r:URN>urn:ddi:<%= @instance.agency %><%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
+		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB">else_seq_<%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
 		      <% xmlconstruct.else_children.each do |cc_child| %>
 			<d:ControlConstructReference>

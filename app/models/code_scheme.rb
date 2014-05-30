@@ -8,7 +8,7 @@ class CodeScheme < ActiveRecord::Base
   has_many :question_grids_v, :class_name => 'QuestionGrid', :foreign_key => 'vertical_codelist_id'
 
 	include SharedMethods
-  @@type_prefix = "cl"
+  @@type_prefix = "co"
   cattr_reader :type_prefix
 	
   def label_with_id

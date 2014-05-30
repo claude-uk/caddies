@@ -173,6 +173,10 @@ table.biggrid tr td.rosterlabel {
   /*color: grey;*/
 }
 
+tr.firstInBlock {
+  border-top: thick double LightGrey;
+}
+
 select {
   font-family: monospace;
 }

@@ -1,6 +1,6 @@
 <d:InterviewerInstructionScheme versionDate="<%= DateTime.now %>">
-	<r:URN>urn:ddi:<%= @instance.agency %>:<%#= @instance.instruction_scheme %>:<%= @instance.version %></r:URN>
-	<d:InterviewerInstructionSchemeName><r:String xml:lang="en-GB"><%#= instance.instruction_scheme %></r:String></d:InterviewerInstructionSchemeName>
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.interviewer_instruction_scheme_urn_id %>:<%= @instance.version %></r:URN>
+	<d:InterviewerInstructionSchemeName><r:String xml:lang="en-GB"><%= instance.instruction_scheme %></r:String></d:InterviewerInstructionSchemeName>
 
 <% instructions.each do |instruction| %>
 	<d:Instruction>

@@ -50,7 +50,7 @@
 
   <div class="field">
     <%= f.label :editable_vertical_header_rows %><br />
-    <%= f.number_field :vertical_roster_rows %>
+    <%= f.number_field :vertical_roster_rows, :min => 0, :max => 100 %>
   </div>
 
   <div class="field">

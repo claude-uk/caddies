@@ -1,7 +1,7 @@
 <% codes.each do |code| %>
 	<l:Code>
 		<l:CategoryReference>
-			<r:URN>urn:ddi:<%= @instance.agency %>:<%= code.category_id %>:<%= @instance.version %></r:URN>
+			<r:URN>urn:ddi:<%= @instance.agency %>:<%= code.category.urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Category</r:TypeOfObject>
 		</l:CategoryReference>
 		<l:Value><%= code.cs_value %></l:Value>

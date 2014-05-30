@@ -4,6 +4,7 @@ class QuestionGrid < ActiveRecord::Base
   validates :intent, :ascii_format => true
   validates_numericality_of :vertical_roster_rows, :only_integer => true, :allow_nil => true
   validates_presence_of :horizontal_codelist_id		#but verticals could be all roster
+  validates_presence_of :vertical_roster_rows
   has_many :cc_questions, :as => :question_reference
   has_many :columns, :class_name => 'QgridRda', :dependent => :destroy, :include => [:code], :order => 'codes.cs_order ASC'
   accepts_nested_attributes_for :columns, :allow_destroy => true
@@ -60,6 +61,36 @@ class QuestionGrid < ActiveRecord::Base
       end
     end
     return auits
+  end
+  
+  #count the grids with more than one response domain (for the stats)
+  def self.all_with_mixed_rd_count
+  	c = 0
+    QuestionGrid.all.each do |question_grid|
+      if question_grid.response_domain_count > 1
+        c += 1
+      end
+    end
+  	return c
+  end
+
+  #count the grids with a single response domain (for the stats)
+  #add up the surplus response domains
+  #add up the surplus code response domains
+  def self.all_with_single_rd_count
+  	c = 0
+  	dup = 0
+  	dupcode = 0
+    QuestionGrid.all.each do |question_grid|
+      if question_grid.response_domain_count == 1
+        c += 1
+        dup += question_grid.columns.count - 1
+        if question_grid.columns[0].response_domain_all.domain_type == 'ResponseDomainCode'
+        	dupcode += question_grid.columns.count - 1
+       	end
+      end
+    end
+  	return [c, dup, dupcode]
   end
   
   #used in the xml output to determine if a simple response domain is needed

@@ -1,5 +1,5 @@
 <l:CategoryScheme versionDate="<%= DateTime.now %>">
-	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.category_scheme %>:<%= @instance.version %></r:URN>
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.category_scheme_urn_id %>:<%= @instance.version %></r:URN>
 	<l:CategorySchemeName><r:String  xml:lang="en-GB"><%= instance.category_scheme %></r:String></l:CategorySchemeName>
 
 <% @categories.each do |category| %>

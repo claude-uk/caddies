@@ -1,11 +1,11 @@
 <d:QuestionScheme versionDate="<%= DateTime.now %>">
-	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.question_scheme %>:<%= @instance.version %></r:URN>
-	<d:QuestionSchemeName><r:String xml:lang="en-GB"><%= instance.question_scheme %></r:String></d:QuestionSchemeName>
+	<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.question_grid_scheme_urn_id %>:<%= @instance.version %></r:URN>
+	<d:QuestionSchemeName><r:String xml:lang="en-GB"><%= instance.question_grid_scheme %></r:String></d:QuestionSchemeName>
 
 <% question_grids.each do |question_grid| %>
 	<d:QuestionGrid>
 		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.urn_id %>:<%= @instance.version %></r:URN>
-		<d:QuestionItemName><r:String xml:lang="en-GB"><%= question_grid.textid %></r:String></d:QuestionItemName>
+		<d:QuestionGridName><r:String xml:lang="en-GB"><%= question_grid.textid %></r:String></d:QuestionGridName>
 		<d:QuestionText>
 			<d:LiteralText>
 				<d:Text xml:lang="en-GB"><%= question_grid.literal %></d:Text>
@@ -24,7 +24,7 @@
 		<% if question_grid.vertical_codelist %>
 		    	<d:CodeDomain>
 				<r:CodeListReference>
-					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.vertical_codelist.id %>:<%= @instance.version %></r:URN>
+					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.vertical_codelist.urn_id %>:<%= @instance.version %></r:URN>
 					<r:TypeOfObject>CodeList</r:TypeOfObject>
 				</r:CodeListReference>
 		    	</d:CodeDomain>
@@ -48,7 +48,7 @@
 		  
 		    	<d:CodeDomain>
 				<r:CodeListReference>
-					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.horizontal_codelist.id %>:<%= @instance.version %></r:URN>
+					<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.horizontal_codelist.urn_id %>:<%= @instance.version %></r:URN>
 					<r:TypeOfObject>CodeList</r:TypeOfObject>
 				</r:CodeListReference>
 		    	</d:CodeDomain>
@@ -64,7 +64,7 @@
 	      	  		    <% elsif rda.response_domain_type.id == 2 %>
 	      	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda.domain } %>
 	      	  		    <% elsif rda.response_domain_type.id == 3 %>
-	      	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda.domain.code_scheme_id, :instance => instance} %>
+	      	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcode => rda.domain.code_scheme, :instance => instance} %>
 	      	  		    <% elsif rda.response_domain_type.id == 4 %>
 	      	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
 	      	  		    <% end %>
@@ -87,7 +87,7 @@
 	  		  <% elsif rda_type == 2 %>
 	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda_domain } %>
 	  		  <% elsif rda_type == 3 %>
-	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcodeid => rda_domain.code_scheme_id, :instance => instance} %>
+	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcode => rda_domain.code_scheme, :instance => instance} %>
 	  		  <% elsif rda_type == 4 %>
 	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda_domain} %>
 	  		  <% end %>
@@ -95,7 +95,7 @@
 		
 		<% if question_grid.instruction %>
 			<d:InterviewerInstructionReference>
-			  <r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.instruction.ii_Vid %>:<%= @instance.version %></r:URN>
+			  <r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.instruction.urn_id %>:<%= @instance.version %></r:URN>
 			  <r:TypeOfObject>Instruction</r:TypeOfObject>
 			</d:InterviewerInstructionReference>
   		<% end %>

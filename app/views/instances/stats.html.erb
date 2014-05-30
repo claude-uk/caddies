@@ -4,10 +4,12 @@
 
 <h1>DDI3 Statistics</h1>
 
-<h2>CLS Metrics v.0.1</h2>
+<h2>CLS Metrics v.0.2</h2>
+
+<h3><%= Date.today %></h3>
 
 <p>
-<em>The Cell Count is the number of ddi3 xml elements.
+<em>The Cell Count is the number of ddi3 xml elements generated when the 'xml library' option is used.
 <br/>
 The Synaptic Density is the ratio of the number of references over the Cell Count.</em>
 </p>
@@ -39,17 +41,29 @@ The Synaptic Density is the ratio of the number of references over the Cell Coun
 </tr>
 <tr><td>Statement Constructs</td><td><%= @instance.statementCount %></td>
 </tr>
-<tr><td>.</td><td></td>
+
+<tr class="firstInBlock"><td>Question Items</td><td><%= @instance.qiCount %></td>
 </tr>
-<tr><td>Question Items</td><td><%= @instance.qiCount %></td>
+<tr><td>Question Grids</td><td><%= @instance.qgCount %></td>
 </tr>
 <tr><td>Code Lists</td><td><%= @instance.csCount %></td>
 </tr>
 <tr><td>Categories</td><td><%= @instance.categoryCount %></td>
 </tr>
+<tr><td>Interviewer Instructions</td><td><%= @instance.instructionCount %></td>
+</tr>
+
+<tr class="firstInBlock"><td>Managed Representations (Text)</td><td><%= @instance.repTextCount %></td>
+</tr>
+<tr><td>Managed Representations (Numeric)</td><td><%= @instance.repNumCount %></td>
+</tr>
+<tr><td>Managed Representations (Datetime)</td><td><%= @instance.repDTCount %></td>
+</tr>
+
 </table>
 </p>
-
 <p>
-<%= link_to 'Back', root_path %>
+<em>.../ddi3Instance/stats.csv is available for scraping.
+</em>
 </p>
+

@@ -8,7 +8,6 @@ class CcIfthenelse < ActiveRecord::Base
 	include SharedMethods
   @@type_prefix = "if"
   cattr_reader :type_prefix
-	include IfThenElseMethods
   @@seth_prefix = "seth"
   cattr_reader :seth_prefix
   @@seel_prefix = "seel"

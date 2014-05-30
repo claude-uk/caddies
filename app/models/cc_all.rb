@@ -15,7 +15,7 @@ class CcAll < ActiveRecord::Base
     case self.construct_type
     when 'CcSequence' then 'Sequence'
     when 'CcLoop' then 'Loop'
-    when 'CcIfThenElse' then 'IfThenElse'
+    when 'CcIfthenelse' then 'IfThenElse'
     when 'CcQuestion' then 'QuestionConstruct'
     when 'CcStatement' then 'Statement'
     end

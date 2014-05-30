@@ -27,21 +27,14 @@
   </tr>
   <tr>
   <div class="field">
-    <td><%= f.label :Instance %></td>
-    <td><%= f.text_field :instance %></td>
+    <td><%= f.label :Prefix %></td>
+    <td><%= f.text_field :prefix %></td>
   </div>
   </tr>
   <tr>
   <div class="field">
     <td><%= f.label :Instance_Citation %></td>
-    <!--td><%#= f.text_field :inst_citation, :size => 200  %></td-->
     <td><%= f.text_area :inst_citation, :cols => 96, :rows => 4 %>
-  </div>
-  </tr>
-  <tr>
-  <div class="field">
-    <td><%= f.label :Resource_Package %></td>
-    <td><%= f.text_field :resource_package %></td>
   </div>
   </tr>
   <tr>
@@ -50,17 +43,15 @@
     <td><%= f.text_area :rp_citation, :cols => 96, :rows => 4 %>
   </div>
   </tr>
-  <tr>
   <div class="field">
-    <td><%= f.label :Purpose %></td>
-    <td><%= f.text_field :purpose %></td>
+    <td><%= f.label :Purpose_Text %></td>
+    <td><%= f.text_area :purpose_text, :cols => 96, :rows => 1 %>
   </div>
   </tr>
   <tr>
   <div class="field">
-    <td><%= f.label :Purpose_Text %></td>
-    <!--td><%#= f.text_field :purpose_text, :size => 160 %></td-->
-    <td><%= f.text_area :purpose_text, :cols => 96, :rows => 1 %>
+    <td><%= f.label :D_Data_Collection %></td>
+    <td><%= f.text_field :ddata_collection %></td>
   </div>
   </tr>
   <tr>
@@ -71,8 +62,14 @@
   </tr>
   <tr>
   <div class="field">
-    <td><%= f.label :Category_Scheme %></td>
-    <td><%= f.text_field :category_scheme %></td>
+    <td><%= f.label :Instrument_Scheme %></td>
+    <td><%= f.text_field :instrument_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Instrument %></td>
+    <td><%= f.text_field :instrument %></td>
   </div>
   </tr>
   <tr>
@@ -83,15 +80,44 @@
   </tr>
   <tr>
   <div class="field">
-    <td><%= f.label :D_Data_Collection %></td>
-    <td><%= f.text_field :ddata_collection %></td>
+    <td><%= f.label :Question_Grid_Scheme %></td>
+    <td><%= f.text_field :question_grid_scheme %></td>
   </div>
-  </tr>
   </tr>
   <tr>
   <div class="field">
-    <td><%= f.label :Instrument %></td>
-    <td><%= f.text_field :instrument %></td>
+    <td><%= f.label :Interviewer_Instruction_Scheme %></td>
+    <td><%= f.text_field :instruction_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Managed_Representation_Scheme_for_Text %></td>
+    <td><%= f.text_field :mrep_text_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Managed_Representation_Scheme_for_Numeric %></td>
+    <td><%= f.text_field :mrep_num_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Managed_Representation_Scheme_for_DateTime %></td>
+    <td><%= f.text_field :mrep_dt_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Code_List_Scheme %></td>
+    <td><%= f.text_field :code_list_scheme %></td>
+  </div>
+  </tr>
+  <tr>
+  <div class="field">
+    <td><%= f.label :Category_Scheme %></td>
+    <td><%= f.text_field :category_scheme %></td>
   </div>
   </tr>
   <tr>

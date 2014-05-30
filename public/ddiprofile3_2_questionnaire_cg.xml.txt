@@ -7,9 +7,9 @@
 		xmlns:r="ddi:reusable:3_2"
 		xmlns:pr="ddi:ddiprofile:3_2"
 		xmlns:xhtml="http://www.w3.org/1999/xhtml"
-		versionDate="2014-04-28">
+		versionDate="2014-05-15">
   <r:URN>urn:ddi:uk.cls:caddies_v012:1.0.0</r:URN>	
-  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-04-28">      
+  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-05-15">      
       <r:URN>urn:ddi:uk.cls:caddies_v012_profile_3_2:1.0.0</r:URN>	
       <pr:DDIProfileName><r:String xml:lang="en-GB">DDI3.2 Profile as implemented in CADDIES version 0.12</r:String></pr:DDIProfileName>
       <r:Label><r:Content xml:lang="en-GB">CADDIES v0.12 DDI3.2 Profile</r:Content></r:Label>
@@ -38,6 +38,8 @@
       <pr:Used path="/ddi:DDIInstance/r:Citation" />
       <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title" />
       <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title/r:String[1]" />
+      <pr:Used path="/ddi:DDIInstance/r:Citation/r:SubTitle[1]" />
+      <pr:Used path="/ddi:DDIInstance/r:Citation/r:SubTitle/r:String[1]" />
 
       <pr:Used path="/ddi:DDIInstance/g:ResourcePackage[1]" />
       <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:URN" />
@@ -49,6 +51,8 @@
       
       <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection[1]" />
       <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/r:URN" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName[1]" />
+      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName/r:String[1]" />
       <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme[1]">
         <pr:AlternateName xml:lang="en">spine</pr:AlternateName>
       </pr:Used>
