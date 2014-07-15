@@ -30,8 +30,11 @@
   <label class="instruction">This is the Id required when creating/editing question items</label>
 </p>
 
-<h2>Used in the following questions:</h2>
+<h2>Used in the following question items:</h2>
 <%= render :partial => "shared/question_items", :locals => {:rd_all => @response_domain_datetime.response_domain_all} %>
+
+<h2>Used in the following question grids:</h2>
+<%= render :partial => "shared/question_grids", :locals => {:rd_all => @response_domain_datetime.response_domain_all} %>
 
 <br />
 

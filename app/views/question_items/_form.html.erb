@@ -2,12 +2,12 @@
   <% if @question_item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question_item.errors.count, "error") %> prohibited this question_item from being saved:</h2>
-
       <ul>
       <% @question_item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+		<pre><%= @question_item.to_yaml %></pre>
     </div>
   <% end %>
 
@@ -61,7 +61,7 @@
           <% end %>
         <% end %>
           <tr id="empty">
-            <td>.</td><td></td><td></td><td></td><td></td><td></td>
+            <td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>
           </tr>
      </tbody>
     </table>

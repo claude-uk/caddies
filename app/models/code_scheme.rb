@@ -1,4 +1,5 @@
 class CodeScheme < ActiveRecord::Base
+  #is called CodeList in ddi3.2
   validates :label, :presence => true, :ascii_format => true
   validates_presence_of :codes
   has_many :response_domain_codes
@@ -17,6 +18,7 @@ class CodeScheme < ActiveRecord::Base
     t + sep*3 + "#{label}"
   end
 
+  #used in response domain
   def used
     return response_domain_codes.any?
   end
@@ -47,10 +49,21 @@ class CodeScheme < ActiveRecord::Base
         end
       end      
     end
-    return used_in_question_grids
+    #return used_in_question_grids
+    question_grids_h.each do |qgh|
+    	if question_grids.include?(qgh)
+          return true
+      end
+    end
+    question_grids_v.each do |qgv|
+    	if question_grids.include?(qgv)
+          return true
+      end
+    end
     return false
   end
 
+	#used in question grid frames
   def used_in_question_grids
     return question_grids_h.any? || question_grids_v.any?
   end

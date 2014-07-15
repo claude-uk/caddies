@@ -1,0 +1,17 @@
+<p>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Intent</th>
+  </tr>
+
+<% rd_all.question_grids.each do |qg| %>
+  <tr>
+    <td><%= qg.id %></td>
+    <td><%= qg.textid %></td>
+    <td><%= qg.intent %></td>
+  </tr>
+<% end %>
+</table>
+</p>
