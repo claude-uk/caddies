@@ -1,9 +1,9 @@
 <% codes.each do |code| %>
 	<l:Code>
-		<l:CategoryReference>
+		<r:CategoryReference>
 			<r:URN>urn:ddi:<%= @instance.agency %>:<%= code.category.urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Category</r:TypeOfObject>
-		</l:CategoryReference>
-		<l:Value><%= code.cs_value %></l:Value>
+		</r:CategoryReference>
+		<r:Value><%= code.cs_value %></r:Value>
 	</l:Code>
 <% end %>

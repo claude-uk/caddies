@@ -43,13 +43,13 @@
                       <d:InitialValue>
                         <r:Command>
                           <r:ProgramLanguage>SPSS</r:ProgramLanguage>
-                          <r:ProgramContent><%= xmlconstruct.construct.xml_initial_value %></r:ProgramContent>
+                          <r:CommandContent><%= xmlconstruct.construct.xml_initial_value %></r:CommandContent>
                         </r:Command>
                       </d:InitialValue>
                       <d:LoopWhile>
                         <r:Command>
                           <r:ProgramLanguage>SPSS</r:ProgramLanguage>
-                          <r:ProgramContent><%= xmlconstruct.construct.xml_loop_while %></r:ProgramContent>
+                          <r:CommandContent><%= xmlconstruct.construct.xml_loop_while %></r:CommandContent>
                         </r:Command>
                       </d:LoopWhile>
 	              <d:ControlConstructReference>
@@ -80,7 +80,7 @@
                       <d:IfCondition>
                         <r:Command>
                           <r:ProgramLanguage>SPSS</r:ProgramLanguage>
-                          <r:ProgramContent><%= xmlconstruct.construct.condition %></r:ProgramContent>
+                          <r:CommandContent><%= xmlconstruct.construct.condition %></r:CommandContent>
                         </r:Command>
                       </d:IfCondition>
                       <d:ThenConstructReference>

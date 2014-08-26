@@ -1,19 +1,15 @@
-<ddi:DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd"
-		xmlns:d="ddi:datacollection:3_2"
-		xmlns:ddi="ddi:instance:3_2"
-		xmlns:g="ddi:group:3_2"
-		xmlns:l="ddi:logicalproduct:3_2"
-		xmlns:r="ddi:reusable:3_2"
-		xmlns:pr="ddi:ddiprofile:3_2"
-		xmlns:xhtml="http://www.w3.org/1999/xhtml"
-		versionDate="2014-05-15">
+<ddi:DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd" xmlns:ddi="ddi:instance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:xhtml="http://www.w3.org/1999/xhtml" versionDate="2014-07-24">
   <r:URN>urn:ddi:uk.cls:caddies_v012:1.0.0</r:URN>	
-  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-05-15">      
-      <r:URN>urn:ddi:uk.cls:caddies_v012_profile_3_2:1.0.0</r:URN>	
-      <pr:DDIProfileName><r:String xml:lang="en-GB">DDI3.2 Profile as implemented in CADDIES version 0.12</r:String></pr:DDIProfileName>
-      <r:Label><r:Content xml:lang="en-GB">CADDIES v0.12 DDI3.2 Profile</r:Content></r:Label>
-      <r:Description><r:Content xml:lang="en_GB">
+  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-07-24">
+      <r:URN>urn:ddi:uk.cls:caddies_v012_profile_3_2:1.0.0</r:URN>
+      <pr:DDIProfileName>
+      <r:String xml:lang="en-GB">DDI3.2 Profile as implemented in CADDIES version 0.12</r:String>
+      </pr:DDIProfileName>
+      <r:Label>
+      <r:Content xml:lang="en-GB">CADDIES v0.12 DDI3.2 Profile</r:Content>
+      </r:Label>
+      <r:Description>
+      <r:Content xml:lang="en-GB">
         <xhtml:pre>
           DDI3.2 Profile as implemented in CADDIES v0.12 and exportable as xml.
           In this document, I explicitely include as Used the elements implemented in the software.
@@ -29,317 +25,377 @@
           I do not specify how all the attributes are used.
           The universe element is not used as it is assumed that it will be computed from the control construct scheme.
         </xhtml:pre>
-      </r:Content></r:Description>
+      </r:Content>
+      </r:Description>
       <pr:XPathVersion>2.0</pr:XPathVersion>
       <pr:DDINamespace>3.2</pr:DDINamespace>
-      
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>ddi</pr:XMLPrefix>
+			<pr:XMLNamespace>ddi:instance:3_2</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>r</pr:XMLPrefix>
+			<pr:XMLNamespace>ddi:reusable:3_2</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>g</pr:XMLPrefix>
+			<pr:XMLNamespace>ddi:group:3_2</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>xhtml</pr:XMLPrefix>
+			<pr:XMLNamespace>http:/www.w3.org/1999/xhtml</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>d</pr:XMLPrefix>
+			<pr:XMLNamespace>ddi:datacollection:3_2</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
+		<pr:XMLPrefixMap>
+			<pr:XMLPrefix>l</pr:XMLPrefix>
+			<pr:XMLNamespace>ddi:logicalproduct:3_2</pr:XMLNamespace>
+		</pr:XMLPrefixMap>
 
-      <pr:Used path="/ddi:DDIInstance/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/r:Citation" />
-      <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title" />
-      <pr:Used path="/ddi:DDIInstance/r:Citation/r:Title/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/r:Citation/r:SubTitle[1]" />
-      <pr:Used path="/ddi:DDIInstance/r:Citation/r:SubTitle/r:String[1]" />
+      <pr:Used xpath="/ddi:DDIInstance/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/r:Citation"/>
+      <pr:Used xpath="/ddi:DDIInstance/r:Citation/r:Title"/>
+      <pr:Used xpath="/ddi:DDIInstance/r:Citation/r:Title/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/r:Citation/r:SubTitle" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/r:Citation/r:SubTitle/r:String" limitMaxOccurs="1"/>
 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Purpose" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:Purpose/r:Content[1]" />
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:Citation"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:Citation/r:Title/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:Purpose"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:Purpose/r:Content" limitMaxOccurs="1"/>
       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme[1]">
-        <pr:AlternateName xml:lang="en">spine</pr:AlternateName>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:DataCollectionModuleName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme" limitMaxOccurs="1">
+        <pr:AlternateName>
+        <r:String xml:lang="en">spine </r:String>
+        </pr:AlternateName>
       </pr:Used>
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName/r:String[1]" />
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:ControlConstructSchemeName/r:String" limitMaxOccurs="1"/>
 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:TypeOfObject" />
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Sequence/d:ControlConstructReference/r:TypeOfObject"/>
 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command">
-        <pr:Instructions xml:lang="en">validation: only_integer allow_nil</pr:Instructions>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command/r:ProgramLanguage" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command/r:ProgramContent" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command/r:ProgramLanguage" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command/r:ProgramContent" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition">
-        <pr:AlternateName xml:lang="en">condition</pr:AlternateName>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command">
-        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command/r:ProgramLanguage" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command/r:ProgramContent" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:TypeOfObject" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference//r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct">
-        <pr:AlternateName xml:lang="en">question component</pr:AlternateName>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: only_integer allow_nil</r:Content>
+        </pr:Instructions>
       </pr:Used>
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference">
-        <pr:Instructions xml:lang="en">validation: presence</pr:Instructions>
-      </pr:Used>             
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:QuestionReference/r:TypeOfObject" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ResponseUnit">
-        <pr:Instructions xml:lang="en">validation: presence</pr:Instructions>
-      </pr:Used>             
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command/r:CommandContent"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:InitialValue/r:Command/r:ProgramLanguage"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command/r:CommandContent"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:LoopWhile/r:Command/r:ProgramLanguage"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:Loop/d:ControlConstructReference/r:TypeOfObject"/>
 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText/d:Text" />
-
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:TypeOfObject" />
-
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme[1,2]">
-        <pr:AlternateName xml:lang="en">question library</pr:AlternateName>
-        <pr:Instructions xml:lang="en">one scheme for question items, one for question grids</pr:Instructions>
-      </pr:Used>      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName/r:String[1]" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText/d:Text">
-        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionIntent">
-        <pr:Instructions xml:lang="en">validation: ascii_format</pr:Instructions>
-      </pr:Used> 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionIntent/r:Content[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:TypeOfObject" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:TypeOfObject" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText/d:Text">
-        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionIntent">
-        <pr:Instructions xml:lang="en">validation: ascii_format</pr:Instructions>
-      </pr:Used> 
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionIntent/r:Content[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension[1,2]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension[1]/d:Roster" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label/r:Content[1]" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:TypeOfObject" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:TypeOfObject" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined/d:SelectDimension[1,2]" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:TypeOfObject" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText/d:Text" />
-
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName/r:String[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label/r:Content[1]">
-        <pr:AlternateName xml:lang="en">category text</pr:AlternateName>
-        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
-      </pr:Used> 
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName/r:String[1]" />
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label/r:Content[1]">
-        <pr:AlternateName xml:lang="en">short description</pr:AlternateName>
-        <pr:Instructions xml:lang="en">validation: presence ascii_format</pr:Instructions>
-      </pr:Used>       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:CategoryReference/r:TypeOfObject" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/l:Value" />
-
-
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme">
-        <pr:Instructions xml:lang="en">one scheme for each type of representation used: text, numeric, datetime</pr:Instructions>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition">
+        <pr:AlternateName>
+        <r:String xml:lang="en">condition </r:String>
+        </pr:AlternateName>
       </pr:Used>
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName/r:String[1]" />
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command/r:CommandContent"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:IfCondition/r:Command/r:ProgramLanguage"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ThenConstructReference/r:TypeOfObject"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:IfThenElse/d:ElseConstructReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct">
+        <pr:AlternateName>
+        <r:String xml:lang="en">question component </r:String>
+        </pr:AlternateName>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:QuestionReference">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:QuestionReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:QuestionReference/r:TypeOfObject"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ResponseUnit">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:StatementItem/d:DisplayText/d:LiteralText/d:Text"/>
+
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:InstrumentSchemeName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:InstrumentName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:InstrumentScheme/d:Instrument/d:ControlConstructReference/r:TypeOfObject"/>
+
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme" limitMaxOccurs="2">
+        <pr:AlternateName>
+        <r:String xml:lang="en">question library </r:String>
+        </pr:AlternateName>
+        <pr:Instructions>
+        <r:Content xml:lang="en">one scheme for question items, one for question grids</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionSchemeName/r:String" limitMaxOccurs="1"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionItemName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionText/d:LiteralText/d:Text">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionIntent">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used> 
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:QuestionIntent/r:Content" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:TextDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:NumericDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:DateTimeDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:CodeDomain/r:CodeListReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:TextDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:NumericDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:DateTimeDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:StructuredMixedResponseDomain/d:ResponseDomainInMixed/d:CodeDomain/r:CodeListReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionItem/d:InterviewerInstructionReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionGridName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionText/d:LiteralText/d:Text">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used>       
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionIntent">
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used> 
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:QuestionIntent/r:Content" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension" limitMaxOccurs="2"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:CodeDomain/r:CodeListReference/r:TypeOfObject"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension[1]/d:Roster"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:GridDimension/d:Roster/r:Label/r:Content" limitMaxOccurs="1"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:TextDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:NumericDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:DateTimeDomainReference/r:TypeOfObject"/>
       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label/r:Content[1]" />
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:CodeDomain/r:CodeListReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:TextDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:NumericDomainReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:DateTimeDomainReference/r:TypeOfObject"/>
       
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label/r:Content[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:Low" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:High" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumericTypeCode" />
-      
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:URN" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label/r:Content[1]" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateFieldFormat" />
-      <pr:Used path="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateTypeCode" />
-      
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:CodeDomain/r:CodeListReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:StructuredMixedGridResponseDomain/d:GridResponseDomain/d:GridAttachment/d:CellCoordinatesAsDefined/d:SelectDimension" limitMaxOccurs="2"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:QuestionScheme/d:QuestionGrid/d:InterviewerInstructionReference/r:TypeOfObject"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:InterviewerInstructionSchemeName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:InterviewerInstructionScheme/d:Instruction/d:InstructionText/d:LiteralText/d:Text"/>
+
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:CategorySchemeName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/l:CategoryName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CategoryScheme/l:Category/r:Label/r:Content" limitMaxOccurs="1">
+        <pr:AlternateName>
+        <r:String xml:lang="en">category text </r:String>
+        </pr:AlternateName>
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used> 
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeListSchemeName/r:String" limitMaxOccurs="1"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/r:Label/r:Content" limitMaxOccurs="1">
+        <pr:AlternateName>
+        <r:String xml:lang="en">short description </r:String>
+        </pr:AlternateName>
+        <pr:Instructions>
+        <r:Content xml:lang="en">validation: presence ascii_format</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/r:CategoryReference"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/r:CategoryReference/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/r:CategoryReference/r:TypeOfObject"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/l:CodeListScheme/l:CodeList/l:Code/r:Value"/>
+
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme">
+        <pr:Instructions>
+        <r:Content xml:lang="en">one scheme for each type of representation used: text, numeric, datetime</r:Content>
+        </pr:Instructions>
+      </pr:Used>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedRepresentationSchemeName/r:String" limitMaxOccurs="1"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedTextRepresentation/r:Label/r:Content" limitMaxOccurs="1"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:Label/r:Content" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:Low"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumberRange/r:High"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedNumericRepresentation/r:NumericTypeCode"/>
+
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:URN"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:Label/r:Content" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateFieldFormat"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/r:ManagedRepresentationScheme/r:ManagedDateTimeRepresentation/r:DateTypeCode"/>
+
   </pr:DDIProfile>
 </ddi:DDIInstance>

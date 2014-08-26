@@ -3,7 +3,7 @@
 
 function add_to_mylist_or_apply() {
     //collect entries from editor section
-    newvalue = document.getElementById('newvalue').value;
+    newvalue = document.getElementById('newvalue').value.trim();
     c = document.getElementById('newcat_id');
     newcat = c.value;
     if (c.selectedIndex != '') {
@@ -37,7 +37,7 @@ function add_to_mylist_or_apply() {
     else {	//apply
       //edit cells
       index = document.getElementById('entry_mode').htmlFor;
-      document.getElementById('sortable1').rows[index].cells[0].innerHTML = document.getElementById('newvalue').value;
+      document.getElementById('sortable1').rows[index].cells[0].innerHTML = newvalue;
       c = document.getElementById('newcat_id');
       if (c.selectedIndex != '') {
         //document.getElementById('sortable1').rows[index].cells[1].innerHTML = c.selectedIndex;
