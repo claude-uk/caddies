@@ -1,0 +1,25 @@
+desc "Update the template database instance table for 0.12.1"
+task :update_template_instance => :environment do
+  instance = Instance.find(1)
+  instance.agency = "uk.cls"
+  instance.version = "1.0.0"
+  instance.prefix = "xxx"
+  instance.inst_citation = "xxx instance 01"
+  instance.rp_citation = "xxx resource package 01"
+  instance.instrument_scheme = "xxx_is01"
+  instance.purpose_text = "not specified"
+  instance.cc_scheme = "xxx_ccs01"
+  instance.category_scheme = "xxx_cs01"
+  instance.question_scheme = "xxx_qs01"
+  instance.ddata_collection = "xxx_ddc01"
+  instance.instrument = "xxx_instr01"
+  instance.top_sequence = "TopSequence"
+  instance.question_grid_scheme = "xxx_qgs01"
+  instance.instruction_scheme = "xxx_is01"
+  instance.code_list_scheme = "xxx_cos01"
+  instance.mrep_text_scheme = "xxx_mrst01"
+  instance.mrep_num_scheme = "xxx_mrsn01"
+  instance.mrep_dt_scheme = "xxx_mrsd01"
+  instance.save!
+  puts "update db template done"
+end
