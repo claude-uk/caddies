@@ -1,4 +1,5 @@
 class Instruction < ActiveRecord::Base
+  validates :instruction_text, :ascii_format => true
   has_many :question_items
   has_many :question_grids
 

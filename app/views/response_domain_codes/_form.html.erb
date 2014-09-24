@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :code_scheme %><br />
-    <%= raw h(f.collection_select :code_scheme_id, CodeScheme.find(:all), :id, :label_with_id, :prompt => 'select a scheme').gsub(/~/,"&nbsp;") %>
+    <%= raw h(f.collection_select :code_scheme_id, CodeScheme.find(:all), :id, :label_with_id, {:prompt => 'select a scheme'}, {:autofocus => true}).gsub(/~/,"&nbsp;") %>
   </div>
   <div class="actions">
     <%= f.submit %>
