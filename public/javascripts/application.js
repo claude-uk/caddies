@@ -1,6 +1,8 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
 
+//= require chosen.jquery.min
+
 function add_to_mylist_or_apply() {
     //collect entries from editor section
     newvalue = document.getElementById('newvalue').value.trim();

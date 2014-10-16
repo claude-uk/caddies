@@ -1,3 +1,13 @@
+<% content_for :head do %>
+  <%= javascript_include_tag 'chosen.jquery.min' %>
+<% end %>
+
+<script>
+ $(function(){
+ $(".chosen-select").chosen({width: "600px", allow_single_deselect: true});
+ });
+ </script>
+
 <%= form_for(@question_item) do |f| %>
   <% if @question_item.errors.any? %>
     <div id="error_explanation">
@@ -7,7 +17,7 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
-		<!--=pre><%#= @question_item.to_yaml %></pre-->
+	  <pre><%#= @question_item.to_yaml %></pre>
     </div>
   <% end %>
 
@@ -19,12 +29,13 @@
   <div class="field">
     <%= f.label :instructions, 'Instructions (optional)' %><br />
       <%= raw h(f.collection_select :instruction_id, Instruction.find(:all), :id, :short_text_with_id, {:include_blank => 'select interviewer instructions...'}).gsub(/~/,"&nbsp;") %>
-    </div>
+  </div>
 
   <div class="field">
     <%= f.label :literal, 'Question text' %><br />
     <%= f.text_area :literal, :cols => 100, :rows => 4 %>
   </div>
+
   <div class="field">
     <%= f.label :intent %><br />
     <%= f.text_field :intent, :size => 120  %>
@@ -32,51 +43,10 @@
 
   <div class="field">
     <%= f.label :response_domain_all, 'Answers' %><br />
-
-    <%#= f.collection_select :response_domain_all_id, ResponseDomainAll.find(:all), :id, :id_plus, :prompt => 'select a response domain (all)' %>
-     <label class="instruction">T Id is the Id in the table of text, numeric, date and time or code answers</label>
-     <table>
-     <thead>
-      <tr>
-        <th>Qi_rda Id</th>
-        <th>rd_all Id</th>
-        <th>Type</th>
-        <th>T Id</th>
-        <th>Description</th>
-        <th></th>
-      </tr>
-     </thead>
-
-     <tbody>
-        <% @question_item.qi_rdas.each do |qi_rda| %>
-          <%= f.fields_for :qi_rdas, qi_rda do |qi_rda_form|%>
-          <tr class="qirda_fields">
-             <td><%= qi_rda_form.text_field :id, :readonly => true, :size => 6 %></td>
-             <td><%= qi_rda.response_domain_all.id %></td>
-             <td><%= qi_rda.response_domain_all.response_domain_type.label %></td>
-             <td><%= qi_rda.response_domain_all.domain.id %></td>
-             <td><%= qi_rda.response_domain_all.anylabel %></td>
-             <td class="islink"><%= qi_rda_form.hidden_field :_destroy %><%= link_to_function 'Remove', "remove_qirda_fields(this)" %></td>
-          </tr>
-          <% end %>
-        <% end %>
-          <tr id="empty">
-            <td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>
-          </tr>
-     </tbody>
-    </table>
+    <%= raw h(f.collection_select :response_domain_all_ids, ResponseDomainAll.all, :id, :id_plus3, {}, {:style => 'visibility: visible', :class => 'chosen-select', :multiple => 'true', "data-placeholder" => "Select answer options..."}).gsub(/~/,"&nbsp;") %>
   </div>
 
-  <p>
-    <label>New Answers</label><br />
-    <%#= collection_select :newrd, :id, ResponseDomainAll.all, :id, :id_plus, {:prompt => 'select answers...'}, {:style => 'visibility: visible; width: 600px'} %>
-    <%= raw h(collection_select :newrd, :id, ResponseDomainAll.all, :id, :id_plus2, {:prompt => 'select answers...'}, {:style => 'visibility: visible; width: 600px'}).gsub(/~/,"&nbsp;") %>
-    <br/>
-    <%= button_to_function "Add to list", "add_to_qi_rda_list()", :id => 'entry_button' %>
-  </p>
-
   <div class="actions">
-    <p><%#= link_to_add_fields "Add Response Domain", f %>
     <%= f.submit %>
   </div>
 <% end %>

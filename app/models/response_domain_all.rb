@@ -26,6 +26,15 @@ class ResponseDomainAll < ActiveRecord::Base
     id1 + sep + sep + sep + type2 + id2 + sep + sep + sep + anylabel
   end
 
+  #simplfied version
+  def id_plus3
+  sep = '~'
+    type = response_domain_type.label
+    type2 = type.ljust(9, sep)    
+    id2 = "#{domain_id}".rjust(3, sep)
+    type2 + id2 + sep + sep + sep + anylabel
+  end
+
   def anylabel
     type = response_domain_type.label
     if type == "text"

@@ -1,0 +1,8 @@
+/*!
+Override the minified chosen css file to get monospace font in the drop-down menu in the chosen plugin
+*/
+
+.chosen-container .chosen-results {
+  font-family: monospace;	/*added by claude*/
+}
+

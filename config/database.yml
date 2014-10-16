@@ -2,38 +2,13 @@
 #   gem install sqlite3
 development:
   adapter: sqlite3
-  #database: db/development.sqlite3
   database: ../dev/dbs/development.sqlite3
   pool: 5
   timeout: 5000
 
-pms:
+caddiesdemo:
   adapter: sqlite3
-  database: ../pms/dbs/development.sqlite3
-  pool: 5
-  timeout: 5000
-
-mcs5:
-  adapter: sqlite3
-  database: ../mcs5/dbs/development.sqlite3
-  pool: 5
-  timeout: 5000
-
-ncds_biomed:
-  adapter: sqlite3
-  database: ../ncds_biomed/dbs/development.sqlite3
-  pool: 5
-  timeout: 5000
-
-alspac:
-  adapter: sqlite3
-  database: ../alspac/dbs/development.sqlite3
-  pool: 5
-  timeout: 5000
-
-demo:
-  adapter: sqlite3
-  database: ../demo/dbs/development.sqlite3
+  database: db/caddiesdemo.sqlite3
   pool: 5
   timeout: 5000
 

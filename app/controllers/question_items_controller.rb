@@ -68,6 +68,11 @@ class QuestionItemsController < ApplicationController
     @question_item = QuestionItem.find(params[:id])
 #   render :text => params.inspect
 
+		#the 'chosen' plugin does not seem to delete the last response_domain_alls, add missing explicit empty value
+		if !params[:question_item].key?("response_domain_all_ids")
+			params[:question_item][:response_domain_all_ids] = [""]
+		end
+
     respond_to do |format|
       if @question_item.update_attributes(params[:question_item])
         format.html { redirect_to(@question_item, :notice => 'Question item was successfully updated.') }
