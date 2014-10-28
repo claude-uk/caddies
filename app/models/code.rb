@@ -6,4 +6,8 @@ class Code < ActiveRecord::Base
   belongs_to :code_scheme
   belongs_to :category
   
+	include SharedMethods
+  @@type_prefix = "co"
+  cattr_reader :type_prefix
+  
 end

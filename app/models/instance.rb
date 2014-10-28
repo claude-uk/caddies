@@ -8,7 +8,7 @@ class Instance < ActiveRecord::Base
   attr_accessor :repTextCount, :repNumCount, :repDTCount, :qgMixedrdaCount, :qgInMixedrdaCount, :qgSinglerdaCount, :rdRef
   #@@prefix = "pms"
   #cattr_reader :prefix
-  @@sep = "."
+  @@sep = "-"
   cattr_reader :sep
   @@just = 6
   cattr_reader :just

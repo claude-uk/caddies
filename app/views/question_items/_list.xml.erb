@@ -6,9 +6,9 @@
 	<d:QuestionItem>
 		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_item.urn_id %>:<%= @instance.version %></r:URN>
 		<d:QuestionItemName><r:String xml:lang="en-GB"><%= question_item.textid %></r:String></d:QuestionItemName>
-		<d:QuestionText>
+		<d:QuestionText audienceLanguage="en-GB">
 			<d:LiteralText>
-				<d:Text xml:lang="en-GB"><%= question_item.literal %></d:Text>
+				<d:Text><%= question_item.literal %></d:Text>
 			</d:LiteralText>
 		</d:QuestionText>
 		<d:QuestionIntent>

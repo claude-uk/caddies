@@ -17,7 +17,7 @@ class CcAll < ActiveRecord::Base
     when 'CcLoop' then 'Loop'
     when 'CcIfthenelse' then 'IfThenElse'
     when 'CcQuestion' then 'QuestionConstruct'
-    when 'CcStatement' then 'Statement'
+    when 'CcStatement' then 'StatementItem'
     end
   end
     

@@ -5,9 +5,9 @@
 <% instructions.each do |instruction| %>
 	<d:Instruction>
 		<r:URN>urn:ddi:<%= @instance.agency %>:<%= instruction.urn_id %>:<%= @instance.version %></r:URN>
-		<d:InstructionText>
+		<d:InstructionText audienceLanguage="en-GB">
 			<d:LiteralText>
-				<d:Text xml:lang="en-GB"><%= instruction.instruction_text %></d:Text>
+				<d:Text><%= instruction.instruction_text %></d:Text>
 			</d:LiteralText>
 		</d:InstructionText>
 	</d:Instruction>

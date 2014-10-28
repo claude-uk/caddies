@@ -1,5 +1,6 @@
 <% codes.each do |code| %>
 	<l:Code>
+		<r:URN>urn:ddi:<%= @instance.agency %>:<%= code.urn_id %>:<%= @instance.version %></r:URN>
 		<r:CategoryReference>
 			<r:URN>urn:ddi:<%= @instance.agency %>:<%= code.category.urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Category</r:TypeOfObject>

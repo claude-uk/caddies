@@ -6,9 +6,9 @@
 	<d:QuestionGrid>
 		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.urn_id %>:<%= @instance.version %></r:URN>
 		<d:QuestionGridName><r:String xml:lang="en-GB"><%= question_grid.textid %></r:String></d:QuestionGridName>
-		<d:QuestionText>
+		<d:QuestionText audienceLanguage="en-GB">
 			<d:LiteralText>
-				<d:Text xml:lang="en-GB"><%= question_grid.literal %></d:Text>
+				<d:Text><%= question_grid.literal %></d:Text>
 			</d:LiteralText>
 		</d:QuestionText>
 		<d:QuestionIntent>
@@ -30,6 +30,8 @@
 		    	</d:CodeDomain>
 		<% end %>
 		
+<%
+=begin %>
 		<% if (question_grid.vertical_roster_rows) and (question_grid.vertical_roster_rows > 0) %>
 		    	<d:Roster minimumRequired="<%= question_grid.vertical_roster_rows %>">
 		    	  <r:Label>
@@ -37,6 +39,8 @@
 		    	  </r:Label>
 		    	</d:Roster>
 		<% end %>
+<%
+=end %>
 		
 		    </d:GridDimension>		  
 
@@ -69,10 +73,10 @@
 	      	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
 	      	  		    <% end %>
 	      	  		      <d:GridAttachment>
-	      	  		        <CellCoordinatesAsDefined>
-	      	  		          <SelectDimension rank="1" allValues="true" />
-	      	  		          <SelectDimension rank="2" specificValue="<%= index + 1 %>" />
-	      	  		        </CellCoordinatesAsDefined>
+	      	  		        <d:CellCoordinatesAsDefined>
+	      	  		          <d:SelectDimension rank="1" allValues="true" />
+	      	  		          <d:SelectDimension rank="2" specificValue="<%= index + 1 %>" />
+	      	  		        </d:CellCoordinatesAsDefined>
 	      	  		      </d:GridAttachment>
 	      	                  </d:GridResponseDomain>
 	                    <% end %>

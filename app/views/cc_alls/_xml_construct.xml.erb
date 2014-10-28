@@ -18,9 +18,9 @@
 		    <d:StatementItem>
 		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB"><%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
-                      <d:DisplayText>
+                      <d:DisplayText audienceLanguage="en-GB">
                         <d:LiteralText>
-                          <d:Text xml:lang="en-GB"><%= xmlconstruct.construct.statement_item %></d:Text> 
+                          <d:Text><%= xmlconstruct.construct.statement_item %></d:Text> 
                         </d:LiteralText>
                       </d:DisplayText>
 		    </d:StatementItem>
@@ -29,10 +29,10 @@
 		    <d:QuestionConstruct>
 		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB"><%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
-		      <d:QuestionReference>
+		      <r:QuestionReference>
 		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.question_reference.urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject><%= xmlconstruct.construct.question_reference.type_of_object %></r:TypeOfObject>
-		      </d:QuestionReference>
+		      </r:QuestionReference>
 		      <d:ResponseUnit><%= xmlconstruct.construct.response_unit.text %></d:ResponseUnit>
 		    </d:QuestionConstruct>
 

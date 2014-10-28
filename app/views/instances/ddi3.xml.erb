@@ -24,6 +24,8 @@
 			      	<%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => @first_construct, :instance => @instance}  %>
                         </d:ControlConstructScheme>
 
+			<%= render :partial => 'instructions/list',  :locals => {:instructions => @instructions, :instance => @instance}  %>
+
                         <d:InstrumentScheme>
 				<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.instrument_scheme_urn_id %>:<%= @instance.version %></r:URN>
 			    	<d:InstrumentSchemeName><r:String xml:lang="en-GB"><%= @instance.instrument_scheme %></r:String></d:InstrumentSchemeName>
@@ -31,7 +33,7 @@
 					<r:URN>urn:ddi:<%= @instance.agency %>:<%= @instance.instrument_urn_id %>:<%= @instance.version %></r:URN>
 			    		<d:InstrumentName><r:String xml:lang="en-GB"><%= @instance.instrument %></r:String></d:InstrumentName>
 			    		<d:ControlConstructReference>
-						<r:URN>urn:ddi:<%= @instance.agency %>:@first_construct.construct.urn_id:<%= @instance.version %></r:URN>
+						<r:URN>urn:ddi:<%= @instance.agency %>:<%= @first_construct.construct.urn_id %>:<%= @instance.version %></r:URN>
 						<r:TypeOfObject>Sequence</r:TypeOfObject>
 			    		</d:ControlConstructReference>
 			  	</d:Instrument>
@@ -41,7 +43,6 @@
 		
 	<%= render :partial => 'question_items/list',  :locals => {:question_items => @question_items, :instance => @instance}  %>
 	<%= render :partial => 'question_grids/list',  :locals => {:question_grids => @question_grids, :instance => @instance}  %>
-	<%= render :partial => 'instructions/list',  :locals => {:instructions => @instructions, :instance => @instance}  %>
 	<%= render :partial => 'categories/list',  :locals => {:categories =>  @categories, :instance => @instance}  %>
 	<%= render :partial => 'code_schemes/list',  :locals => {:code_schemes => @code_schemes, :instance => @instance}  %>
 	<%= render :partial => 'response_domain_texts/list',  :locals => {:response_domain_texts => @response_domain_texts, :instance => @instance}  %>
