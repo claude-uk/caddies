@@ -9,8 +9,12 @@
 			  <r:Content xml:lang="en-GB"><%= rdn.label %></r:Content>
 			</r:Label>
 			<r:NumberRange>
-			  <r:Low><%= rdn.min %></r:Low>
-			  <r:High><%= rdn.max %></r:High>
+			  <% if rdn.min.present? %>
+			    <r:Low><%= rdn.min %></r:Low>
+			  <% end %>
+			  <% if rdn.max.present? %>
+			    <r:High><%= rdn.max %></r:High>
+			  <% end %>
 			</r:NumberRange>
 			<r:NumericTypeCode><%= rdn.numeric_type.label %></r:NumericTypeCode>
 		</r:ManagedNumericRepresentation>

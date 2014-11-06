@@ -47,7 +47,7 @@ class InstancesController < ApplicationController
     @response_domain_datetimes = ResponseDomainDatetime.all
     #Really I should trace it back from the text id of the topsequence in instance...
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.2 with the xml library option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml library option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -68,11 +68,31 @@ class InstancesController < ApplicationController
     @response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
     @response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.2 with the xml compact option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml compact option"
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :ddi3 } # uses same template as ddi3: ddi3.xml.erb
+    end
+  end
+
+  # GET /instances/1/ddi3repo.xml
+  def ddi3repo
+    @instance = Instance.first
+    @question_items = QuestionItem.all_used_in_top_sequence
+    @question_grids = QuestionGrid.all_used_in_top_sequence
+    @instructions = Instruction.all_used_in_top_sequence(@question_items, @question_grids)
+    @code_schemes = CodeScheme.all_used_in_top_sequence(@question_items, @question_grids)
+    @categories = Category.all_used_in_top_sequence(@code_schemes)
+    #@response_domain_texts = ResponseDomainText.all_used_in_top_sequence(@question_items, @question_grids)
+    #@response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
+    #@response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
+    @first_construct = CcAll.find(1)
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml repository option"
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :ddi3repo }
     end
   end
 

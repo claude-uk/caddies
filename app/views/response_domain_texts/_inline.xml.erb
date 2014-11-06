@@ -1,0 +1,9 @@
+		<% if rdtext.maxlen.present? %>
+    			<d:TextDomain maxLength="<%= rdtext.maxlen %>">
+		<% else %>
+    			<d:TextDomain>
+		<% end %>
+				<r:Label>
+			  		<r:Content xml:lang="en-GB"><%= rdtext.label %></r:Content>
+				</r:Label>
+    			</d:TextDomain>

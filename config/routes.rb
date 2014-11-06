@@ -54,6 +54,7 @@ Ddi3::Application.routes.draw do
 
   match 'ddi3instance' => 'instances#show', :as => 'ddi3instance'
   match 'ddi3instance/xmlclean' => 'instances#ddi3clean', :format => 'xml', :as => 'ddi3instance_xmlclean'
+  match 'ddi3instance/xmlrepo' => 'instances#ddi3repo', :format => 'xml', :as => 'ddi3instance_xmlrepo'
   match 'ddi3instance/xml' => 'instances#ddi3', :format => 'xml', :as => 'ddi3instance_xml'
   match 'ddi3instance/edit' => 'instances#edit', :as => 'ddi3instance_edit'
   match 'ddi3instance/stats' => 'instances#stats', :as => 'ddi3instance_stats'

@@ -1,0 +1,14 @@
+		    	<d:NumericDomain>
+				<r:NumberRange>
+			  	  <% if rdnum.min.present? %>
+				    <r:Low><%= rdnum.min %></r:Low>
+				  <% end %>
+				  <% if rdnum.max.present? %>
+				    <r:High><%= rdnum.max %></r:High>
+				  <% end %>
+				</r:NumberRange>
+				<r:NumericTypeCode><%= rdnum.numeric_type.label %></r:NumericTypeCode>
+				<r:Label>
+				  <r:Content xml:lang="en-GB"><%= rdnum.label %></r:Content>
+				</r:Label>
+		    	</d:NumericDomain>

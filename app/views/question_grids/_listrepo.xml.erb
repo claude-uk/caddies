@@ -82,13 +82,13 @@
 	                    <% if !rda.nil? %>
 	      	                  <d:GridResponseDomain>
 	      	  		    <% if rda.response_domain_type.id == 1 %>
-	      	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda.domain } %>
+	      	  		      <%= render :partial => "response_domain_texts/inline", :locals => {:rdtext => rda.domain } %>
 	      	  		    <% elsif rda.response_domain_type.id == 2 %>
-	      	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda.domain } %>
+	      	  		      <%= render :partial => "response_domain_numerics/inline", :locals => {:rdnum => rda.domain } %>
 	      	  		    <% elsif rda.response_domain_type.id == 3 %>
 	      	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcode => rda.domain.code_scheme, :instance => instance} %>
 	      	  		    <% elsif rda.response_domain_type.id == 4 %>
-	      	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda.domain} %>
+	      	  		      <%= render :partial => "response_domain_datetimes/inline", :locals => {:rddt => rda.domain} %>
 	      	  		    <% end %>
 	      	  		      <d:GridAttachment>
 	      	  		        <d:CellCoordinatesAsDefined>
@@ -105,13 +105,13 @@
 	                  <% rda_type = question_grid.columns.first.response_domain_all.response_domain_type.id %>
 	                  <% rda_domain = question_grid.columns.first.response_domain_all.domain %>
 	  		  <% if rda_type == 1 %>
-	  		      <%= render :partial => "response_domain_texts/reference", :locals => {:rdtext => rda_domain } %>
+	  		      <%= render :partial => "response_domain_texts/inline", :locals => {:rdtext => rda_domain } %>
 	  		  <% elsif rda_type == 2 %>
-	  		      <%= render :partial => "response_domain_numerics/reference", :locals => {:rdnum => rda_domain } %>
+	  		      <%= render :partial => "response_domain_numerics/inline", :locals => {:rdnum => rda_domain } %>
 	  		  <% elsif rda_type == 3 %>
 	  		      <%= render :partial => "response_domain_codes/reference", :locals => {:rdcode => rda_domain.code_scheme, :instance => instance} %>
 	  		  <% elsif rda_type == 4 %>
-	  		      <%= render :partial => "response_domain_datetimes/reference", :locals => {:rddt => rda_domain} %>
+	  		      <%= render :partial => "response_domain_datetimes/inline", :locals => {:rddt => rda_domain} %>
 	  		  <% end %>
   		<% end %>
 		
