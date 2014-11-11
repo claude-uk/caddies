@@ -111,23 +111,6 @@ module InstancesHelper
 				  html << "    	<th>#{code.category.label}</th>"
 				end
 				html << "  </tr>\n"
-
-#				#dummy for testing rd display
-#				if node.construct.question_reference.id == 6
-#				  html << "<tr class=responsedomains>\n"
-#				  html << "<td></td>"
-#				  html << "<td>Integer</td>"
-#				  html << "<td>Integer</td>"
-#				  html << "<td class=\"code\"><b>Y</b>-Male</br><b>X</b>-Female</td>"
-#				  html << "<td>Integer</td>"
-#				  html << "<td>Integer</td>"
-#				  html << "<td class=\"code\"><b>0</b>-Domicilliary</br><b>1</b>-Institutional(Including nursing homes)</td>"
-#				  html << "<td class=\"code\"><b>2</b>-Alive now</br><b>3</b>-Died 28 days or later</br><b>4</b>-Died 7-27 days inclusive</br><b>5</b>-Died under 7 days</br><b>6</b>-Stillborn</br><b>7</b>-Miscarriage</br><b>8</b>-Ectopic Pregnancy</td>"
-#				  html << "<td class=\"code\"><b>Y</b>-Toxaemia</br><b>X</b>-A.P.H.</br><b>0</b>-Other complications</br><b>1</b>-No complications at all</br><b>2</b>-Not known whether any complications or not</td>"
-#				  html << "<td class=\"code\"><b>3</b>-Spontaneous</br><b>4</b>-Forceps</br><b>5</b>-Caesarean</br><b>6</b>-Others</br><b>7</b>-Method not known</td>"
-#				  html << "</tr>\n"
-#				end
-#				#end of dummy
 				
 				html << "<tr class=responsedomains>\n"
 				html << "<td></td>\n"
@@ -203,8 +186,9 @@ module InstancesHelper
       ifchildren = node.if_children
       elsechildren = node.else_children
       html << write_branch('if', ifchildren)
-      html << write_branch('else', elsechildren)
- 
+      if elsechildren.any?
+      	html << write_branch('else', elsechildren)
+ 			end
     end
 
     if (node_type == "folder")

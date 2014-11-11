@@ -4,6 +4,7 @@ class Instance < ActiveRecord::Base
   attr_accessor :qiCount, :categoryCount, :csCount, :singlerdaCount, :mixedrdaCount, :inMixedrdaCount, :rdtextRef, :rdnumRef, :rddateRef, :rdcodeCount, :codeCount
   attr_accessor :ccRef, :qiRef, :totalElt, :totalRef, :rdcodeRef, :synapticDensity, :codeRef
   attr_accessor :qlist
+  attr_accessor :slist
   attr_accessor :rdCount, :qgrdCount, :qgCount, :qgHeaderCount, :qgHeaderRef, :rosterCount, :instructionCount, :instructionRef, :qgMixedrdaCount
   attr_accessor :repTextCount, :repNumCount, :repDTCount, :qgMixedrdaCount, :qgInMixedrdaCount, :qgSinglerdaCount, :rdRef
   #@@prefix = "pms"
@@ -61,6 +62,13 @@ class Instance < ActiveRecord::Base
     self.qlist = []
     @cc_node = CcAll.find(1)		#start with top_sequence
     collect_questions(@cc_node)		#recurse over the constructs
+  end
+
+  #extract the name of the sequences in the order of the cc scheme (for the data mapping file)
+  def set_slist()
+    self.slist = []
+    @cc_node = CcAll.find(1)		#start with top_sequence
+    collect_sequences(@cc_node)		#recurse over the constructs
   end
 
   private
@@ -202,6 +210,17 @@ class Instance < ActiveRecord::Base
         end
       elsif node.construct_type == 'CcQuestion'
         self.qlist.push("|" + node.construct.textid + "|" + node.construct.question_reference.intent.squish + "|" + node.construct.question_reference.literal.squish) 
+      end
+    end
+
+    def collect_sequences(node)
+      if ['CcSequence', 'CcLoop', 'CcIfthenelse'].include?(node.construct_type)
+      	if node.construct_type == 'CcSequence'
+        	self.slist.push("|" + node.construct.textid.squish) 
+        end	
+        node.children.each do |cc_child|
+          collect_sequences(cc_child)
+        end
       end
     end
 

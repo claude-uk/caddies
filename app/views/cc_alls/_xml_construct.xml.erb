@@ -87,10 +87,12 @@
 		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.then_sequence_urn_id %>:<%= @instance.version %></r:URN>
 			<r:TypeOfObject>Sequence</r:TypeOfObject>
                       </d:ThenConstructReference>
+             	     <% if xmlconstruct.else_children.any? %>
                       <d:ElseConstructReference>
 		        <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
 			 <r:TypeOfObject>Sequence</r:TypeOfObject>
                       </d:ElseConstructReference>
+		     <% end %>
 		    </d:IfThenElse>
 
 		    <d:Sequence>
@@ -104,6 +106,7 @@
 		      <% end %>
 		    </d:Sequence>
 
+             	     <% if xmlconstruct.else_children.any? %>
 		    <d:Sequence>
 		      <r:URN>urn:ddi:<%= @instance.agency %>:<%= xmlconstruct.construct.else_sequence_urn_id %>:<%= @instance.version %></r:URN>
 		      <d:ConstructName><r:String xml:lang="en-GB">else_seq_<%= xmlconstruct.construct.textid %></r:String></d:ConstructName>
@@ -114,6 +117,7 @@
 			</d:ControlConstructReference>
 		      <% end %>
 		    </d:Sequence>
+		    <% end %>
 
 		    <% xmlconstruct.children.each do |cc_child| %>
 		      <%= render :partial => 'cc_alls/xml_construct',  :locals => {:xmlconstruct => cc_child, :instance => instance}  %>

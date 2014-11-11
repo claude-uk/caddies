@@ -63,24 +63,34 @@
   There are default values such as <em>xxx_inst01</em> where the <em>xxx</em> is to be replaced with a code specific to the metadata set being entered, e.g. <em>mcs5_inst01</em>.
   </p>
   <p>
-  <b>Xml compact</b> is the final outcome of this editor. It shows the metadata in ddi3.1 xml format.
+  <b>Xml compact</b> is the final outcome of this editor. It shows the metadata in ddi3.2 xml format.
   Xml compact only outputs the elements that are used in the top sequence, their children and their references.
   Use <em>right-click > Save Page as...</em> to save it to a file.
   As the page handles all the metadata, it may be relatively slow to load.
   </p>
   <p>
-  <b>Xml library</b> shows the metadata in ddi3 xml format.
+  <b>Xml library</b> shows the metadata in ddi3.2 xml format.
   In contrast to <em>xml compact</em>, it includes all the library-type elements, such as the question items or code lists, whether they are used in the top sequence or not.
   <em>Xml library</em> may be used to output the intermediate stages of building a ddi3 instance file or to explicitely capture a question library or a code list scheme.
   Neither <em>xml compact</em> nor <em>xml library</em> includes the questionnaire components used in the attic.
   </p>
   <p>
+  <b>Xml repository</b> shows the metadata in a ddi3.2 xml format. It is a version produced to accommodate the requirements of the repository.
+  It does not make use of managed representations and instead it uses text, numeric and datetime response domains inline.
+  </p>
   <b>Stats</b> displays some summary statistics on the metadata entered.
   </p>
   <p>
   <b>Qlist</b> outputs a question list for writing mapping files between questions and variables.
   It only uses the question components of the top sequence, in questionnnaire order.
   It outputs the name of the question component, the intent of the question item and the text of the question item.
+  </p>
+  <p>
+  <b>Slist</b> similarly outputs a list of the sequences.
+  It only uses the sequences of the top sequence, in questionnnaire order.
+  </p>
+  </p>
+  <b>Doc</b> displays the questionnaire in a static html format most likely to replicate the original questionnaire.
   </p>
 
   <a id='spine'></a>
@@ -265,7 +275,9 @@
         <li>In 'New Question Grid', fill required fields.</li>
         <li>Select a code list for the horizontal headers from the menu.</li>
         <li>Optionally select a code list for the vertical headers (column 0) from the menu.</li>
-        <li>Alternatively or in addition add the number of blank cells in column 0 (editable vertical headers).</li>
+        <li>Alternatively or in addition add the number of blank cells in column 0 (editable vertical headers).
+        NB: these blank cells or <em>roster</em> will not appear in the xml output if they are in addition to a code list.
+        This to accommodate the idiosyncrasies of ddi3.2.</li>
         <li>Optionally add a label such as 'other, specify'.</li>
         <li>Select whether you want the name of the vertical or horizontal code list to become the text in top left corner (cell 0,0).</li>
         <li>Click on 'Create', this creates a question grid without answers.</li>

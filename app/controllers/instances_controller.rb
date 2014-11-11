@@ -121,6 +121,17 @@ class InstancesController < ApplicationController
     end
   end
 
+  # GET /instances/1/slist.txt
+  def slist
+    @instance = Instance.first
+    @instance.set_slist()
+    
+    respond_to do |format|
+      #format.html # show.html.erb
+      format.text  { render :text => @instance.slist.join("\n") }
+    end
+  end
+
   # GET /instances/new
   # GET /instances/new.xml
   def new
