@@ -7,13 +7,17 @@
 <p>
 <table class="stripy">
   <tr>
+    <th rowspan=2>Id</th>
+    <th rowspan=2>Name</th>
+    <th rowspan=2>Question Type Id</th>
+    <th colspan=2>Question Library</th>
+    <th rowspan=2>Interviewee</th>
+    <th rowspan=2></th>
+    <th rowspan=2></th>
+  </tr>
+  <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Question Type Id</th>
-    <th>Question Library Id</th>
-    <th>Question Library Name</th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @cc_questions.each do |cc_question| %>
@@ -23,6 +27,7 @@
     <td><%= cc_question.question_reference_type %></td>
     <td><%= cc_question.question_reference_id %></td>
     <td><%= cc_question.question_reference.textid %></td>
+    <td><%= cc_question.response_unit.text %></td>
     <td><%= link_to 'Show', cc_question %></td>
     <td><%= link_to 'Edit', edit_cc_question_path(cc_question) %></td>
     <!--td><%#= link_to 'Destroy', cc_question, :confirm => 'Are you sure?', :method => :delete %></td-->

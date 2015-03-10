@@ -15,14 +15,15 @@ module InstancesHelper
 
 
     #main nodetext
-    if ['CcQuestion', 'CcSequence'].include? node_class    
+    if node_class == 'CcQuestion'
+      html_id = node.construct.textid
+      node_text = node.construct.label
+    elsif node_class == 'CcSequence'
       node_text = node.construct.textid
+    elsif (node_class == "CcStatement")
+      node_text = node.construct.statement_item || "<span class=\"error\">...empty statement...</span>"
     elsif (node_class == "CcIfthenelse")
-      if node.construct.condition.empty?
-        node_text = "<span class=\"error\">...missing condition...</span>"
-      else
-        node_text = node.construct.condition
-      end
+      node_text = node.construct.condition || "<span class=\"error\">...missing condition...</span>"
     elsif (node_class == "CcLoop")
       node_text = 'Loop '
       first = 0
@@ -36,15 +37,12 @@ module InstancesHelper
         end
         node_text += 'while ' + node.construct.loop_while
       end        
-    elsif (node_class == "CcStatement")
-      if node.construct.statement_item.empty?
-        node_text = "<span class=\"error\">...empty statement...</span>"
-      else
-        node_text = node.construct.statement_item
-      end
     end
-    html << "<span class=\"#{node_class}\">#{node_text}</span>\n"
-    
+    if node_class == 'CcQuestion'
+    	html << "<span class=\"#{node_class}\" id=\"#{html_id}\">#{node_text}<span class=\"qcname\"> [#{html_id}]</span></span>\n"
+    else
+    	html << "<span class=\"#{node_class}\">#{node_text}</span>\n"
+    end
 
     #node content, ie for questions
     if (node_class == "CcQuestion")
@@ -56,7 +54,8 @@ module InstancesHelper
       	html << '<ul>'
 				node.construct.question_reference.response_domain_alls.each do |rda|
 					if rda.domain_type == 'ResponseDomainText'
-						html << "<li class=\"answer\">Text</li>"
+						texttype = rda.domain.label || "Text"         
+						html << "<li class=\"answer\">#{texttype}</li>"
 					elsif rda.domain_type == 'ResponseDomainNumeric'
 						#if rda.domain.label.present?
 						#  numeric = rda.domain.label

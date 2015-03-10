@@ -113,4 +113,20 @@ class QuestionGrid < ActiveRecord::Base
     end
   end
 
+	#does not exist in ddi3.2, but we use it as a user attribute
+  def label
+    if !self.textid.starts_with?("qg_")
+    	return self.textid
+    end
+    s = self.textid.slice(3..-1)
+    parts = s.split("_")
+    s = parts[0]
+    if parts[1]
+    	s += " " + parts[1]
+    	if parts[2]
+    		s += "(" + parts[2] + ")"
+    	end
+    end
+    return s
+  end
 end

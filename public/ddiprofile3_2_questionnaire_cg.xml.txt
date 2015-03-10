@@ -1,6 +1,6 @@
-<ddi:DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd" xmlns:ddi="ddi:instance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:xhtml="http://www.w3.org/1999/xhtml" versionDate="2014-07-24">
+<ddi:DDIInstance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:instance:3_2 http://www.ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/instance.xsd" xmlns:ddi="ddi:instance:3_2" xmlns:pr="ddi:ddiprofile:3_2" xmlns:r="ddi:reusable:3_2" xmlns:xhtml="http://www.w3.org/1999/xhtml" versionDate="2015-01-29">
   <r:URN>urn:ddi:uk.cls:caddies_v012:1.0.0</r:URN>	
-  <pr:DDIProfile xml:lang="en-GB" versionDate="2014-07-24">
+  <pr:DDIProfile xml:lang="en-GB" versionDate="2015-01-29">
       <r:URN>urn:ddi:uk.cls:caddies_v012_profile_3_2:1.0.0</r:URN>
       <pr:DDIProfileName>
       <r:String xml:lang="en-GB">DDI3.2 Profile as implemented in CADDIES version 0.12</r:String>
@@ -24,6 +24,10 @@
           The versionDate attribute is an ISO timestamp of the date and time the file was generated.
           I do not specify how all the attributes are used.
           The universe element is not used as it is assumed that it will be computed from the control construct scheme.
+          version 2015.01.29:
+          A computed Label element is added to the QuestionConstruct.
+          QuestionIntent is removed from output.
+          A repository version not using ManagedRepresentations is available.
         </xhtml:pre>
       </r:Content>
       </r:Description>
@@ -141,6 +145,8 @@
       <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:URN"/>
       <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName" limitMaxOccurs="1"/>
       <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/d:ConstructName/r:String" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:Label" limitMaxOccurs="1"/>
+      <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:Label/r:Content" limitMaxOccurs="1"/>
       <pr:Used xpath="/ddi:DDIInstance/g:ResourcePackage/d:DataCollection/d:ControlConstructScheme/d:QuestionConstruct/r:QuestionReference">
         <pr:Instructions>
         <r:Content xml:lang="en">validation: presence</r:Content>

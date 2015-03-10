@@ -3,6 +3,7 @@ class InstancesController < ApplicationController
   # GET /cc_alls.xml
   def doc
     @docroot = CcAll.find(1)
+    @instance = Instance.first
   
     respond_to do |format|
       format.html # doc.html.erb
@@ -47,7 +48,7 @@ class InstancesController < ApplicationController
     @response_domain_datetimes = ResponseDomainDatetime.all
     #Really I should trace it back from the text id of the topsequence in instance...
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml library option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.4 with the xml library option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -68,7 +69,7 @@ class InstancesController < ApplicationController
     @response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
     @response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml compact option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.4 with the xml compact option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,7 +89,7 @@ class InstancesController < ApplicationController
     #@response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
     #@response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.3 with the xml repository option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.4 with the xml repository option"
 
     respond_to do |format|
       format.html # show.html.erb

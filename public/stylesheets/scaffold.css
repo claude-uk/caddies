@@ -95,6 +95,10 @@ label.instruction {
 table.stripy tr.odd {
   background-color: AliceBlue;
 }
+table.stripy th {
+  border: thin solid;
+  border-color: LightGrey;
+}
 
 table.qref tr td{
   border: none;

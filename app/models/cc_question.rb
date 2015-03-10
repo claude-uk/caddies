@@ -17,4 +17,20 @@ class CcQuestion < ActiveRecord::Base
   def init
         self.cc_all ||= build_cc_all
   end
+  
+  def label
+    if !self.textid.starts_with?("qc_")
+    	return self.textid
+    end
+    s = self.textid.slice(3..-1)
+    parts = s.split("_")
+    s = parts[0]
+    if parts[1]
+    	s += " " + parts[1]
+    	if parts[2]
+    		s += "(" + parts[2] + ")"
+    	end
+    end
+    return s
+  end
 end

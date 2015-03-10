@@ -78,6 +78,7 @@
   <b>Xml repository</b> shows the metadata in a ddi3.2 xml format. It is a version produced to accommodate the requirements of the repository.
   It does not make use of managed representations and instead it uses text, numeric and datetime response domains inline.
   </p>
+  <p>
   <b>Stats</b> displays some summary statistics on the metadata entered.
   </p>
   <p>
@@ -347,6 +348,14 @@
         <li>Click on 'Create'.</li>
         <li>Go back to questionnaire or go to spine view.</li>
       </ul>
+    <p>
+    In the xml output, the name of the question component is used to generate a more visually pleasing <em>label</em> if the name follows a specific pattern. For example:
+      <ul>
+    	<li>qi_2_a -> 2a;</li>
+    	<li>qi_11_a_i - > 11a(i)</li>
+    	<li>xyz -> xyz</li>
+      </ul>
+    </p>
 
   <a id='cc_statements'></a>
   <h2>Statements</h2>

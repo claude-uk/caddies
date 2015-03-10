@@ -5,17 +5,23 @@
 <% question_grids.each do |question_grid| %>
 	<d:QuestionGrid>
 		<r:URN>urn:ddi:<%= @instance.agency %>:<%= question_grid.urn_id %>:<%= @instance.version %></r:URN>
+		<%= render :partial => "shared/label", :locals => {:label => question_grid.label}  %>
+
 		<d:QuestionGridName><r:String xml:lang="en-GB"><%= question_grid.textid %></r:String></d:QuestionGridName>
 		<d:QuestionText audienceLanguage="en-GB">
 			<d:LiteralText>
 				<d:Text><%= question_grid.literal %></d:Text>
 			</d:LiteralText>
 		</d:QuestionText>
+<%
+=begin %>
 		<d:QuestionIntent>
 			<r:Content xml:lang="en-GB"><%= question_grid.intent %></r:Content>
 		</d:QuestionIntent>
+<%
+=end %>
 		
-		<% if question_grid.corner_label == "vertical" %>
+		<% if question_grid.corner_label == "Vertical" %>
 		    <d:GridDimension rank="1" displayCode="false" displayLabel="true">
 		<% else %>
 		    <d:GridDimension rank="1" displayCode="false" displayLabel="false">

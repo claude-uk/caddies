@@ -39,6 +39,10 @@
 	display: block;
 	font-weight: bold;
 }
+.doctree span.qcname {
+	font-weight: normal;
+	color: grey;
+}
 
 .doctree span.question_content {
 	padding: 1px 0 1px 18px;
