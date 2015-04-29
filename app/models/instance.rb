@@ -216,7 +216,7 @@ class Instance < ActiveRecord::Base
     def collect_sequences(node)
       if ['CcSequence', 'CcLoop', 'CcIfthenelse'].include?(node.construct_type)
       	if node.construct_type == 'CcSequence'
-        	self.slist.push("|" + node.construct.textid.squish) 
+        	self.slist.push(node.construct.urn_id + "|" + node.construct.textid.squish) 
         end	
         node.children.each do |cc_child|
           collect_sequences(cc_child)
