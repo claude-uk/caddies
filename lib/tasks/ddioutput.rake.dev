@@ -1,0 +1,31 @@
+require 'erb'
+
+#in progress, pick up later or in updated rails version, 'render' in the templates needs adapting to rake
+#use xmloutput.rake in the meantime
+
+namespace :ddirepo do
+
+ERB_TEMPLATE = "/app/views/instances/ddi3repo.xml.erb"
+
+desc "output ddi repo, using ERB."
+task :ddi => [:environment, :controller_variables] do
+   #template = ERB.new(IO.read(::Rails.root.to_s + "/app/views/instances/one.html.erb"))
+   template = ERB.new(IO.read(::Rails.root.to_s + ERB_TEMPLATE))
+   #template = ERB.new(IO.read(ERB_TEMPLATE))
+   puts(template.result(binding))
+   end
+
+# "Assignments that are in the caddies controllers"
+task :controller_variables do
+  @date_stamp = DateTime.now
+  @instance = Instance.first
+  @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.6 with the xml repo option"
+  @question_items = QuestionItem.all_used_in_top_sequence
+  @question_grids = QuestionGrid.all_used_in_top_sequence
+  @instructions = Instruction.all_used_in_top_sequence(@question_items, @question_grids)
+  @code_schemes = CodeScheme.all_used_in_top_sequence(@question_items, @question_grids)
+  @categories = Category.all_used_in_top_sequence(@code_schemes)
+  @first_construct = CcAll.find(1)
+end
+
+end
