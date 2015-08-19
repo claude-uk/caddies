@@ -5,6 +5,7 @@ class Instance < ActiveRecord::Base
   attr_accessor :ccRef, :qiRef, :totalElt, :totalRef, :rdcodeRef, :synapticDensity, :codeRef
   attr_accessor :qlist
   attr_accessor :slist
+  attr_accessor :mapper
   attr_accessor :rdCount, :qgrdCount, :qgCount, :qgHeaderCount, :qgHeaderRef, :rosterCount, :instructionCount, :instructionRef, :qgMixedrdaCount
   attr_accessor :repTextCount, :repNumCount, :repDTCount, :qgMixedrdaCount, :qgInMixedrdaCount, :qgSinglerdaCount, :rdRef
   #@@prefix = "pms"
@@ -69,6 +70,14 @@ class Instance < ActiveRecord::Base
     self.slist = []
     @cc_node = CcAll.find(1)		#start with top_sequence
     collect_sequences(@cc_node)		#recurse over the constructs
+  end
+
+  #extract sequences and questions in the order of the cc scheme (for the mapper file)
+  def set_mapper()
+    self.mapper = []
+    sequenceStack = ["none"]
+    @cc_node = CcAll.find(1)		#start with top_sequence
+    collect_sequences_and_questions(@cc_node, sequenceStack)		#recurse over the constructs
   end
 
   private
@@ -221,6 +230,23 @@ class Instance < ActiveRecord::Base
         node.children.each do |cc_child|
           collect_sequences(cc_child)
         end
+      end
+    end
+
+    def collect_sequences_and_questions(node, sequenceStack)
+      if node.construct_type == 'CcQuestion'
+        self.mapper.push(node.construct.textid + "|Question|" + node.construct.mapper_size + "|" + sequenceStack.last + "|" + node.construct.question_reference.literal.squish) 
+      elsif ['CcSequence', 'CcLoop', 'CcIfthenelse'].include?(node.construct_type)
+      	if node.construct_type == 'CcSequence'
+        	self.mapper.push(node.construct.urn_id + "|Sequence|" + "-" + "|" + sequenceStack.last + "|" + node.construct.textid.squish)
+        	sequenceStack << node.construct.urn_id
+        end	
+        node.children.each do |cc_child|
+          collect_sequences_and_questions(cc_child, sequenceStack)
+        end
+      	if node.construct_type == 'CcSequence'
+      		sequenceStack.pop
+      	end
       end
     end
 

@@ -60,6 +60,7 @@ Ddi3::Application.routes.draw do
   match 'ddi3instance/stats' => 'instances#stats', :as => 'ddi3instance_stats'
   match 'ddi3instance/qlist' => 'instances#qlist', :format => 'txt', :as => 'ddi3instance_qlist'
   match 'ddi3instance/slist' => 'instances#slist', :format => 'txt', :as => 'ddi3instance_slist'
+  match 'ddi3instance/mapper' => 'instances#mapper', :format => 'txt', :as => 'ddi3instance_mapper'
   match 'ddi3instance/doc' => 'instances#doc', :as => 'ddi3instance_doc'
   
   resources :question_items do

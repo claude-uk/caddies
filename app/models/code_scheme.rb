@@ -18,6 +18,11 @@ class CodeScheme < ActiveRecord::Base
     t + sep*3 + "#{label}"
   end
 
+  #for mapper
+  def size
+    return self.codes.count
+  end
+  
   #used in response domain
   def used
     return response_domain_codes.any?

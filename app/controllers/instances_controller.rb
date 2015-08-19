@@ -48,7 +48,7 @@ class InstancesController < ApplicationController
     @response_domain_datetimes = ResponseDomainDatetime.all
     #Really I should trace it back from the text id of the topsequence in instance...
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.5 with the xml library option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.6 with the xml library option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -69,7 +69,7 @@ class InstancesController < ApplicationController
     @response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
     @response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.5 with the xml compact option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.6 with the xml compact option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -89,7 +89,7 @@ class InstancesController < ApplicationController
     #@response_domain_numerics = ResponseDomainNumeric.all_used_in_top_sequence(@question_items, @question_grids)
     #@response_domain_datetimes = ResponseDomainDatetime.all_used_in_top_sequence(@question_items, @question_grids)
     @first_construct = CcAll.find(1)
-    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.5 with the xml repository option"
+    @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.6 with the xml repository option"
 
     respond_to do |format|
       format.html # show.html.erb
@@ -130,6 +130,17 @@ class InstancesController < ApplicationController
     respond_to do |format|
       #format.html # show.html.erb
       format.text  { render :text => @instance.slist.join("\n") }
+    end
+  end
+
+  # GET /instances/1/mapper.txt
+  def mapper
+    @instance = Instance.first
+    @instance.set_mapper()
+    
+    respond_to do |format|
+      #format.html # show.html.erb
+      format.text  { render :text => @instance.mapper.join("\n") }
     end
   end
 

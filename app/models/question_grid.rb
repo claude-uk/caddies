@@ -129,4 +129,21 @@ class QuestionGrid < ActiveRecord::Base
     end
     return s
   end
+  
+  #number of rows for the mapper
+  #includes the header row (for consistency), the vertical codelist and any roster rows
+  def rows
+    if self.vertical_codelist
+      return 1 + vertical_codelist.size + vertical_roster_rows
+    else
+      return 1 + vertical_roster_rows
+    end
+  end
+
+  #number of cols for the mapper
+  #includes the header col which may include rosters
+  #we haven't allowed rosters horizontally
+  def cols
+    return 1 + horizontal_codelist.size
+  end
 end

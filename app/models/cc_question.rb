@@ -33,4 +33,14 @@ class CcQuestion < ActiveRecord::Base
     end
     return s
   end
+  
+  def mapper_size
+    if self.question_reference_type == 'QuestionItem'
+      return '-'
+    else	#i.e. QuestionGrid
+      dim1 = self.question_reference.rows.to_s
+      dim2 = self.question_reference.cols.to_s
+      return '[' + dim1 + ',' + dim2 + ']'
+    end
+  end
 end
