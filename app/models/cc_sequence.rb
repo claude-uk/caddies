@@ -12,4 +12,12 @@ class CcSequence < ActiveRecord::Base
   def init
         self.cc_all ||= build_cc_all
   end
+  
+  def label
+  	if self.textid == 'TopSequence'
+  		return "Start of " + Instance.first.prefix
+  	else
+  		return self.textid
+  	end
+  end
 end
