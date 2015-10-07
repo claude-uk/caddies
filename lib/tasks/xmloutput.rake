@@ -2,10 +2,12 @@ require("rake_helper_methods_cc.rb")
 require("rake_helper_methods_qi.rb")
 require("rake_helper_methods_qg.rb")
 require("rake_helper_methods_others.rb")
+require("rake_shared_methods.rb")
 include PutsControlConstruct
 include PutsQuestionItems
 include PutsQuestionGrids
 include PutsOthers
+include RakeGenerics
 
 namespace :ddi do
 
@@ -28,7 +30,7 @@ end
 task :controller_variables do
   @date_stamp = DateTime.now
   @instance = Instance.first
-  @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version 0.12.6 with the xml rake option"
+  @output_option = "Metadata originally captured using CADDIES(Centre for Longitudinal Studies) version #{Instance.code_version} with the xml rake option"
   @question_items = QuestionItem.all_used_in_top_sequence
   @question_grids = QuestionGrid.all_used_in_top_sequence
   @instructions = Instruction.all_used_in_top_sequence(@question_items, @question_grids)
@@ -42,17 +44,17 @@ task :puts_open_instance_and_RP do
   puts "<ddi:DDIInstance versionDate=\"#{@date_stamp}\" xmlns:d=\"ddi:datacollection:3_2\" xmlns:ddi=\"ddi:instance:3_2\" xmlns:g=\"ddi:group:3_2\" xmlns:l=\"ddi:logicalproduct:3_2\" xmlns:r=\"ddi:reusable:3_2\">"
   puts "  <r:URN>urn:ddi:#{@instance.agency}:#{@instance.urn_id}:#{@instance.version}</r:URN>"
   puts "  <r:Citation>"
-  puts "    <r:Title><r:String xml:lang=\"en-GB\">#{@instance.inst_citation}</r:String></r:Title>"
-  puts "    <r:SubTitle><r:String xml:lang=\"en-GB\">#{@output_option}</r:String></r:SubTitle>"
+  safeputs "    <r:Title><r:String xml:lang=\"en-GB\">#{@instance.inst_citation}</r:String></r:Title>"
+  safeputs "    <r:SubTitle><r:String xml:lang=\"en-GB\">#{@output_option}</r:String></r:SubTitle>"
   puts "  </r:Citation>"
   puts ""
   puts "  <g:ResourcePackage versionDate=\"#{@date_stamp}\">"
   puts "    <r:URN>urn:ddi:#{@instance.agency}:#{@instance.resource_package_urn_id}:#{@instance.version}</r:URN>"
   puts "    <r:Citation>"
-  puts "      <r:Title><r:String xml:lang=\"en-GB\">#{@instance.rp_citation}</r:String></r:Title>"
+  safeputs "      <r:Title><r:String xml:lang=\"en-GB\">#{@instance.rp_citation}</r:String></r:Title>"
   puts "    </r:Citation>"
   puts "    <r:Purpose>"
-  puts "      <r:Content xml:lang=\"en-GB\">#{@instance.purpose_text}</r:Content>"
+  safeputs "      <r:Content xml:lang=\"en-GB\">#{@instance.purpose_text}</r:Content>"
   puts "    </r:Purpose>"
   puts ""
 end
@@ -67,7 +69,7 @@ task :puts_instruction_scheme do
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{instruction.urn_id}:#{@instance.version}</r:URN>"
   puts "        <d:InstructionText audienceLanguage=\"en-GB\">"
   puts "    	  <d:LiteralText>"
-  puts "    	    <d:Text>#{instruction.instruction_text}</d:Text>"
+  safeputs "    	    <d:Text>#{instruction.instruction_text}</d:Text>"
   puts "    	  </d:LiteralText>"
   puts "        </d:InstructionText>"
   puts "      </d:Instruction>"
@@ -108,7 +110,7 @@ task :puts_categories do
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{category.urn_id}:#{@instance.version}</r:URN>"
   puts "        <l:CategoryName><r:String xml:lang=\"en-GB\">#{category.id}</r:String></l:CategoryName>"
   puts "    	<r:Label>"
-  puts "          <r:Content xml:lang=\"en-GB\">#{category.label}</r:Content>"
+  safeputs "          <r:Content xml:lang=\"en-GB\">#{category.label}</r:Content>"
   puts "        </r:Label>"
   puts "      </l:Category>"
   end
@@ -125,7 +127,7 @@ task :puts_code_schemes do
   puts "      <l:CodeList>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{code_list.urn_id}:#{@instance.version}</r:URN>"
   puts "        <r:Label>"
-  puts "          <r:Content xml:lang=\"en-GB\">#{code_list.label}</r:Content>"
+  safeputs "          <r:Content xml:lang=\"en-GB\">#{code_list.label}</r:Content>"
   puts "        </r:Label>"
     code_list.codes.each do |code|
   puts "        <l:Code>"
@@ -158,6 +160,12 @@ task :puts_instrument_scheme do
   puts "      </d:Instrument>"
   puts "    </d:InstrumentScheme>"
   puts ""
+end
+
+task :test_safeputs do
+  puts "plain puts"
+  safeputs "in safeputs"
+  safeputs "in & safeputs"
 end
 
 task :default => [:output_ddi32]

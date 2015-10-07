@@ -4,9 +4,9 @@ module PutsControlConstruct
     if xmlconstruct.construct_type == 'CcSequence'
   puts "      <d:Sequence>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <r:Label>"
-  puts "    	  <r:Content xml:lang=\"en-GB\">#{xmlconstruct.construct.label}</r:Content>"
+  safeputs "    	  <r:Content xml:lang=\"en-GB\">#{xmlconstruct.construct.label}</r:Content>"
   puts "        </r:Label>"
       xmlconstruct.children.each do |cc_child|
   puts "        <d:ControlConstructReference>"
@@ -22,10 +22,10 @@ module PutsControlConstruct
     elsif xmlconstruct.construct_type == 'CcStatement'
   puts "      <d:StatementItem>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <d:DisplayText audienceLanguage=\"en-GB\">"
   puts "          <d:LiteralText>"
-  puts "            <d:Text>#{xmlconstruct.construct.statement_item}</d:Text>"
+  safeputs "            <d:Text>#{xmlconstruct.construct.statement_item}</d:Text>"
   puts "          </d:LiteralText>"
   puts "        </d:DisplayText>"
   puts "      </d:StatementItem>"
@@ -33,9 +33,9 @@ module PutsControlConstruct
     elsif xmlconstruct.construct_type == 'CcQuestion'
   puts "      <d:QuestionConstruct>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <r:Label>"
-  puts "    	  <r:Content xml:lang=\"en-GB\">#{xmlconstruct.construct.label}</r:Content>"
+  safeputs "    	  <r:Content xml:lang=\"en-GB\">#{xmlconstruct.construct.label}</r:Content>"
   puts "        </r:Label>"
   puts "        <r:QuestionReference>"
   puts "          <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.question_reference.urn_id}:#{@instance.version}</r:URN>"
@@ -47,7 +47,7 @@ module PutsControlConstruct
     elsif xmlconstruct.construct_type == 'CcLoop'
   puts "      <d:Loop>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <d:InitialValue>"
   puts "          <r:Command>"
   puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
@@ -68,9 +68,9 @@ module PutsControlConstruct
 
   puts "      <d:Sequence>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.loop_sequence_urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">loop_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">loop_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <r:Label>"
-  puts "    	  <r:Content xml:lang=\"en-GB\">loop_seq_#{xmlconstruct.construct.textid}</r:Content>"
+  safeputs "    	  <r:Content xml:lang=\"en-GB\">loop_seq_#{xmlconstruct.construct.textid}</r:Content>"
   puts "        </r:Label>"
       xmlconstruct.children.each do |cc_child|
   puts "        <d:ControlConstructReference>"
@@ -87,13 +87,8 @@ module PutsControlConstruct
     elsif xmlconstruct.construct_type == 'CcIfthenelse'
   puts "      <d:IfThenElse>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
-  puts "        <d:IfCondition>"
-  puts "          <r:Command>"
-  puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
-  puts "            <r:CommandContent>#{CGI.escapeHTML(xmlconstruct.construct.condition)}</r:CommandContent>"
-  puts "          </r:Command>"
-  puts "        </d:IfCondition>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  puts_if_condition(xmlconstruct.construct.condition)
   puts "        <d:ThenConstructReference>"
   puts "          <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.then_sequence_urn_id}:#{@instance.version}</r:URN>"
   puts "          <r:TypeOfObject>Sequence</r:TypeOfObject>"
@@ -108,9 +103,9 @@ module PutsControlConstruct
  
   puts "      <d:Sequence>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.then_sequence_urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">then_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">then_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <r:Label>"
-  puts "    	  <r:Content xml:lang=\"en-GB\">then_seq_#{xmlconstruct.construct.textid}</r:Content>"
+  safeputs "    	  <r:Content xml:lang=\"en-GB\">then_seq_#{xmlconstruct.construct.textid}</r:Content>"
   puts "        </r:Label>"
       xmlconstruct.if_children.each do |cc_child|
   puts "    	<d:ControlConstructReference>"
@@ -123,9 +118,9 @@ module PutsControlConstruct
       if xmlconstruct.else_children.any?
   puts "      <d:Sequence>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{xmlconstruct.construct.else_sequence_urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:ConstructName><r:String xml:lang=\"en-GB\">else_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
+  safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">else_seq_#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <r:Label>"
-  puts "    	  <r:Content xml:lang=\"en-GB\">else_seq_#{xmlconstruct.construct.textid}</r:Content>"
+  safeputs "    	  <r:Content xml:lang=\"en-GB\">else_seq_#{xmlconstruct.construct.textid}</r:Content>"
   puts "        </r:Label>"
         xmlconstruct.else_children.each do |cc_child|
   puts "        <d:ControlConstructReference>"
@@ -140,5 +135,27 @@ module PutsControlConstruct
         puts_control_construct(cc_child)
       end
     end
+  end
+  
+  def puts_if_condition(condition)
+    re = /(.*)\s?\[(.*)\]\s*\Z/
+    cond = CGI.escapeHTML(condition)
+    match1 = cond.match re
+    if match1
+      condText = match1[1].strip
+      condCode = match1[2].strip
+    else
+      condText = cond.strip
+      condCode = ""
+    end  
+  puts "        <d:IfCondition>"
+  puts "          <r:Command>"
+  puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
+  puts "            <r:CommandContent>#{condCode}</r:CommandContent>"
+  puts "          </r:Command>"
+  puts "          <r:Description>"
+  puts "            <r:Content xml:lang=\"en-GB\">#{condText}</r:Content>"
+  puts "          </r:Description>"
+  puts "        </d:IfCondition>"
   end
 end

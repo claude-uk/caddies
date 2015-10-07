@@ -7,7 +7,7 @@ module PutsOthers
   puts "            <d:TextDomain>"
     end
   puts "              <r:Label>"
-  puts "                <r:Content xml:lang=\"en-GB\">#{rdtext.label}</r:Content>"
+  safeputs "                <r:Content xml:lang=\"en-GB\">#{rdtext.label}</r:Content>"
   puts "              </r:Label>"
   puts "            </d:TextDomain>"
   end
@@ -24,7 +24,7 @@ module PutsOthers
   puts "              </r:NumberRange>"
   puts "              <r:NumericTypeCode>#{rdnum.numeric_type.label}</r:NumericTypeCode>"
   puts "              <r:Label>"
-  puts "                <r:Content xml:lang=\"en-GB\">#{rdnum.label}</r:Content>"
+  safeputs "                <r:Content xml:lang=\"en-GB\">#{rdnum.label}</r:Content>"
   puts "              </r:Label>"
   puts "            </d:NumericDomain>"
   end
@@ -43,7 +43,7 @@ module PutsOthers
   puts "              <r:DateFieldFormat>#{rddt.format}</r:DateFieldFormat>"
   puts "              <r:DateTypeCode>#{rddt.datetime_type.label}</r:DateTypeCode>"
   puts "              <r:Label>"
-  puts "                <r:Content xml:lang=\"en-GB\">#{rddt.label}</r:Content>"
+  safeputs "                <r:Content xml:lang=\"en-GB\">#{rddt.label}</r:Content>"
   puts "              </r:Label>"
   puts "            </d:DateTimeDomain>"
   end

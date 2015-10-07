@@ -40,6 +40,8 @@ class Instance < ActiveRecord::Base
   cattr_reader :interviewer_instruction_scheme_prefix, :code_list_scheme_prefix, :question_scheme_prefix 
   cattr_reader :managed_representation_scheme_prefix
 
+  @@code_version = "0.12.7"
+  cattr_reader :code_version
 
   #the stats correspond to the ddi3.2 output in library mode
   #I need to count the constructs from parent to child from the top sequence as I don't want to include the ones in the attic

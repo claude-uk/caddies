@@ -10,12 +10,12 @@ module PutsQuestionGrids
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{question_grid.urn_id}:#{@instance.version}</r:URN>"
   puts "        <r:UserAttributePair>"
   puts "          <r:AttributeKey>extension:Label</r:AttributeKey>"
-  puts "          <r:AttributeValue>{\"en-GB\":\"#{question_grid.label}\"}</r:AttributeValue>"
+  safeputs "          <r:AttributeValue>{\"en-GB\":\"#{question_grid.label}\"}</r:AttributeValue>"
   puts "        </r:UserAttributePair>"
-  puts "        <d:QuestionGridName><r:String xml:lang=\"en-GB\">#{question_grid.textid}</r:String></d:QuestionGridName>"
+  safeputs "        <d:QuestionGridName><r:String xml:lang=\"en-GB\">#{question_grid.textid}</r:String></d:QuestionGridName>"
   puts "        <d:QuestionText audienceLanguage=\"en-GB\">"
   puts "          <d:LiteralText>"
-  puts "            <d:Text>#{question_grid.literal}</d:Text>"
+  safeputs "            <d:Text>#{question_grid.literal}</d:Text>"
   puts "          </d:LiteralText>"
   puts "        </d:QuestionText>"
   
@@ -39,7 +39,7 @@ module PutsQuestionGrids
   puts "          <d:Roster baseCodeValue=\"1\" codeIterationValue=\"1\">"
         end
   puts "            <r:Label>"
-  puts "              <r:Content xml:lang=\"en-GB\">#{question_grid.vertical_roster_label}</r:Content>"
+  safeputs "              <r:Content xml:lang=\"en-GB\">#{question_grid.vertical_roster_label}</r:Content>"
   puts "            </r:Label>"
   puts "          </d:Roster>"
       end
