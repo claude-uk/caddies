@@ -50,13 +50,13 @@ module PutsControlConstruct
   safeputs "        <d:ConstructName><r:String xml:lang=\"en-GB\">#{xmlconstruct.construct.textid}</r:String></d:ConstructName>"
   puts "        <d:InitialValue>"
   puts "          <r:Command>"
-  puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
+  puts "            <r:ProgramLanguage>pseudo-code</r:ProgramLanguage>"
   puts "            <r:CommandContent>#{xmlconstruct.construct.xml_initial_value}</r:CommandContent>"
   puts "          </r:Command>"
   puts "        </d:InitialValue>"
   puts "        <d:LoopWhile>"
   puts "          <r:Command>"
-  puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
+  puts "            <r:ProgramLanguage>pseudo-code</r:ProgramLanguage>"
   puts "            <r:CommandContent>#{CGI.escapeHTML(xmlconstruct.construct.xml_loop_while)}</r:CommandContent>"
   puts "          </r:Command>"
   puts "        </d:LoopWhile>"
@@ -137,6 +137,7 @@ module PutsControlConstruct
     end
   end
   
+  #the text and the code are swapped for the launch version
   def puts_if_condition(condition)
     re = /(.*)\s?\[(.*)\]\s*\Z/
     cond = CGI.escapeHTML(condition)
@@ -149,13 +150,13 @@ module PutsControlConstruct
       condCode = ""
     end  
   puts "        <d:IfCondition>"
-  puts "          <r:Command>"
-  puts "            <r:ProgramLanguage>SPSS</r:ProgramLanguage>"
-  puts "            <r:CommandContent>#{condCode}</r:CommandContent>"
-  puts "          </r:Command>"
   puts "          <r:Description>"
-  puts "            <r:Content xml:lang=\"en-GB\">#{condText}</r:Content>"
+  puts "            <r:Content xml:lang=\"en-GB\">#{condCode}</r:Content>"
   puts "          </r:Description>"
+  puts "          <r:Command>"
+  puts "            <r:ProgramLanguage>pseudo-code</r:ProgramLanguage>"
+  puts "            <r:CommandContent>#{condText}</r:CommandContent>"
+  puts "          </r:Command>"
   puts "        </d:IfCondition>"
   end
 end
