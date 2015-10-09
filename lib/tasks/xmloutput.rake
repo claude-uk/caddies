@@ -152,7 +152,7 @@ task :puts_instrument_scheme do
   puts "      <d:InstrumentSchemeName><r:String xml:lang=\"en-GB\">#{@instance.instrument_scheme}</r:String></d:InstrumentSchemeName>"
   puts "      <d:Instrument>"
   puts "        <r:URN>urn:ddi:#{@instance.agency}:#{@instance.instrument_urn_id}:#{@instance.version}</r:URN>"
-  puts "        <d:InstrumentName><r:String xml:lang=\"en-GB\">#{@instance.instrument}</r:String></d:InstrumentName>"
+  puts "        <d:InstrumentName><r:String xml:lang=\"en-GB\">#{CGI.escapeHTML(@instance.instrument)}</r:String></d:InstrumentName>"
   puts "        <d:ControlConstructReference>"
   puts "          <r:URN>urn:ddi:#{@instance.agency}:#{@first_construct.construct.urn_id}:#{@instance.version}</r:URN>"
   puts "          <r:TypeOfObject>Sequence</r:TypeOfObject>"
